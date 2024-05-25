@@ -1,4 +1,4 @@
-# tp-cuatrimestral-equipo-a1
+# Trabajo Práctico Cuatrimestral EQUIPO A1
 
 ## Integrantes
 - Mauro Asselborn

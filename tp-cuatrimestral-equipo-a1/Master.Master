@@ -64,20 +64,61 @@
                             Inicio
                         </a>
                         <div class="sb-sidenav-menu-heading">Artículos</div>
-                        <a class="nav-link" href="ListaArticulos.aspx">- Listar Artículos</a>
+
+                        <a class="nav-link" href="ListarArticulos.aspx">- Listar Artículos</a>
                         <a class="nav-link" href="AgregarArticulo.aspx">- Nuevo Artuculo</a>
+
+                        <a
+                            class="nav-link collapsed"
+                            href="#"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapseLayoutsMarcas"
+                            aria-expanded="false"
+                            aria-controls="collapseLayoutsMarcas">- Marcas
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div
+                            class="collapse"
+                            id="collapseLayoutsMarcas"
+                            aria-labelledby="headingOne"
+                            data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="ListarMarcas.aspx">Listar Marcas</a>
+                                <a class="nav-link" href="AgregarMarca.aspx">Agregar Marca</a>
+                            </nav>
+                        </div>
+
+                        <a
+                            class="nav-link collapsed"
+                            href="#"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapseLayoutsCategoria"
+                            aria-expanded="false"
+                            aria-controls="collapseLayoutsCategoria">- Categorias
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div
+                            class="collapse"
+                            id="collapseLayoutsCategoria"
+                            aria-labelledby="headingOne"
+                            data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="ListarCategorias.aspx">Listar Categorías</a>
+                                <a class="nav-link" href="AgregarCategoria.aspx">Agregar Categoría</a>
+                            </nav>
+                        </div>
 
 
                         <div class="sb-sidenav-menu-heading">clientes</div>
-                        <a class="nav-link" href="ListaClientes.aspx">- Listar Clientes</a>
+                        <a class="nav-link" href="ListarClientes.aspx">- Listar Clientes</a>
                         <a class="nav-link" href="AgregarCliente.aspx">- Nuevo Cliente</a>
 
                         <div class="sb-sidenav-menu-heading">proveedores</div>
-                        <a class="nav-link" href="ListaProveedores.aspx">- Listar Proveedores</a>
+                        <a class="nav-link" href="ListarProveedores.aspx">- Listar Proveedores</a>
                         <a class="nav-link" href="AgregarProveedor.aspx">- Nuevo Proveedor</a>
 
                         <div class="sb-sidenav-menu-heading">usuarios</div>
-                        <a class="nav-link" href="ListaUsuario.aspx">- Listar Usuarios</a>
+                        <a class="nav-link" href="ListarUsuarios.aspx">- Listar Usuarios</a>
                         <a class="nav-link" href="AgregarUsuario.aspx">- Nuevo Usuario</a>
                         <%--<a class="nav-link" href="AgregarUsuario.aspx">- Nuevo Usuario</a>--%>
                     </div>

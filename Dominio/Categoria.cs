@@ -1,8 +1,8 @@
 ﻿namespace Dominio
 {
-    public class Marca
+    public class Categoria
     {
-        public int id { get; set; }
+        public int Id { get; set; }
         public string Descripcion { get; set; }
     }
 }

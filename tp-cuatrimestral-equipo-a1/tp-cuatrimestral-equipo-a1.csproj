@@ -68,6 +68,7 @@
     <Content Include="AgregarProveedor.aspx" />
     <Content Include="assets\demo\datatables-demo.js" />
     <Content Include="assets\img\tienda-online.png" />
+    <Content Include="css\styles.css" />
     <Content Include="Dashboard.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
@@ -151,7 +152,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="css\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>

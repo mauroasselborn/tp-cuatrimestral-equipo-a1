@@ -66,7 +66,8 @@
                         <div class="sb-sidenav-menu-heading">Artículos</div>
 
                         <a class="nav-link" href="ListarArticulos.aspx">- Listar Artículos</a>
-                        <a class="nav-link" href="ABMArticulos.aspx">- Nuevo Artuculo</a>
+                        <a class="nav-link" href="AgregarArticulo.aspx">- Nuevo Artículo</a>
+                        <a class="nav-link" href="ListarStock.aspx">- Stock de Artículos</a>
 
                         <a
                             class="nav-link collapsed"

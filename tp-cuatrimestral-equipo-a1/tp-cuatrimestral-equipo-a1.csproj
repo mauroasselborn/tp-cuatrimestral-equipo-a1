@@ -70,6 +70,9 @@
     <Content Include="assets\img\tienda-online.png" />
     <Content Include="css\styles.css" />
     <Content Include="Dashboard.aspx" />
+    <Content Include="ABMArticulos.aspx" />
+    <Content Include="ABMCliente.aspx" />
+    <Content Include="css\estilos.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="js\scripts.js" />
@@ -99,6 +102,20 @@
     </Compile>
     <Compile Include="Dashboard.aspx.designer.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ABMArticulos.aspx.cs">
+      <DependentUpon>ABMArticulos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ABMArticulos.aspx.designer.cs">
+      <DependentUpon>ABMArticulos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ABMCliente.aspx.cs">
+      <DependentUpon>ABMCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ABMCliente.aspx.designer.cs">
+      <DependentUpon>ABMCliente.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

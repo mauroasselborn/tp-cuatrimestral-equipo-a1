@@ -65,11 +65,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AgregarCategoria.aspx" />
+    <Content Include="AgregarMarca.aspx" />
     <Content Include="AgregarProveedor.aspx" />
+    <Content Include="AgregarUsuario.aspx" />
     <Content Include="assets\demo\datatables-demo.js" />
     <Content Include="assets\img\tienda-online.png" />
     <Content Include="css\styles.css" />
     <Content Include="Dashboard.aspx" />
+    <Content Include="ABMArticulos.aspx" />
+    <Content Include="ABMCliente.aspx" />
+    <Content Include="css\estilos.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="js\scripts.js" />
@@ -77,6 +82,7 @@
     <Content Include="ListarCategorias.aspx" />
     <Content Include="ListarProveedores.aspx" />
     <Content Include="ListarStock.aspx" />
+    <Content Include="ListarUsuarios.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -87,6 +93,13 @@
     <Compile Include="AgregarCategoria.aspx.designer.cs">
       <DependentUpon>AgregarCategoria.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AgregarMarca.aspx.cs">
+      <DependentUpon>AgregarMarca.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgregarMarca.aspx.designer.cs">
+      <DependentUpon>AgregarMarca.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AgregarProveedor.aspx.cs">
       <DependentUpon>AgregarProveedor.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -94,12 +107,33 @@
     <Compile Include="AgregarProveedor.aspx.designer.cs">
       <DependentUpon>AgregarProveedor.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AgregarUsuario.aspx.cs">
+      <DependentUpon>AgregarUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgregarUsuario.aspx.designer.cs">
+      <DependentUpon>AgregarUsuario.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Dashboard.aspx.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Dashboard.aspx.designer.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ABMArticulos.aspx.cs">
+      <DependentUpon>ABMArticulos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ABMArticulos.aspx.designer.cs">
+      <DependentUpon>ABMArticulos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ABMCliente.aspx.cs">
+      <DependentUpon>ABMCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ABMCliente.aspx.designer.cs">
+      <DependentUpon>ABMCliente.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -138,6 +172,12 @@
     </Compile>
     <Compile Include="ListarStock.aspx.designer.cs">
       <DependentUpon>ListarStock.aspx</DependentUpon>
+    <Compile Include="ListarUsuarios.aspx.cs">
+      <DependentUpon>ListarUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListarUsuarios.aspx.designer.cs">
+      <DependentUpon>ListarUsuarios.aspx</DependentUpon>
     </Compile>
     <Compile Include="Master.Master.cs">
       <DependentUpon>Master.Master</DependentUpon>

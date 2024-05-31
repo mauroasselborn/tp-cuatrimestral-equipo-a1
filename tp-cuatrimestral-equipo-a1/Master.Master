@@ -68,7 +68,6 @@
                         <a class="nav-link" href="ListarArticulos.aspx">- Listar Artículos</a>
                         <a class="nav-link" href="AgregarArticulo.aspx">- Nuevo Artículo</a>
                         <a class="nav-link" href="ListarStock.aspx">- Stock de Artículos</a>
-                        
 
                         <a
                             class="nav-link collapsed"
@@ -113,7 +112,7 @@
 
                         <div class="sb-sidenav-menu-heading">clientes</div>
                         <a class="nav-link" href="ListarClientes.aspx">- Listar Clientes</a>
-                        <a class="nav-link" href="AgregarCliente.aspx">- Nuevo Cliente</a>
+                        <a class="nav-link" href="ABMCliente.aspx">- Nuevo Cliente</a>
 
                         <div class="sb-sidenav-menu-heading">proveedores</div>
                         <a class="nav-link" href="ListarProveedores.aspx">- Listar Proveedores</a>

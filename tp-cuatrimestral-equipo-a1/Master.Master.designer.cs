@@ -24,6 +24,15 @@ namespace tp_cuatrimestral_equipo_a1
         protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
 
         /// <summary>
+        /// Control imgUsuarioLog.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgUsuarioLog;
+
+        /// <summary>
         /// Control form1.
         /// </summary>
         /// <remarks>

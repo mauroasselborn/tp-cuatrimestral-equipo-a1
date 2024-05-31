@@ -1,7 +1,16 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="tp_cuatrimestral_equipo_a1.Default" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>probando</title>
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-    <p>BODY</p>
-</asp:Content>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="tp_cuatrimestral_equipo_a1.Default1" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+        </div>
+    </form>
+</body>
+</html>

@@ -68,6 +68,7 @@
     <Content Include="AgregarProveedor.aspx" />
     <Content Include="assets\demo\datatables-demo.js" />
     <Content Include="assets\img\tienda-online.png" />
+    <Content Include="CrearVentas.aspx" />
     <Content Include="css\styles.css" />
     <Content Include="Dashboard.aspx" />
     <Content Include="ABMArticulos.aspx" />
@@ -79,6 +80,7 @@
     <Content Include="ListarArticulos.aspx" />
     <Content Include="ListarCategorias.aspx" />
     <Content Include="ListarProveedores.aspx" />
+    <Content Include="Ventas.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -95,6 +97,13 @@
     </Compile>
     <Compile Include="AgregarProveedor.aspx.designer.cs">
       <DependentUpon>AgregarProveedor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CrearVentas.aspx.cs">
+      <DependentUpon>CrearVentas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CrearVentas.aspx.designer.cs">
+      <DependentUpon>CrearVentas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dashboard.aspx.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
@@ -156,6 +165,13 @@
       <DependentUpon>Master.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ventas.aspx.cs">
+      <DependentUpon>Ventas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ventas.aspx.designer.cs">
+      <DependentUpon>Ventas.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Master.Master" />
@@ -170,6 +186,16 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Dominio\Dominio.csproj">
+      <Project>{00765dc1-d875-41d8-b843-eaf7b05e8556}</Project>
+      <Name>Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Negocio\Negocio.csproj">
+      <Project>{0d784d42-9b85-42c1-8d1f-02bfbac857e3}</Project>
+      <Name>Negocio</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -70,6 +70,7 @@
     <Content Include="AgregarUsuario.aspx" />
     <Content Include="assets\demo\datatables-demo.js" />
     <Content Include="assets\img\tienda-online.png" />
+    <Content Include="CrearVentas.aspx" />
     <Content Include="css\styles.css" />
     <Content Include="Dashboard.aspx" />
     <Content Include="ABMArticulos.aspx" />
@@ -81,6 +82,7 @@
     <Content Include="ListarArticulos.aspx" />
     <Content Include="ListarCategorias.aspx" />
     <Content Include="ListarProveedores.aspx" />
+    <Content Include="Ventas.aspx" />
     <Content Include="ListarStock.aspx" />
     <Content Include="ListarUsuarios.aspx" />
     <Content Include="Web.config" />
@@ -113,6 +115,13 @@
     </Compile>
     <Compile Include="AgregarUsuario.aspx.designer.cs">
       <DependentUpon>AgregarUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CrearVentas.aspx.cs">
+      <DependentUpon>CrearVentas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CrearVentas.aspx.designer.cs">
+      <DependentUpon>CrearVentas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dashboard.aspx.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
@@ -188,6 +197,13 @@
       <DependentUpon>Master.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ventas.aspx.cs">
+      <DependentUpon>Ventas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ventas.aspx.designer.cs">
+      <DependentUpon>Ventas.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Master.Master" />

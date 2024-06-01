@@ -172,6 +172,7 @@
     </Compile>
     <Compile Include="ListarStock.aspx.designer.cs">
       <DependentUpon>ListarStock.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ListarUsuarios.aspx.cs">
       <DependentUpon>ListarUsuarios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

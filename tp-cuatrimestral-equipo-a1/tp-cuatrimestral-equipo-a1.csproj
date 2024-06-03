@@ -83,6 +83,7 @@
     <Content Include="js\scripts.js" />
     <Content Include="ListarArticulos.aspx" />
     <Content Include="ListarCategorias.aspx" />
+    <Content Include="ListarMarcas.aspx" />
     <Content Include="ListarProveedores.aspx" />
     <Content Include="Ventas.aspx" />
     <Content Include="ListarStock.aspx" />
@@ -183,6 +184,13 @@
     </Compile>
     <Compile Include="ListarCategorias.aspx.designer.cs">
       <DependentUpon>ListarCategorias.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListarMarcas.aspx.cs">
+      <DependentUpon>ListarMarcas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListarMarcas.aspx.designer.cs">
+      <DependentUpon>ListarMarcas.aspx</DependentUpon>
     </Compile>
     <Compile Include="ListarProveedores.aspx.cs">
       <DependentUpon>ListarProveedores.aspx</DependentUpon>

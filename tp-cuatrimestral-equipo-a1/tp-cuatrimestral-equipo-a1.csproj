@@ -68,14 +68,12 @@
     <Content Include="AgregarMarca.aspx" />
     <Content Include="AgregarProveedor.aspx" />
     <Content Include="AgregarUsuario.aspx" />
-    <Content Include="assets\demo\datatables-demo.js" />
     <Content Include="assets\img\tienda-online.png" />
     <Content Include="CrearVentas.aspx" />
     <Content Include="css\styles.css" />
     <Content Include="Dashboard.aspx" />
     <Content Include="ABMArticulos.aspx" />
     <Content Include="ABMCliente.aspx" />
-    <Content Include="css\estilos.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="js\scripts.js" />

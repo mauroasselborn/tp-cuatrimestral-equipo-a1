@@ -71,7 +71,7 @@
     <Content Include="assets\demo\datatables-demo.js" />
     <Content Include="assets\img\tienda-online.png" />
     <Content Include="Compras.aspx" />
-    <Content Include="CrearCompra.aspx" />
+    <Content Include="CrearCompras.aspx" />
     <Content Include="CrearVentas.aspx" />
     <Content Include="css\styles.css" />
     <Content Include="Dashboard.aspx" />
@@ -126,12 +126,12 @@
     <Compile Include="Compras.aspx.designer.cs">
       <DependentUpon>Compras.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CrearCompra.aspx.cs">
-      <DependentUpon>CrearCompra.aspx</DependentUpon>
+    <Compile Include="CrearCompras.aspx.cs">
+      <DependentUpon>CrearCompras.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="CrearCompra.aspx.designer.cs">
-      <DependentUpon>CrearCompra.aspx</DependentUpon>
+    <Compile Include="CrearCompras.aspx.designer.cs">
+      <DependentUpon>CrearCompras.aspx</DependentUpon>
     </Compile>
     <Compile Include="CrearVentas.aspx.cs">
       <DependentUpon>CrearVentas.aspx</DependentUpon>

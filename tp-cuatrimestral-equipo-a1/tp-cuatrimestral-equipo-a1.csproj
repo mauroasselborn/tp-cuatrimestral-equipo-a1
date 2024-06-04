@@ -81,7 +81,8 @@
     <Content Include="EditarCategoria.aspx" />
     <Content Include="EditarProveedor.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="js\scripts.js" />
+    <Content Include="js\Scripts.js" />
+    <Content Include="js\DataTable.js" />
     <Content Include="ListarArticulos.aspx" />
     <Content Include="ListarCategorias.aspx" />
     <Content Include="ListarMarcas.aspx" />

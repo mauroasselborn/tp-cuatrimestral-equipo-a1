@@ -77,7 +77,6 @@
     <Content Include="Dashboard.aspx" />
     <Content Include="ABMArticulos.aspx" />
     <Content Include="ABMCliente.aspx" />
-    <Content Include="Default.aspx" />
     <Content Include="EditarCategoria.aspx" />
     <Content Include="EditarProveedor.aspx" />
     <Content Include="Global.asax" />
@@ -87,6 +86,7 @@
     <Content Include="ListarCategorias.aspx" />
     <Content Include="ListarMarcas.aspx" />
     <Content Include="ListarProveedores.aspx" />
+    <Content Include="Default.aspx" />
     <Content Include="Ventas.aspx" />
     <Content Include="ListarStock.aspx" />
     <Content Include="ListarUsuarios.aspx" />
@@ -163,13 +163,6 @@
     <Compile Include="ABMCliente.aspx.designer.cs">
       <DependentUpon>ABMCliente.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
     <Compile Include="EditarCategoria.aspx.cs">
       <DependentUpon>EditarCategoria.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -228,6 +221,13 @@
     </Compile>
     <Compile Include="ListarUsuarios.aspx.designer.cs">
       <DependentUpon>ListarUsuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Master.Master.cs">
       <DependentUpon>Master.Master</DependentUpon>

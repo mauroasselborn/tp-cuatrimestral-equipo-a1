@@ -33,27 +33,17 @@
                     <tbody>
 
                         <%-- Acá Tengo que repetir esta sección con los datos de la base --%>
-                        <tr>
-                            <td>Apple</td>
-                            <td>
-                                <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="btn btn-link" />
-                                <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" CssClass="btn btn-link" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Sony</td>
-                            <td>
-                                <asp:Button ID="Button1" runat="server" Text="Editar" CssClass="btn btn-link" />
-                                <asp:Button ID="Button2" runat="server" Text="Eliminar" CssClass="btn btn-link" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Samsung</td>
-                            <td>
-                                <asp:Button ID="Button3" runat="server" Text="Editar" CssClass="btn btn-link" />
-                                <asp:Button ID="Button4" runat="server" Text="Eliminar" CssClass="btn btn-link" />
-                            </td>
-                        </tr>
+                        <asp:Repeater runat="server" ID="rptCategoria">
+                            <ItemTemplate>
+                                <tr>
+                                    <td>Apple</td>
+                                    <td>
+                                        <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="btn btn-link" CommandName='<%#Eval("idCategoria") %>' CommandArgument='<%#Eval("Categoria.ID") %>' />
+                                        <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" CssClass="btn btn-link" CommandName='<%#Eval("idCategoria") %>' CommandArgument='<%#Eval("Categoria.ID") %>' />
+                                    </td>
+                                </tr>
+                            </ItemTemplate>
+                        </asp:Repeater>
                         <%-- -------------- --%>
                     </tbody>
                 </table>

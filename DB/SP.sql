@@ -1,5 +1,3 @@
-use [DB-EQUIPOA1]
-
 CREATE PROCEDURE sp_ins_articulo
 (
     -- Add the parameters for the stored procedure here
@@ -19,6 +17,39 @@ BEGIN
 END
 GO
 
+CREATE PROCEDURE sp_ins_proveedores
+(
+    @Nombre nvarchar(50),
+    @Empresa nvarchar(50),
+	@Cuit nvarchar(50),
+	@Telefono nvarchar(50),
+	@Direccion nvarchar(50),
+	@Email nvarchar(50)
+)
+AS
+BEGIN
+
+    SET NOCOUNT ON
+
+	INSERT INTO Proveedores (Nombre,Empresa,Cuit,Telefono,Direccion,Email) 
+		VALUES  ( @Nombre,@Empresa,@Cuit,@Telefono,@Direccion,@Email) 
+END
+GO
+
+CREATE PROCEDURE sp_ins_categoria
+(
+    @Descripcion nvarchar(50)
+)
+AS
+BEGIN
+
+    SET NOCOUNT ON
+
+	INSERT INTO Categorias (Descripcion) 
+		VALUES  (@Descripcion) 
+END
+GO
+
 CREATE PROCEDURE sp_listar_Articulo
 AS
 BEGIN
@@ -30,6 +61,19 @@ BEGIN
 	 from Articulos A  
 	 inner join Marcas M on M.ID = A.IdMarca
 	 inner join Categorias C on C.ID = A.IdTipo
+END
+GO
+
+CREATE PROCEDURE sp_listar_stock
+AS
+BEGIN
+
+    SET NOCOUNT ON
+ Select S.Id 'ID',S.IdProducto 'IdProducto', A.Nombre 'Nombre Articulo', S.IdProveedor 'IdProveedor',
+		P.Nombre 'Nombre Proveedor', S.Cantidad 'Cantidad'
+	 from Stock S  
+	 inner join Articulos A on S.IdProducto = A.Id
+	 inner join Proveedores P on S.IdProveedor = P.id
 END
 GO
 
@@ -51,15 +95,15 @@ BEGIN
 END
 GO
 
-	INSERT INTO Marcas(Descripcion) VALUES('Samsung') 
-	INSERT INTO Marcas(Descripcion) VALUES('LG') 
-	INSERT INTO Marcas(Descripcion) VALUES('Dell') 
-	INSERT INTO Marcas(Descripcion) VALUES('Motorola') 
+CREATE PROCEDURE sp_listar_Proveedores
+AS
+BEGIN
 
-	INSERT INTO Categorias(Descripcion) VALUES('Celular') 
-	INSERT INTO Categorias(Descripcion) VALUES('Parlante') 
-	INSERT INTO Categorias(Descripcion) VALUES('Monitor') 
-	INSERT INTO Categorias(Descripcion) VALUES('Notebook') 
+    SET NOCOUNT ON
+ Select * FROM Proveedores
+END
+GO
+	
 
 
 

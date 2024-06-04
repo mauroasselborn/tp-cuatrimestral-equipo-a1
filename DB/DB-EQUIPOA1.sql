@@ -1,3 +1,5 @@
+CREATE DATABASE [DB-EQUIPOA1]
+GO
 USE [DB-EQUIPOA1]
 GO
 /****** Object:  Table [dbo].[Articulos]    Script Date: 31/5/2024 19:54:43 ******/
@@ -122,6 +124,7 @@ GO
 CREATE TABLE [dbo].[Proveedores](
 	[ID] [int] IDENTITY(1,1) NOT NULL,
 	[Nombre] [nvarchar](50) NOT NULL,
+	[Empresa] [nvarchar](50) NOT NULL,
 	[Cuit] [nvarchar](30) NOT NULL,
 	[Telefono] [nvarchar](30) NULL,
 	[Direccion] [nvarchar](50) NULL,
@@ -186,12 +189,12 @@ REFERENCES [dbo].[Factura] ([ID])
 GO
 ALTER TABLE [dbo].[Factura] CHECK CONSTRAINT [FK_Factura_Factura]
 GO
-ALTER TABLE [dbo].[Stock]  WITH CHECK ADD  CONSTRAINT [FK_Stock_Productos] FOREIGN KEY([ID])
+ALTER TABLE [dbo].[Stock]  WITH CHECK ADD  CONSTRAINT [FK_Stock_Productos] FOREIGN KEY([IdProducto])
 REFERENCES [dbo].[Articulos] ([Id])
 GO
 ALTER TABLE [dbo].[Stock] CHECK CONSTRAINT [FK_Stock_Productos]
 GO
-ALTER TABLE [dbo].[Stock]  WITH CHECK ADD  CONSTRAINT [FK_Stock_Proveedores] FOREIGN KEY([ID])
+ALTER TABLE [dbo].[Stock]  WITH CHECK ADD  CONSTRAINT [FK_Stock_Proveedores] FOREIGN KEY([IdProveedor])
 REFERENCES [dbo].[Proveedores] ([ID])
 GO
 ALTER TABLE [dbo].[Stock] CHECK CONSTRAINT [FK_Stock_Proveedores]

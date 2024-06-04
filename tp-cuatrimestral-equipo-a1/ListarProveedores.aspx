@@ -41,21 +41,21 @@
                     <tbody>
 
                         <%-- Acá Tengo que repetir esta sección con los datos de la base --%>
-                       <%-- <asp:Repeater runat="server">
-                            <ItemTemplate>--%>
+                        <asp:Repeater runat="server" ID="rptProveedor">
+                            <ItemTemplate>
                                 <tr>
-                                    <td>Mauro</td>
-                                    <td>La Pastoriza SRL</td>
-                                    <td>30-33123123-0</td>
-                                    <td>3489-123-456</td>
-                                    <td>mauro@lapastoriza.com</td>
+                                    <td><%#Eval("Proveedor.Nombre")%></td>
+                                    <td><%#Eval("Proveedor.Empresa")%></td>
+                                    <td><%#Eval("Proveedor.Cuit")%></td>
+                                    <td><%#Eval("Proveedor.Telefono")%></td>
+                                    <td><%#Eval("Proveedor.Email")%></td>
                                     <td>
-                                        <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="btn btn-link" />
-                                        <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" CssClass="btn btn-link" />
+                                        <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="btn btn-link" CommandName='<%#Eval("idProveedor") %>' CommandArgument='<%#Eval("Proveedor.ID") %>' />
+                                        <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" CssClass="btn btn-link" CommandName='<%#Eval("idProveedor") %>' CommandArgument='<%#Eval("Proveedor.ID") %>' />
                                     </td>
                                 </tr>
-                      <%--      </ItemTemplate>
-                        </asp:Repeater>--%>
+                            </ItemTemplate>
+                        </asp:Repeater>
 
                         <%-- -------------- --%>
                     </tbody>

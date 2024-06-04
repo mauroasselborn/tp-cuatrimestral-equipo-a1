@@ -39,20 +39,25 @@
                         </tr>
                     </tfoot>
                     <tbody>
+
                         <%-- Acá Tengo que repetir esta sección con los datos de la base --%>
-                        <tr>
-                            <td>Mauro</td>
-                            <td>La Pastoriza SRL</td>
-                            <td>30-33123123-0</td>
-                            <td>3489-123-456</td>
-                            <td>mauro@lapastoriza.com</td>
-                            <td>
-                                <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="btn btn-link" />
-                                <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" CssClass="btn btn-link" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <%-- -------------- --%>
+                       <%-- <asp:Repeater runat="server">
+                            <ItemTemplate>--%>
+                                <tr>
+                                    <td>Mauro</td>
+                                    <td>La Pastoriza SRL</td>
+                                    <td>30-33123123-0</td>
+                                    <td>3489-123-456</td>
+                                    <td>mauro@lapastoriza.com</td>
+                                    <td>
+                                        <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="btn btn-link" />
+                                        <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" CssClass="btn btn-link" />
+                                    </td>
+                                </tr>
+                      <%--      </ItemTemplate>
+                        </asp:Repeater>--%>
+
+                        <%-- -------------- --%>
                     </tbody>
                 </table>
             </div>

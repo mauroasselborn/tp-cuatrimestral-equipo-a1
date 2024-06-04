@@ -75,6 +75,8 @@
     <Content Include="ABMArticulos.aspx" />
     <Content Include="ABMCliente.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="EditarCategoria.aspx" />
+    <Content Include="EditarProveedor.aspx" />
     <Content Include="Global.asax" />
     <Content Include="js\scripts.js" />
     <Content Include="ListarArticulos.aspx" />
@@ -148,6 +150,20 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditarCategoria.aspx.cs">
+      <DependentUpon>EditarCategoria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditarCategoria.aspx.designer.cs">
+      <DependentUpon>EditarCategoria.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditarProveedor.aspx.cs">
+      <DependentUpon>EditarProveedor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditarProveedor.aspx.designer.cs">
+      <DependentUpon>EditarProveedor.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

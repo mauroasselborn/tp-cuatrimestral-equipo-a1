@@ -9,7 +9,7 @@ namespace Dominio
     public class Stock
     {
         public int ID { get; set; }
-        //public Articulo Articulo { get; set; }
+        public Articulo Articulo { get; set; }
         public Proveedor Proveedor { get; set; }
         public int Cantidad { get; set; }
     }

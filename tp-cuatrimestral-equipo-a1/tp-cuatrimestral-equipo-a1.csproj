@@ -70,6 +70,8 @@
     <Content Include="AgregarUsuario.aspx" />
     <Content Include="assets\demo\datatables-demo.js" />
     <Content Include="assets\img\tienda-online.png" />
+    <Content Include="Compras.aspx" />
+    <Content Include="CrearCompra.aspx" />
     <Content Include="CrearVentas.aspx" />
     <Content Include="css\styles.css" />
     <Content Include="Dashboard.aspx" />
@@ -81,6 +83,7 @@
     <Content Include="js\scripts.js" />
     <Content Include="ListarArticulos.aspx" />
     <Content Include="ListarCategorias.aspx" />
+    <Content Include="ListarMarcas.aspx" />
     <Content Include="ListarProveedores.aspx" />
     <Content Include="Ventas.aspx" />
     <Content Include="ListarStock.aspx" />
@@ -115,6 +118,20 @@
     </Compile>
     <Compile Include="AgregarUsuario.aspx.designer.cs">
       <DependentUpon>AgregarUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Compras.aspx.cs">
+      <DependentUpon>Compras.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Compras.aspx.designer.cs">
+      <DependentUpon>Compras.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CrearCompra.aspx.cs">
+      <DependentUpon>CrearCompra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CrearCompra.aspx.designer.cs">
+      <DependentUpon>CrearCompra.aspx</DependentUpon>
     </Compile>
     <Compile Include="CrearVentas.aspx.cs">
       <DependentUpon>CrearVentas.aspx</DependentUpon>
@@ -167,6 +184,13 @@
     </Compile>
     <Compile Include="ListarCategorias.aspx.designer.cs">
       <DependentUpon>ListarCategorias.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListarMarcas.aspx.cs">
+      <DependentUpon>ListarMarcas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListarMarcas.aspx.designer.cs">
+      <DependentUpon>ListarMarcas.aspx</DependentUpon>
     </Compile>
     <Compile Include="ListarProveedores.aspx.cs">
       <DependentUpon>ListarProveedores.aspx</DependentUpon>

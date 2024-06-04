@@ -24,7 +24,12 @@ AS
 BEGIN
 
     SET NOCOUNT ON
-	Select * from Articulos
+ Select A.Id 'Id',A.Nombre 'Nombre', A.IdMarca 'IdMarca',
+		M.Descripcion 'Marca', A.IdTipo 'IdCategoria',C.Descripcion 'Categoria',
+		A.PorcentajeGanancia 'PorcentajeGanancia', A.StockMinimo 'StockMinimo'
+	 from Articulos A  
+	 inner join Marcas M on M.ID = A.IdMarca
+	 inner join Categorias C on C.ID = A.IdTipo
 END
 GO
 

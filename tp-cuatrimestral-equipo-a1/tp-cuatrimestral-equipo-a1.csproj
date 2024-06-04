@@ -73,6 +73,7 @@
     <Content Include="CrearCompras.aspx" />
     <Content Include="CrearVentas.aspx" />
     <Content Include="css\styles.css" />
+    <Content Include="css\table.css" />
     <Content Include="Dashboard.aspx" />
     <Content Include="ABMArticulos.aspx" />
     <Content Include="ABMCliente.aspx" />

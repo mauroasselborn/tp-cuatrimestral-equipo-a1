@@ -103,7 +103,21 @@ BEGIN
  Select * FROM Proveedores
 END
 GO
+
+CREATE PROCEDURE sp_upd_categoria
+(
+	@id int,
+    @Descripcion nvarchar(50)
+)
+AS
+BEGIN
+
+    SET NOCOUNT ON
+
+	UPDATE Categorias 
+	SET Descripcion = @Descripcion 
+	WHERE ID = @id
 	
-
-
+END
+GO
 

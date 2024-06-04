@@ -1,14 +1,22 @@
 -- Insert Marcas
-INSERT INTO Marcas(Descripcion) VALUES('Samsung') 
-INSERT INTO Marcas(Descripcion) VALUES('LG') 
-INSERT INTO Marcas(Descripcion) VALUES('Dell') 
-INSERT INTO Marcas(Descripcion) VALUES('Motorola') 
--- Insert Categorias
-INSERT INTO Categorias(Descripcion) VALUES('Celular') 
-INSERT INTO Categorias(Descripcion) VALUES('Parlante') 
-INSERT INTO Categorias(Descripcion) VALUES('Monitor') 
-INSERT INTO Categorias(Descripcion) VALUES('Notebook')
+insert into Marcas (Descripcion) values ('Apple');
+insert into Marcas (Descripcion) values ('HP');
+insert into Marcas (Descripcion) values ('Samsung');
+insert into Marcas (Descripcion) values ('Google');
+insert into Marcas (Descripcion) values ('Dell');
+insert into Marcas (Descripcion) values ('Lenovo');
+insert into Marcas (Descripcion) values ('MSI');
+insert into Marcas (Descripcion) values ('Asus');
+insert into Marcas (Descripcion) values ('Microsoft');
+insert into Marcas (Descripcion) values ('LG');
+insert into Marcas (Descripcion) values ('Motorola');
 
+-- Insert Categorias
+insert into Categorias (Descripcion) values ('Smartwatches');
+insert into Categorias (Descripcion) values ('Gaming');
+insert into Categorias (Descripcion) values ('Cámaras');
+insert into Categorias (Descripcion) values ('Tabletas');
+insert into Categorias (Descripcion) values ('Monitores');
 
 -- Insert Proveedores
 insert into Proveedores (Nombre, Empresa, Cuit, Telefono, Direccion, Email) values ('Tana', 'Lajo', '03-243-5214', '(733) 8618677', 'Room 1691', 'tbalaizot0@spotify.com');
@@ -31,3 +39,5 @@ insert into Proveedores (Nombre, Empresa, Cuit, Telefono, Direccion, Email) valu
 insert into Proveedores (Nombre, Empresa, Cuit, Telefono, Direccion, Email) values ('Roobbie', 'Gigazoom', '57-102-6371', '(797) 6100896', 'Apt 811', 'rivanonkoh@multiply.com');
 insert into Proveedores (Nombre, Empresa, Cuit, Telefono, Direccion, Email) values ('Scott', 'Latz', '93-405-6705', '(575) 9312777', 'Room 10', 'scoopei@naver.com');
 insert into Proveedores (Nombre, Empresa, Cuit, Telefono, Direccion, Email) values ('Jacquelynn', 'Quatz', '70-209-1809', '(374) 5821829', 'Room 1350', 'jiacovaccioj@meetup.com');
+
+

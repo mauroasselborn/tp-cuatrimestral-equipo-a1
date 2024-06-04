@@ -16,7 +16,7 @@ namespace Negocio
 
             try
             {
-                accesoDatos.setearSP("sp_listar_Proveedores");
+                accesoDatos.setearSP("sp_listar_proveedores");
                 accesoDatos.ejecutarLectura();
 
                 while (accesoDatos.Lector.Read())

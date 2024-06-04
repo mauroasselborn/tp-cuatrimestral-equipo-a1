@@ -13,7 +13,7 @@ namespace Negocio
 
             try
             {
-                accesoDatos.setearSP("sp_listar_Categoria");
+                accesoDatos.setearSP("sp_listar_categoria");
                 accesoDatos.ejecutarLectura();
 
                 while (accesoDatos.Lector.Read())
@@ -28,6 +28,29 @@ namespace Negocio
             {
 
                 throw ex;
+            }
+            finally
+            {
+                accesoDatos.cerrarConexion();
+            }
+        }
+
+        public void Agregar(Categoria categoria)
+        {
+            AccesoDatos accesoDatos = new AccesoDatos();
+
+            try
+            {
+                accesoDatos.setearSP("sp_ins_categoria");
+
+                accesoDatos.setearParametro("@Descripcion", categoria.Descripcion);
+
+                accesoDatos.ejecutarAccion();
+                accesoDatos.cerrarConexion();
+            }
+            catch (Exception)
+            {
+                throw;
             }
             finally
             {

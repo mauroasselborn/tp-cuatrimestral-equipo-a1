@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AgregarCategoria.aspx" />
+    <Content Include="AgregarCliente.aspx" />
     <Content Include="AgregarMarca.aspx" />
     <Content Include="AgregarProveedor.aspx" />
     <Content Include="AgregarUsuario.aspx" />
@@ -84,6 +85,7 @@
     <Content Include="js\DataTable.js" />
     <Content Include="ListarArticulos.aspx" />
     <Content Include="ListarCategorias.aspx" />
+    <Content Include="ListarClientes.aspx" />
     <Content Include="ListarMarcas.aspx" />
     <Content Include="ListarProveedores.aspx" />
     <Content Include="Default.aspx" />
@@ -99,6 +101,13 @@
     </Compile>
     <Compile Include="AgregarCategoria.aspx.designer.cs">
       <DependentUpon>AgregarCategoria.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AgregarCliente.aspx.cs">
+      <DependentUpon>AgregarCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgregarCliente.aspx.designer.cs">
+      <DependentUpon>AgregarCliente.aspx</DependentUpon>
     </Compile>
     <Compile Include="AgregarMarca.aspx.cs">
       <DependentUpon>AgregarMarca.aspx</DependentUpon>
@@ -193,6 +202,13 @@
     </Compile>
     <Compile Include="ListarCategorias.aspx.designer.cs">
       <DependentUpon>ListarCategorias.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListarClientes.aspx.cs">
+      <DependentUpon>ListarClientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListarClientes.aspx.designer.cs">
+      <DependentUpon>ListarClientes.aspx</DependentUpon>
     </Compile>
     <Compile Include="ListarMarcas.aspx.cs">
       <DependentUpon>ListarMarcas.aspx</DependentUpon>

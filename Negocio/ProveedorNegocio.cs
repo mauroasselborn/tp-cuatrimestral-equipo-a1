@@ -21,7 +21,16 @@ namespace Negocio
 
                 while (accesoDatos.Lector.Read())
                 {
-                    
+                    Proveedor proveedor = new Proveedor();
+                    proveedor.ID = (int)accesoDatos.Lector["Id"];
+                    proveedor.Nombre = accesoDatos.Lector["Nombre"].ToString();
+                    proveedor.Empresa = accesoDatos.Lector["Empresa"].ToString();
+                    proveedor.Cuit = accesoDatos.Lector["Cuit"].ToString();
+                    proveedor.Telefono = accesoDatos.Lector["Telefono"].ToString();
+                    proveedor.Direccion = accesoDatos.Lector["Direccion"].ToString();
+                    proveedor.Email = accesoDatos.Lector["Email"].ToString();
+
+                    lista.Add(proveedor);
                 }
 
                 return lista;

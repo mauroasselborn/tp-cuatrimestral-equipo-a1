@@ -44,14 +44,14 @@
                         <asp:Repeater runat="server" ID="rptProveedor">
                             <ItemTemplate>
                                 <tr>
-                                    <td><%#Eval("Proveedor.Nombre")%></td>
-                                    <td><%#Eval("Proveedor.Empresa")%></td>
-                                    <td><%#Eval("Proveedor.Cuit")%></td>
-                                    <td><%#Eval("Proveedor.Telefono")%></td>
-                                    <td><%#Eval("Proveedor.Email")%></td>
+                                    <td><%#Eval("Nombre")%></td>
+                                    <td><%#Eval("Empresa")%></td>
+                                    <td><%#Eval("Cuit")%></td>
+                                    <td><%#Eval("Telefono")%></td>
+                                    <td><%#Eval("Email")%></td>
                                     <td>
-                                        <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="btn btn-link" CommandName='<%#Eval("idProveedor") %>' CommandArgument='<%#Eval("Proveedor.ID") %>' />
-                                        <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" CssClass="btn btn-link" CommandName='<%#Eval("idProveedor") %>' CommandArgument='<%#Eval("Proveedor.ID") %>' />
+                                        <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="btn btn-warning" CommandName="idProveedor" CommandArgument='<%#Eval("ID") %>' />
+                                        <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" CssClass="btn btn-danger" CommandName="idProveedor" CommandArgument='<%#Eval("ID") %>' />
                                     </td>
                                 </tr>
                             </ItemTemplate>

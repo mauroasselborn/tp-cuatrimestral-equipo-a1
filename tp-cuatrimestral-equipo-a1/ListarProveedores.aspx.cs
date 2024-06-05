@@ -20,6 +20,8 @@ namespace tp_cuatrimestral_equipo_a1
             {
                 lstPrveedores = proveedorNegocio.Listar();
 
+                rptProveedor.DataSource = lstPrveedores;
+                rptProveedor.DataBind();
                 
             }
         }

@@ -57,5 +57,29 @@ namespace Negocio
                 accesoDatos.cerrarConexion();
             }
         }
+
+        public void Update (int id, string Descripcion)
+        {
+            AccesoDatos accesoDatos = new AccesoDatos();
+
+            try
+            {
+                accesoDatos.setearSP("sp_upd_categoria");
+
+                accesoDatos.setearParametro("@id", id);
+                accesoDatos.setearParametro("@Descripcion", Descripcion);
+
+                accesoDatos.ejecutarAccion();
+                accesoDatos.cerrarConexion();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                accesoDatos.cerrarConexion();
+            }
+        }
     }
 }

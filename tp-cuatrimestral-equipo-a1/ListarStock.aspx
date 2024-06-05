@@ -40,10 +40,9 @@
                         <tr>
                             <td>Tiger Nixon</td>
                             <td>System Architect</td>
-                            <td>Edinburgh</td>
+                            <td>20</td>
                             <td>
-                                <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="btn btn-link" />
-                                <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" CssClass="btn btn-link" />
+                                <asp:Button ID="btnEditar" runat="server" Text="Editar Cantidad" CssClass="btn btn-warning" />
                             </td>
                         </tr>
                         <%-- -------------- --%>

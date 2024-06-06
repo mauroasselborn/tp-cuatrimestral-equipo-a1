@@ -58,7 +58,7 @@ namespace Negocio
             }
         }
 
-        public void Update (int id, string Descripcion)
+        public void Update(int id, string Descripcion)
         {
             AccesoDatos accesoDatos = new AccesoDatos();
 

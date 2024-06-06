@@ -42,6 +42,8 @@ GO
 CREATE TABLE [dbo].[Clientes](
 	[ID] [int] IDENTITY(1,1) NOT NULL,
 	[Nombre] [nvarchar](50) NOT NULL,
+	[Apellido] [nvarchar](50) NOT NULL,
+	[Documento] [nvarchar](50) NULL,
 	[Telefono] [nvarchar](50) NULL,
 	[Direccion] [nvarchar](50) NULL,
 	[Mail] [nvarchar](50) NULL,

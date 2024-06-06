@@ -103,7 +103,6 @@ BEGIN
  Select * FROM Proveedores
 END
 GO
-
 CREATE PROCEDURE sp_upd_categoria
 (
 	@id int,
@@ -121,16 +120,41 @@ BEGIN
 END
 GO
 
+
+CREATE PROCEDURE sp_listar_clientes
+AS
+BEGIN
+
+    SET NOCOUNT ON
+ Select * FROM Clientes
+END
+GO
+	CREATE PROCEDURE sp_ins_Cliente
+(
+    -- Add the parameters for the stored procedure here
+    @Nombre nvarchar(50) = NULL,
+    @Apellido nvarchar(50),
+	@Documento nvarchar(50),
+	@Direccion nvarchar(50),
+	@Telefono nvarchar(50),
+	@Mail nvarchar(50)
+)
+BEGIN
+
+    SET NOCOUNT ON
+
+	INSERT INTO Clientes(Nombre,Apellido,Documento,Direccion,Telefono,Mail) 
+		VALUES  ( @Nombre,@Apellido,@Documento,@Direccion,@Telefono,@Mail ) 
+END
+GO
+
 CREATE PROCEDURE sp_del_categoria
 (
 	@id int
 )
 AS
 BEGIN
-
-    SET NOCOUNT ON
-
-	DELETE FROM Categorias 
+DELETE FROM Categorias 
 	WHERE ID = @id
 	
 END

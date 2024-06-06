@@ -46,6 +46,7 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\lib\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -65,7 +66,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AgregarCategoria.aspx" />
-    <Content Include="AgregarCliente.aspx" />
     <Content Include="AgregarMarca.aspx" />
     <Content Include="AgregarProveedor.aspx" />
     <Content Include="AgregarUsuario.aspx" />
@@ -80,7 +80,9 @@
     <Content Include="ABMCliente.aspx" />
     <Content Include="EditarCategoria.aspx" />
     <Content Include="EditarProveedor.aspx" />
+    <Content Include="Error.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Img\ErrorPage.png" />
     <Content Include="js\Scripts.js" />
     <Content Include="js\DataTable.js" />
     <Content Include="ListarArticulos.aspx" />
@@ -101,13 +103,6 @@
     </Compile>
     <Compile Include="AgregarCategoria.aspx.designer.cs">
       <DependentUpon>AgregarCategoria.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="AgregarCliente.aspx.cs">
-      <DependentUpon>AgregarCliente.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AgregarCliente.aspx.designer.cs">
-      <DependentUpon>AgregarCliente.aspx</DependentUpon>
     </Compile>
     <Compile Include="AgregarMarca.aspx.cs">
       <DependentUpon>AgregarMarca.aspx</DependentUpon>
@@ -185,6 +180,13 @@
     </Compile>
     <Compile Include="EditarProveedor.aspx.designer.cs">
       <DependentUpon>EditarProveedor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

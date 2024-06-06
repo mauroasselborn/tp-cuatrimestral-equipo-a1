@@ -18,7 +18,7 @@
                                     <div class="row mb-3">
 
                                         <div class="form-floating mb-3 mb-md-0">
-                                            <asp:TextBox runat="server" CssClass="form-control" ID="inputDescripcion" TextMode="SingleLine" placeholder="Descripcion" />
+                                            <asp:TextBox runat="server" CssClass="form-control" ID="txtDescripcion" TextMode="SingleLine" placeholder="Descripcion" />
                                             <label for="inputDireccion">Descripción</label>
                                         </div>
 

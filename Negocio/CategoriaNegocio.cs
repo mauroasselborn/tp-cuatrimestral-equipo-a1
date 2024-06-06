@@ -35,7 +35,7 @@ namespace Negocio
             }
         }
 
-        public void Agregar(Categoria categoria)
+        public void Agregar(string Descripcion)
         {
             AccesoDatos accesoDatos = new AccesoDatos();
 
@@ -43,7 +43,7 @@ namespace Negocio
             {
                 accesoDatos.setearSP("sp_ins_categoria");
 
-                accesoDatos.setearParametro("@Descripcion", categoria.Descripcion);
+                accesoDatos.setearParametro("@Descripcion", Descripcion);
 
                 accesoDatos.ejecutarAccion();
                 accesoDatos.cerrarConexion();
@@ -69,6 +69,30 @@ namespace Negocio
                 accesoDatos.setearParametro("@id", id);
                 accesoDatos.setearParametro("@Descripcion", Descripcion);
 
+                accesoDatos.ejecutarAccion();
+                accesoDatos.cerrarConexion();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                accesoDatos.cerrarConexion();
+            }
+        }
+
+
+        public void Eliminar(int id)
+        {
+            AccesoDatos accesoDatos = new AccesoDatos();
+
+            try
+            {
+                accesoDatos.setearSP("sp_del_categoria");
+
+                accesoDatos.setearParametro("@id", id);
+                
                 accesoDatos.ejecutarAccion();
                 accesoDatos.cerrarConexion();
             }

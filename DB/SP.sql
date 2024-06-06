@@ -120,6 +120,7 @@ BEGIN
 END
 GO
 
+
 CREATE PROCEDURE sp_listar_clientes
 AS
 BEGIN
@@ -138,7 +139,6 @@ GO
 	@Telefono nvarchar(50),
 	@Mail nvarchar(50)
 )
-AS
 BEGIN
 
     SET NOCOUNT ON
@@ -148,5 +148,14 @@ BEGIN
 END
 GO
 
-
-
+CREATE PROCEDURE sp_del_categoria
+(
+	@id int
+)
+AS
+BEGIN
+DELETE FROM Categorias 
+	WHERE ID = @id
+	
+END
+GO

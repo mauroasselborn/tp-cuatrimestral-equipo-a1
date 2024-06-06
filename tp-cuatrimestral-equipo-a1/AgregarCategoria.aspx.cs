@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Dominio;
+using Negocio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,6 +11,7 @@ namespace tp_cuatrimestral_equipo_a1
 {
     public partial class AgregarCategoria : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -16,7 +19,14 @@ namespace tp_cuatrimestral_equipo_a1
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
+            CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
             
+            if (txtDescripcion.Text.Length > 0)
+            {
+                //VALIDAR
+                categoriaNegocio.Agregar(txtDescripcion.Text);
+                Response.Redirect("ListarCategorias.aspx");
+            }
         }
     }
 }

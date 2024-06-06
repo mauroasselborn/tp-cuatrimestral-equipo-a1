@@ -121,3 +121,17 @@ BEGIN
 END
 GO
 
+CREATE PROCEDURE sp_del_categoria
+(
+	@id int
+)
+AS
+BEGIN
+
+    SET NOCOUNT ON
+
+	DELETE FROM Categorias 
+	WHERE ID = @id
+	
+END
+GO

@@ -35,6 +35,36 @@ namespace Negocio
             }
         }
 
+        public Categoria ListarXID(int id)
+        {
+            AccesoDatos accesoDatos = new AccesoDatos();
+            Categoria categoria = new Categoria();
+
+            try
+            {
+                accesoDatos.setearSP("sp_listarID_categoria");
+                accesoDatos.setearParametro("@id", id);
+                accesoDatos.ejecutarLectura();
+
+
+                categoria.Id = (int)accesoDatos.Lector["id"];
+                categoria.Descripcion = (string)accesoDatos.Lector["Descripcion"].ToString();
+
+
+                return categoria;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                accesoDatos.cerrarConexion();
+            }
+        }
+
         public void Agregar(string Descripcion)
         {
             AccesoDatos accesoDatos = new AccesoDatos();
@@ -46,7 +76,7 @@ namespace Negocio
                 accesoDatos.setearParametro("@Descripcion", Descripcion);
 
                 accesoDatos.ejecutarAccion();
-                accesoDatos.cerrarConexion();
+
             }
             catch (Exception)
             {
@@ -58,7 +88,7 @@ namespace Negocio
             }
         }
 
-        public void Update (int id, string Descripcion)
+        public void Update(int id, string Descripcion)
         {
             AccesoDatos accesoDatos = new AccesoDatos();
 
@@ -92,7 +122,7 @@ namespace Negocio
                 accesoDatos.setearSP("sp_del_categoria");
 
                 accesoDatos.setearParametro("@id", id);
-                
+
                 accesoDatos.ejecutarAccion();
                 accesoDatos.cerrarConexion();
             }

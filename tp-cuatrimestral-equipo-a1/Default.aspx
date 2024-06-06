@@ -24,29 +24,27 @@
                                         <h3 class="text-center font-weight-light my-4">Login</h3>
                                     </div>
                                     <div class="card-body">
-                                        <form>
-                                            <div class="form-floating mb-3">
-                                                <input
-                                                    class="form-control"
-                                                    id="inputEmail"
-                                                    type="email"
-                                                    placeholder="name@example.com" />
-                                                <label for="inputEmail">Email</label>
-                                            </div>
-                                            <div class="form-floating mb-3">
-                                                <input
-                                                    class="form-control"
-                                                    id="inputPassword"
-                                                    type="password"
-                                                    placeholder="Password" />
-                                                <label for="inputPassword">Password</label>
-                                            </div>
+                                        <div class="form-floating mb-3">
+                                            <input
+                                                class="form-control"
+                                                id="inputEmail"
+                                                type="email"
+                                                placeholder="name@example.com" />
+                                            <label for="inputEmail">Email</label>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input
+                                                class="form-control"
+                                                id="inputPassword"
+                                                type="password"
+                                                placeholder="Password" />
+                                            <label for="inputPassword">Password</label>
+                                        </div>
 
-                                            <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                                <a class="small" href="RecupearaPassword.aspx">Olvidaste tu Password?</a>
-                                                <asp:Button CssClass="btn btn-primary" id="btnLogin" Text="Login" runat="server" OnClick="btnLogin_Click" />
-                                            </div>
-                                        </form>
+                                        <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
+                                            <a class="small" href="RecupearaPassword.aspx">Olvidaste tu Password?</a>
+                                            <asp:Button CssClass="btn btn-primary" ID="btnLogin" Text="Login" runat="server" OnClick="btnLogin_Click" />
+                                        </div>
                                     </div>
                                 </div>
                             </div>

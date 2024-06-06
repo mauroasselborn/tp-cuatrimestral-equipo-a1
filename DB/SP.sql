@@ -229,14 +229,30 @@ GO
 -- Eliminar Categoria
 CREATE PROCEDURE sp_del_categoria
 (
-	@id int
+    -- Add the parameters for the stored procedure here
+    @Nombre nvarchar(50) = NULL,
+    @Apellido nvarchar(50),
+	@Documento nvarchar(50),
+	@Direccion nvarchar(50),
+	@Telefono nvarchar(50),
+	@Mail nvarchar(50)
 )
-AS
 BEGIN
 
     SET NOCOUNT ON
 
-	DELETE FROM Categorias 
+	INSERT INTO Clientes(Nombre,Apellido,Documento,Direccion,Telefono,Mail) 
+		VALUES  ( @Nombre,@Apellido,@Documento,@Direccion,@Telefono,@Mail ) 
+END
+GO
+
+CREATE PROCEDURE sp_del_categoria
+(
+	@id int
+)
+AS
+BEGIN
+DELETE FROM Categorias 
 	WHERE ID = @id
 	
 END

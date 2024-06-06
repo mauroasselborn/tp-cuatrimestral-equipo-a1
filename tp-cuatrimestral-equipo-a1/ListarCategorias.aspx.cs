@@ -36,7 +36,7 @@ namespace tp_cuatrimestral_equipo_a1
         {
             int id = int.Parse(((Button)sender).CommandArgument);
             CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
-
+        
             categoriaNegocio.Eliminar(id);
 
             Response.Redirect("ListarCategorias.aspx");

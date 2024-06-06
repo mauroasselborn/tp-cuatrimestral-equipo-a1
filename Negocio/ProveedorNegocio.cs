@@ -46,5 +46,85 @@ namespace Negocio
                 accesoDatos.cerrarConexion();
             }
         }
+
+        public void Agregar(Proveedor proveedor)
+        {
+            AccesoDatos accesoDatos = new AccesoDatos();
+
+            try
+            {
+                accesoDatos.setearSP("sp_ins_proveedor");
+
+                accesoDatos.setearParametro("@Nombre", proveedor.Nombre);
+                accesoDatos.setearParametro("@Empresa", proveedor.Empresa);
+                accesoDatos.setearParametro("@Cuit", proveedor.Cuit);
+                accesoDatos.setearParametro("@Telefono", proveedor.Telefono);
+                accesoDatos.setearParametro("@Direccion", proveedor.Direccion);
+                accesoDatos.setearParametro("@Email", proveedor.Email);
+
+                accesoDatos.ejecutarAccion();
+                accesoDatos.cerrarConexion();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                accesoDatos.cerrarConexion();
+            }
+        }
+
+        public void Update(Proveedor proveedor)
+        {
+            AccesoDatos accesoDatos = new AccesoDatos();
+
+            try
+            {
+                accesoDatos.setearSP("sp_upd_proveedor");
+
+                accesoDatos.setearParametro("@id", proveedor.ID);
+                accesoDatos.setearParametro("@Nombre", proveedor.Nombre);
+                accesoDatos.setearParametro("@Empresa", proveedor.Empresa);
+                accesoDatos.setearParametro("@Cuit", proveedor.Cuit);
+                accesoDatos.setearParametro("@Telefono", proveedor.Telefono);
+                accesoDatos.setearParametro("@Direccion", proveedor.Direccion);
+                accesoDatos.setearParametro("@Email", proveedor.Email);
+
+                accesoDatos.ejecutarAccion();
+                accesoDatos.cerrarConexion();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                accesoDatos.cerrarConexion();
+            }
+        }
+
+        public void Eliminar(int id)
+        {
+            AccesoDatos accesoDatos = new AccesoDatos();
+
+            try
+            {
+                accesoDatos.setearSP("sp_del_proveedor");
+
+                accesoDatos.setearParametro("@id", id);
+
+                accesoDatos.ejecutarAccion();
+                accesoDatos.cerrarConexion();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                accesoDatos.cerrarConexion();
+            }
+        }
     }
 }

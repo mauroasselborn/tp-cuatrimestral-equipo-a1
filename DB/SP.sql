@@ -1,6 +1,7 @@
+-- Insertar Articulos
 CREATE PROCEDURE sp_ins_articulo
 (
-    -- Add the parameters for the stored procedure here
+   
     @Nombre nvarchar(50) = NULL,
     @IdMarca int,
 	@IdCategoria int,
@@ -17,6 +18,8 @@ BEGIN
 END
 GO
 
+
+-- Insertar Proveedores
 CREATE PROCEDURE sp_ins_proveedores
 (
     @Nombre nvarchar(50),
@@ -36,6 +39,7 @@ BEGIN
 END
 GO
 
+-- Insertar Categorias
 CREATE PROCEDURE sp_ins_categoria
 (
     @Descripcion nvarchar(50)
@@ -50,6 +54,25 @@ BEGIN
 END
 GO
 
+-- Insertar Stock
+CREATE PROCEDURE sp_ins_stock
+(
+    @idProducto int,
+    @idProveedor int,
+    @Cantidad int
+)
+AS
+BEGIN
+
+    SET NOCOUNT ON
+
+	INSERT INTO Stock (IdProducto,IdProveedor,Cantidad) 
+		VALUES  (@idProducto,@idProveedor,@Cantidad) 
+END
+GO
+
+
+-- Listar Articulos
 CREATE PROCEDURE sp_listar_Articulo
 AS
 BEGIN
@@ -64,6 +87,8 @@ BEGIN
 END
 GO
 
+
+-- Listar Stock
 CREATE PROCEDURE sp_listar_stock
 AS
 BEGIN
@@ -77,6 +102,26 @@ BEGIN
 END
 GO
 
+-- Listar Stock por ID
+CREATE PROCEDURE sp_listarID_stock
+(
+	@id int
+)
+AS
+BEGIN
+
+    SET NOCOUNT ON
+ Select S.Id 'ID',S.IdProducto 'IdProducto', A.Nombre 'Nombre Articulo', S.IdProveedor 'IdProveedor',
+		P.Nombre 'Nombre Proveedor', S.Cantidad 'Cantidad'
+	 from Stock S  
+	 inner join Articulos A on S.IdProducto = A.Id
+	 inner join Proveedores P on S.IdProveedor = P.id
+	 WHERE S.ID = @id
+END
+GO
+
+
+-- Listar Marca
 CREATE PROCEDURE sp_listar_marca
 AS
 BEGIN
@@ -86,6 +131,7 @@ BEGIN
 END
 GO
 
+-- Listar Categoria
 CREATE PROCEDURE sp_listar_categoria
 AS
 BEGIN
@@ -95,14 +141,47 @@ BEGIN
 END
 GO
 
+-- Listar Categoria
+CREATE PROCEDURE sp_listarID_categoria
+(
+	@id int
+)
+AS
+BEGIN
+
+    SET NOCOUNT ON
+	Select * from Categorias
+	WHERE ID = @id
+END
+GO
+
+-- Listar Proveedores
 CREATE PROCEDURE sp_listar_Proveedores
 AS
 BEGIN
 
     SET NOCOUNT ON
- Select * FROM Proveedores
+	Select * FROM Proveedores
 END
 GO
+
+-- Listar Proveedores por ID
+CREATE PROCEDURE sp_listarID_Proveedores
+(
+	@id int
+)
+AS
+BEGIN
+
+    SET NOCOUNT ON
+ SELECT * FROM Proveedores
+ WHERE ID = @id
+
+END
+GO
+
+
+-- Update Categorias
 CREATE PROCEDURE sp_upd_categoria
 (
 	@id int,
@@ -120,16 +199,35 @@ BEGIN
 END
 GO
 
-
-CREATE PROCEDURE sp_listar_clientes
+-- Update Proveedor
+CREATE PROCEDURE sp_upd_proveedor
+(
+    @id int,
+    @Nombre nvarchar(50),
+    @Empresa nvarchar(50),
+    @Cuit nvarchar(50),
+    @Telefono nvarchar(50),
+    @Direccion nvarchar(50),
+    @Email nvarchar(50)
+)
 AS
 BEGIN
+    SET NOCOUNT ON;
 
-    SET NOCOUNT ON
- Select * FROM Clientes
+    UPDATE Proveedores
+    SET Nombre = @Nombre,
+        Empresa = @Empresa,
+        Cuit = @Cuit,
+        Telefono = @Telefono,
+        Direccion = @Direccion,
+        Email = @Email
+    WHERE ID = @id
 END
+
 GO
-	CREATE PROCEDURE sp_ins_Cliente
+
+-- Eliminar Categoria
+CREATE PROCEDURE sp_del_categoria
 (
     -- Add the parameters for the stored procedure here
     @Nombre nvarchar(50) = NULL,
@@ -155,6 +253,40 @@ CREATE PROCEDURE sp_del_categoria
 AS
 BEGIN
 DELETE FROM Categorias 
+	WHERE ID = @id
+	
+END
+GO
+
+
+-- Eliminar Stock
+CREATE PROCEDURE sp_del_stock
+(
+	@id int
+)
+AS
+BEGIN
+
+    SET NOCOUNT ON
+
+	DELETE FROM Stock 
+	WHERE ID = @id
+	
+END
+GO
+
+
+-- Eliminar Proveedor
+CREATE PROCEDURE sp_del_proveedor
+(
+	@id int
+)
+AS
+BEGIN
+
+    SET NOCOUNT ON
+
+	DELETE FROM Proveedores 
 	WHERE ID = @id
 	
 END

@@ -50,8 +50,8 @@
                                     <td><%#Eval("Telefono")%></td>
                                     <td><%#Eval("Email")%></td>
                                     <td>
-                                        <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="btn btn-warning" CommandName="idProveedor" CommandArgument='<%#Eval("ID") %>' />
-                                        <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" CssClass="btn btn-danger" CommandName="idProveedor" CommandArgument='<%#Eval("ID") %>' />
+                                        <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="btn btn-warning" CommandName="idProveedor" CommandArgument='<%#Eval("ID") %>' OnClick="btnEditar_Click" />
+                                        <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" CssClass="btn btn-danger" CommandName="idProveedor" CommandArgument='<%#Eval("ID") %>' OnClick="btnEliminar_Click" />
                                     </td>
                                 </tr>
                             </ItemTemplate>

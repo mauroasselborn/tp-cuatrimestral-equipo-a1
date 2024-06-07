@@ -47,6 +47,42 @@ namespace Negocio
             }
         }
 
+        public Proveedor ListarXID(int id)
+        {
+            AccesoDatos accesoDatos = new AccesoDatos();
+
+
+            try
+            {
+                accesoDatos.setearSP("sp_listarID_proveedores");
+                accesoDatos.setearParametro("@id", id);
+                accesoDatos.ejecutarLectura();
+
+                accesoDatos.Lector.Read();
+
+                Proveedor proveedor = new Proveedor();
+
+                proveedor.ID = (int)accesoDatos.Lector["Id"];
+                proveedor.Nombre = accesoDatos.Lector["Nombre"].ToString();
+                proveedor.Empresa = accesoDatos.Lector["Empresa"].ToString();
+                proveedor.Cuit = accesoDatos.Lector["Cuit"].ToString();
+                proveedor.Telefono = accesoDatos.Lector["Telefono"].ToString();
+                proveedor.Direccion = accesoDatos.Lector["Direccion"].ToString();
+                proveedor.Email = accesoDatos.Lector["Email"].ToString();
+
+                return proveedor;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                accesoDatos.cerrarConexion();
+            }
+        }
+
         public void Agregar(Proveedor proveedor)
         {
             AccesoDatos accesoDatos = new AccesoDatos();
@@ -92,7 +128,6 @@ namespace Negocio
                 accesoDatos.setearParametro("@Email", proveedor.Email);
 
                 accesoDatos.ejecutarAccion();
-                accesoDatos.cerrarConexion();
             }
             catch (Exception)
             {

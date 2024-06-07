@@ -46,7 +46,7 @@ namespace tp_cuatrimestral_equipo_a1
 
         public bool comprobarCampo()
         {
-            if (txtDescripcion.Text.Length > 0) return true;
+            if (txtDescripcion.Text.Length > 4) return true;
             return false;
         }
     }

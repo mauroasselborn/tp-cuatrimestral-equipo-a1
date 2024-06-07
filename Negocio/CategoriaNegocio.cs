@@ -46,6 +46,7 @@ namespace Negocio
                 accesoDatos.setearParametro("@id", id);
                 accesoDatos.ejecutarLectura();
 
+                accesoDatos.Lector.Read();
 
                 categoria.Id = (int)accesoDatos.Lector["id"];
                 categoria.Descripcion = (string)accesoDatos.Lector["Descripcion"].ToString();

@@ -16,6 +16,7 @@ namespace tp_cuatrimestral_equipo_a1
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.QueryString["id"] == null) Response.Redirect("Dashboard.aspx");
+
             int id = int.Parse(Request.QueryString["id"].ToString());
 
             proveedor = proveedorNegocio.ListarXID(id);
@@ -35,30 +36,21 @@ namespace tp_cuatrimestral_equipo_a1
 
         protected void btnAceptar_Click(object sender, EventArgs e)
         {
-            if (true)
-            {
+            ProveedorNegocio proveedorNegocio = new ProveedorNegocio();
+            Proveedor proveedor = new Proveedor();
 
-                ProveedorNegocio proveedorNegocio = new ProveedorNegocio();
-                Proveedor proveedor = new Proveedor();
+            int id = int.Parse(Request.QueryString["id"].ToString());
 
-                int id = int.Parse(Request.QueryString["id"].ToString());
+            proveedor.ID = id;
+            proveedor.Nombre = txtNombre.Text;
+            proveedor.Empresa = txtEmpresa.Text;
+            proveedor.Cuit = txtCuit.Text;
+            proveedor.Telefono = txtTelefono.Text;
+            proveedor.Direccion = txtDireccion.Text;
+            proveedor.Email = txtEmail.Text;
 
-                proveedor.ID = id;
-                proveedor.Nombre = txtNombre.Text;
-                proveedor.Empresa = txtEmpresa.Text;
-                proveedor.Cuit = txtCuit.Text;
-                proveedor.Telefono = txtTelefono.Text;
-                proveedor.Direccion = txtDireccion.Text;
-                proveedor.Email = txtEmail.Text;
-
-                
-                proveedorNegocio.Update(proveedor);
-                Response.Redirect("ListarProveedores.aspx");
-            }
-            else
-            {
-                btnAceptar.Enabled = false;
-            }
+            proveedorNegocio.Update(proveedor);
+            Response.Redirect("ListarProveedores.aspx");
         }
     }
 }

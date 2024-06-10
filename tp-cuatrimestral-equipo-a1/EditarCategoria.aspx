@@ -23,10 +23,9 @@
                                         </div>
 
                                     </div>
-                                    <div class="mt-4 mb-0">
-                                        <div class="d-grid">
-                                            <asp:Button Text="Aceptar" runat="server" class="btn btn-primary btn-block p-2" ID="btnAceptar" OnClick="btnAceptar_Click" />
-                                        </div>
+                                    <div class="d-grid gap-3 d-flex justify-content-around">
+                                        <asp:Button Text="Aceptar" runat="server" class="btn btn-primary w-25 p-2" ID="btnAceptar" OnClick="btnAceptar_Click" />
+                                        <a href="ListarCategorias.aspx" class="btn btn-danger me-md-2 w-25 p-2">Cancelar</a>
                                     </div>
                                 </form>
                             </div>

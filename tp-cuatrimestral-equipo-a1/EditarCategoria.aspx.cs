@@ -18,6 +18,7 @@ namespace tp_cuatrimestral_equipo_a1
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.QueryString["id"] == null) Response.Redirect("Dashboard.aspx");
+            
             int id = int.Parse(Request.QueryString["id"].ToString());
 
             categoria = categoriaNegocio.ListarXID(id);

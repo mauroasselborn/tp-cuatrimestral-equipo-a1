@@ -243,7 +243,6 @@ GO
 CREATE PROCEDURE sp_upd_stock
 (
 	@id int,
-    @idProducto int,
 	@idProveedor int,
 	@cantidad int
 )
@@ -253,8 +252,7 @@ BEGIN
     SET NOCOUNT ON
 
 	UPDATE Stock 
-	SET IdProducto = @idProducto,
-		IdProveedor = @idProveedor,
+	SET IdProveedor = @idProveedor,
 		Cantidad = @cantidad
 	WHERE ID = @id
 	

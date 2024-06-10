@@ -43,7 +43,9 @@
                         <%-- Acá Tengo que repetir esta sección con los datos de la base --%>
                         <asp:Repeater runat="server" ID="rptProveedor">
                             <ItemTemplate>
+
                                 <tr>
+
                                     <td><%#Eval("Nombre")%></td>
                                     <td><%#Eval("Empresa")%></td>
                                     <td><%#Eval("Cuit")%></td>
@@ -54,6 +56,7 @@
                                         <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" CssClass="btn btn-danger" CommandName="idProveedor" CommandArgument='<%#Eval("ID") %>' OnClick="btnEliminar_Click" />
                                     </td>
                                 </tr>
+
                             </ItemTemplate>
                         </asp:Repeater>
 

@@ -28,16 +28,25 @@ namespace tp_cuatrimestral_equipo_a1
             {
                 ddlProveedor.DataSource = listaProveedores;
                 ddlProveedor.DataTextField = "Nombre";
-                ddlProveedor.DataValueField = "id";
+                ddlProveedor.DataValueField = "ID";
                 ddlProveedor.SelectedValue = stock.Proveedor.ID.ToString();
                 ddlProveedor.DataBind();
 
-                txtCantidad.Text = stock.Cantidad.ToString();                
+                txtCantidad.Text = stock.Cantidad.ToString();
             }
         }
         protected void btnAceptar_Click(object sender, EventArgs e)
         {
+            Stock stock = new Stock();
+            StockNegocio stockNegocio = new StockNegocio();
 
+            stock.ID = int.Parse(Request.QueryString["id"].ToString());
+            stock.Proveedor = new Proveedor();
+            stock.Proveedor.ID = int.Parse(ddlProveedor.SelectedValue);
+            stock.Cantidad = int.Parse(txtCantidad.Text);
+
+            stockNegocio.Update(stock);
+            Response.Redirect("ListarStock.aspx");
         }
     }
 }

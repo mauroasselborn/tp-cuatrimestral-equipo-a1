@@ -80,6 +80,7 @@
     <Content Include="ABMCliente.aspx" />
     <Content Include="EditarCategoria.aspx" />
     <Content Include="EditarProveedor.aspx" />
+    <Content Include="EditarStock.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Img\ErrorPage.png" />
@@ -180,6 +181,13 @@
     </Compile>
     <Compile Include="EditarProveedor.aspx.designer.cs">
       <DependentUpon>EditarProveedor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditarStock.aspx.cs">
+      <DependentUpon>EditarStock.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditarStock.aspx.designer.cs">
+      <DependentUpon>EditarStock.aspx</DependentUpon>
     </Compile>
     <Compile Include="Error.aspx.cs">
       <DependentUpon>Error.aspx</DependentUpon>

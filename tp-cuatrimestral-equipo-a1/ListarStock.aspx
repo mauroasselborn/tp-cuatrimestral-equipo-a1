@@ -37,17 +37,20 @@
                     <tbody>
 
                         <%-- Acá Tengo que repetir esta sección con los datos de la base --%>
-                        <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>20</td>
-                            <td>
-                                <asp:Button ID="btnEditar" runat="server" Text="Editar Cantidad" CssClass="btn btn-warning" />
-                            </td>
-                        </tr>
+                        <asp:Repeater runat="server" ID="rptStock">
+                            <ItemTemplate>
+                                <tr>
+                                    <td><%#Eval("Articulo.Nombre")%></td>
+                                    <td><%#Eval("Proveedor.Nombre")%></td>
+                                    <td><%#Eval("Cantidad")%></td>
+                                    <td>
+                                        <asp:Button ID="btnEditar" runat="server" Text="Editar Datos" CssClass="btn btn-warning" CommandName="idStock" CommandArgument='<%#Eval("ID")%>' OnClick="btnEditar_Click" />
+                                    </td>
+                                </tr>
+                            </ItemTemplate>
+                        </asp:Repeater>
                         <%-- -------------- --%>
-            
-                        </tbody>
+                    </tbody>
                 </table>
             </div>
         </div>

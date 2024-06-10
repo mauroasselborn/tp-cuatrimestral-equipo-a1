@@ -22,7 +22,7 @@ namespace tp_cuatrimestral_equipo_a1
 
                 rptProveedor.DataSource = lstPrveedores;
                 rptProveedor.DataBind();
-                
+
             }
         }
 

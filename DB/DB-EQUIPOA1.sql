@@ -9,7 +9,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Articulos](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
-	[Nombre] [nchar](10) NOT NULL,
+	[Nombre] [nvarchar](50) NOT NULL,
 	[IdMarca] [int] NOT NULL,
 	[IdTipo] [int] NOT NULL,
 	[StockMinimo] [int] NULL,

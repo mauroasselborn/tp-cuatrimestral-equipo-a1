@@ -1,11 +1,13 @@
 ﻿using Dominio;
 using System;
 using System.Collections.Generic;
+using System.Data;
 
 namespace Negocio
 {
     public class CategoriaNegocio
     {
+        //Listar Todas las Categorias
         public List<Categoria> Listar()
         {
             AccesoDatos accesoDatos = new AccesoDatos();
@@ -13,21 +15,19 @@ namespace Negocio
 
             try
             {
-                accesoDatos.setearSP("sp_listar_categoria");
+                accesoDatos.setearSP("sp_listar_categorias");
                 accesoDatos.ejecutarLectura();
 
                 while (accesoDatos.Lector.Read())
                 {
-                    lista.Add(new Categoria((int)accesoDatos.Lector["id"], (string)accesoDatos.Lector["Descripcion"]));
+                    lista.Add(new Categoria((int)accesoDatos.Lector["id"], accesoDatos.Lector["Descripcion"].ToString()));
                 }
 
                 return lista;
-
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                throw new Exception("Error al listar las categorías", ex);
             }
             finally
             {
@@ -35,10 +35,11 @@ namespace Negocio
             }
         }
 
+        //Listar Categoria por ID
         public Categoria ListarXID(int id)
         {
             AccesoDatos accesoDatos = new AccesoDatos();
-            Categoria categoria = new Categoria();
+            Categoria categoria = null;
 
             try
             {
@@ -46,19 +47,17 @@ namespace Negocio
                 accesoDatos.setearParametro("@id", id);
                 accesoDatos.ejecutarLectura();
 
-                accesoDatos.Lector.Read();
-
-                categoria.Id = (int)accesoDatos.Lector["id"];
-                categoria.Descripcion = (string)accesoDatos.Lector["Descripcion"].ToString();
-
-
-                return categoria;
+                if (accesoDatos.Lector.Read())
+                {
+                    categoria = new Categoria((int)accesoDatos.Lector["id"], accesoDatos.Lector["Descripcion"].ToString());
+                    return categoria;
+                }
+                else return null;
 
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                throw new Exception("Error al listar la categoría por ID", ex);
             }
             finally
             {
@@ -66,22 +65,21 @@ namespace Negocio
             }
         }
 
-        public void Agregar(string Descripcion)
+
+        //Agregar una Categoria
+        public void Agregar(string descripcion)
         {
             AccesoDatos accesoDatos = new AccesoDatos();
 
             try
             {
                 accesoDatos.setearSP("sp_ins_categoria");
-
-                accesoDatos.setearParametro("@Descripcion", Descripcion);
-
+                accesoDatos.setearParametro("@Descripcion", descripcion);
                 accesoDatos.ejecutarAccion();
-
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                throw new Exception("Error al agregar la categoría", ex);
             }
             finally
             {
@@ -89,23 +87,22 @@ namespace Negocio
             }
         }
 
-        public void Update(int id, string Descripcion)
+
+        //Actualizar una Categoria 
+        public void Update(int id, string descripcion)
         {
             AccesoDatos accesoDatos = new AccesoDatos();
 
             try
             {
                 accesoDatos.setearSP("sp_upd_categoria");
-
                 accesoDatos.setearParametro("@id", id);
-                accesoDatos.setearParametro("@Descripcion", Descripcion);
-
+                accesoDatos.setearParametro("@Descripcion", descripcion);
                 accesoDatos.ejecutarAccion();
-                accesoDatos.cerrarConexion();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                throw new Exception("Error al actualizar la categoría", ex);
             }
             finally
             {
@@ -113,7 +110,7 @@ namespace Negocio
             }
         }
 
-
+        //Eliminar una Categoria por ID
         public void Eliminar(int id)
         {
             AccesoDatos accesoDatos = new AccesoDatos();
@@ -121,15 +118,12 @@ namespace Negocio
             try
             {
                 accesoDatos.setearSP("sp_del_categoria");
-
                 accesoDatos.setearParametro("@id", id);
-
                 accesoDatos.ejecutarAccion();
-                accesoDatos.cerrarConexion();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                throw new Exception("Error al eliminar la categoría", ex);
             }
             finally
             {

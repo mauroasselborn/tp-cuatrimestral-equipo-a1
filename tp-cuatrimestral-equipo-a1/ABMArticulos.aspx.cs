@@ -44,8 +44,8 @@ namespace tp_cuatrimestral_equipo_a1
             List<Categoria> categorias = (List<Categoria>)Session["listaCat"];
 
             articulo.Nombre = txtNombre.Text;
-            articulo.marca = marcas.Find(x => x.id == int.Parse(ddlMarca.SelectedValue));
-            articulo.categoria = categorias.Find(x => x.Id == Convert.ToInt32(ddlCategoria.SelectedItem.Value)); ;
+            articulo.Marca = marcas.Find(x => x.id == int.Parse(ddlMarca.SelectedValue));
+            articulo.Categoria = categorias.Find(x => x.Id == Convert.ToInt32(ddlCategoria.SelectedItem.Value)); ;
             articulo.ProcentajeGanancia = Convert.ToDecimal(txtProcentajeGanancia.Text);
             articulo.StockMinimo = Convert.ToInt32(txtStockMinimo.Text);
             articuloNegocio.Agregar(articulo);

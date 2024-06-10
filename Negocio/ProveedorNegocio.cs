@@ -1,5 +1,6 @@
 ﻿using Dominio;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,7 @@ namespace Negocio
 {
     public class ProveedorNegocio
     {
+        //Listar todos los proveedores
         public List<Proveedor> Listar()
         {
             AccesoDatos accesoDatos = new AccesoDatos();
@@ -38,8 +40,7 @@ namespace Negocio
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                throw new Exception("Error al listar el Proveedor", ex);
             }
             finally
             {
@@ -47,6 +48,7 @@ namespace Negocio
             }
         }
 
+        //Listar proveedor por ID
         public Proveedor ListarXID(int id)
         {
             AccesoDatos accesoDatos = new AccesoDatos();
@@ -54,28 +56,31 @@ namespace Negocio
 
             try
             {
-                accesoDatos.setearSP("sp_listarID_proveedores");
+                accesoDatos.setearSP("sp_listarID_proveedor");
                 accesoDatos.setearParametro("@id", id);
                 accesoDatos.ejecutarLectura();
 
-                accesoDatos.Lector.Read();
 
-                Proveedor proveedor = new Proveedor();
+                if (accesoDatos.Lector.Read())
+                {
+                    Proveedor proveedor = new Proveedor();
 
-                proveedor.ID = (int)accesoDatos.Lector["Id"];
-                proveedor.Nombre = accesoDatos.Lector["Nombre"].ToString();
-                proveedor.Empresa = accesoDatos.Lector["Empresa"].ToString();
-                proveedor.Cuit = accesoDatos.Lector["Cuit"].ToString();
-                proveedor.Telefono = accesoDatos.Lector["Telefono"].ToString();
-                proveedor.Direccion = accesoDatos.Lector["Direccion"].ToString();
-                proveedor.Email = accesoDatos.Lector["Email"].ToString();
+                    proveedor.ID = (int)accesoDatos.Lector["Id"];
+                    proveedor.Nombre = accesoDatos.Lector["Nombre"].ToString();
+                    proveedor.Empresa = accesoDatos.Lector["Empresa"].ToString();
+                    proveedor.Cuit = accesoDatos.Lector["Cuit"].ToString();
+                    proveedor.Telefono = accesoDatos.Lector["Telefono"].ToString();
+                    proveedor.Direccion = accesoDatos.Lector["Direccion"].ToString();
+                    proveedor.Email = accesoDatos.Lector["Email"].ToString();
 
-                return proveedor;
+                    return proveedor;
+                }
+                else return null;
             }
             catch (Exception ex)
             {
 
-                throw ex;
+                throw new Exception("Error al listar el proveedor por ID", ex);
             }
             finally
             {
@@ -83,6 +88,7 @@ namespace Negocio
             }
         }
 
+        //Agregar un Proveedor 
         public void Agregar(Proveedor proveedor)
         {
             AccesoDatos accesoDatos = new AccesoDatos();
@@ -99,11 +105,10 @@ namespace Negocio
                 accesoDatos.setearParametro("@Email", proveedor.Email);
 
                 accesoDatos.ejecutarAccion();
-                accesoDatos.cerrarConexion();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                throw new Exception("Error al agregar el Proveedor", ex);
             }
             finally
             {
@@ -111,6 +116,7 @@ namespace Negocio
             }
         }
 
+        //Actualizar un proveedor
         public void Update(Proveedor proveedor)
         {
             AccesoDatos accesoDatos = new AccesoDatos();
@@ -129,9 +135,9 @@ namespace Negocio
 
                 accesoDatos.ejecutarAccion();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                throw new Exception("Error al actualizar el proveedor con ID: " + proveedor.ID, ex);
             }
             finally
             {
@@ -139,6 +145,8 @@ namespace Negocio
             }
         }
 
+
+        //Eliminar un proveedor por ID
         public void Eliminar(int id)
         {
             AccesoDatos accesoDatos = new AccesoDatos();
@@ -150,11 +158,11 @@ namespace Negocio
                 accesoDatos.setearParametro("@id", id);
 
                 accesoDatos.ejecutarAccion();
-                accesoDatos.cerrarConexion();
+
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                throw new Exception("Error al eliminar el stock con ID: " + id, ex);
             }
             finally
             {

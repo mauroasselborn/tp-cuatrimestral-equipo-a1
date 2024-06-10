@@ -34,5 +34,39 @@ namespace Negocio
                 accesoDatos.cerrarConexion();
             }
         }
+
+
+        //Listar Marca por ID
+        public Marca ListarXID(int id)
+        {
+            AccesoDatos accesoDatos = new AccesoDatos();
+
+
+            try
+            {
+                accesoDatos.setearSP("sp_listarID_Marca");
+                accesoDatos.setearParametro("@id", id);
+                accesoDatos.ejecutarLectura();
+
+                if (accesoDatos.Lector.Read())
+                {
+                    Marca marca = new Marca((int)accesoDatos.Lector["id"], (string)accesoDatos.Lector["Descripcion"]);
+
+                    return marca;
+
+                }
+                else return null;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                accesoDatos.cerrarConexion();
+            }
+        }
     }
 }

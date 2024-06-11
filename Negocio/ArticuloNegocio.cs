@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 
+
 namespace Negocio
 {
     public class ArticuloNegocio
@@ -88,7 +89,7 @@ namespace Negocio
             }
         }
 
-        public void Agregar(Articulo articulo)
+        public bool Agregar(Articulo articulo)
         {
             AccesoDatos accesoDatos = new AccesoDatos();
 
@@ -103,17 +104,18 @@ namespace Negocio
                 accesoDatos.setearParametro("@StockMinimo", articulo.StockMinimo);
 
                 accesoDatos.ejecutarAccion();
-                accesoDatos.cerrarConexion();
-            }
-            catch (Exception)
-            {
 
-                throw;
+            }
+            catch (Exception ex)
+            {
+                return false;
+                throw ex;
             }
             finally
             {
                 accesoDatos.cerrarConexion();
             }
+            return true;
         }
     }
 }

@@ -24,6 +24,15 @@ namespace tp_cuatrimestral_equipo_a1
         protected global::System.Web.UI.WebControls.TextBox txtNombre;
 
         /// <summary>
+        /// Control txtCodigo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCodigo;
+
+        /// <summary>
         /// Control ddlMarca.
         /// </summary>
         /// <remarks>
@@ -51,13 +60,13 @@ namespace tp_cuatrimestral_equipo_a1
         protected global::System.Web.UI.WebControls.TextBox txtStockMinimo;
 
         /// <summary>
-        /// Control txtProcentajeGanancia.
+        /// Control txtPorcentajeGanancia.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtProcentajeGanancia;
+        protected global::System.Web.UI.WebControls.TextBox txtPorcentajeGanancia;
 
         /// <summary>
         /// Control btnCancelar.
@@ -76,5 +85,14 @@ namespace tp_cuatrimestral_equipo_a1
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAceptar;
+
+        /// <summary>
+        /// Control ModalConfirmacion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ModalConfirmacion;
     }
 }

@@ -1,9 +1,7 @@
-﻿using System;
+﻿using Dominio;
+using Negocio;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace tp_cuatrimestral_equipo_a1
 {
@@ -11,7 +9,17 @@ namespace tp_cuatrimestral_equipo_a1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            ArticuloNegocio ArticuloNegocio = new ArticuloNegocio();
+            List<Articulo> lstArticulo = new List<Articulo>();
 
+            if (!IsPostBack)
+            {
+                lstArticulo = ArticuloNegocio.Listar();
+
+                rptArticulo.DataSource = lstArticulo;
+                rptArticulo.DataBind();
+
+            }
         }
     }
 }

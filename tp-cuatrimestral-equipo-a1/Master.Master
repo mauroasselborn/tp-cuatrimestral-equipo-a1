@@ -172,7 +172,7 @@
         </div>
         <div id="layoutSidenav_content">
             <main>
-                <div class="container-fluid px-4">
+                <div class="container-fluid">
                     <form id="form1" runat="server">
 
                         <asp:ContentPlaceHolder ID="body" runat="server">

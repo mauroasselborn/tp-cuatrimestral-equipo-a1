@@ -21,6 +21,7 @@ namespace Negocio
                     Articulo articulo = new Articulo();
                     articulo.ID = Convert.ToInt32(accesoDatos.Lector["Id"]);
                     articulo.Nombre = accesoDatos.Lector["Nombre"].ToString();
+                    articulo.Codigo = accesoDatos.Lector["Codigo"].ToString();
 
                     articulo.Marca = new Marca();
                     articulo.Marca.id = Convert.ToInt32(accesoDatos.Lector["IdMarca"]);
@@ -69,6 +70,7 @@ namespace Negocio
 
                 articulo.ID = (int)(accesoDatos.Lector["Id"]);
                 articulo.Nombre = accesoDatos.Lector["Nombre"].ToString();
+                articulo.Codigo = accesoDatos.Lector["Codigo"].ToString();
 
                 articulo.Marca = marcaNegocio.ListarXID((int)(accesoDatos.Lector["IdMarca"]));
                 articulo.Categoria = categoriaNegocio.ListarXID((int)(accesoDatos.Lector["IdTipo"]));
@@ -98,6 +100,7 @@ namespace Negocio
                 accesoDatos.setearSP("sp_ins_articulo");
 
                 accesoDatos.setearParametro("@Nombre", articulo.Nombre);
+                accesoDatos.setearParametro("@Codigo", articulo.Codigo);
                 accesoDatos.setearParametro("@IdMarca", articulo.Marca.id);
                 accesoDatos.setearParametro("@IdCategoria", articulo.Categoria.Id);
                 accesoDatos.setearParametro("@ProcentajeGanancia", articulo.ProcentajeGanancia);

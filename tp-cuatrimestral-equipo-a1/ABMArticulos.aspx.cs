@@ -43,6 +43,7 @@ namespace tp_cuatrimestral_equipo_a1
                 string script = "document.getElementById('ModalConfirmar').style.display = 'block';";
 
                 articulo.Nombre = txtNombre.Text;
+                articulo.Codigo = txtCodigo.Text;
                 articulo.Marca = marcas.Find(x => x.id == int.Parse(ddlMarca.SelectedValue));
                 articulo.Categoria = categorias.Find(x => x.Id == Convert.ToInt32(ddlCategoria.SelectedItem.Value)); ;
                 articulo.ProcentajeGanancia = Convert.ToDecimal(txtPorcentajeGanancia.Text);

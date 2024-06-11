@@ -36,7 +36,7 @@
                             <ItemTemplate>
                                 <tr>
                                     <td><%#Eval("Nombre")%></td>
-                                    <td>0</td>
+                                    <td><%#Eval("Codigo")%></td>
                                     <td><%#Eval("Marca.Descripcion")%></td>
                                     <td><%#Eval("Categoria.Descripcion")%></td>
                                     <td><%#Eval("StockMinimo")%></td>

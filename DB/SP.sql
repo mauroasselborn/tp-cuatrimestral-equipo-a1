@@ -1,8 +1,9 @@
+use [DB-EQUIPOA1]
 -- Insertar Articulos
 CREATE PROCEDURE sp_ins_articulo
 (
-   
-    @Nombre nvarchar(50) = NULL,
+	@Nombre nvarchar(50) = NULL,
+	@Codigo nvarchar(50),
     @IdMarca int,
 	@IdCategoria int,
 	@ProcentajeGanancia decimal,
@@ -13,8 +14,8 @@ BEGIN
 
     SET NOCOUNT ON
 
-	INSERT INTO Articulos (Nombre,IdMarca,IdTipo,PorcentajeGanancia,StockMinimo) 
-		VALUES  ( @Nombre,@IdMarca,@IdCategoria,@ProcentajeGanancia,@StockMinimo ) 
+	INSERT INTO Articulos (Nombre,Codigo,IdMarca,IdTipo,PorcentajeGanancia,StockMinimo) 
+		VALUES  ( @Nombre,@Codigo,@IdMarca,@IdCategoria,@ProcentajeGanancia,@StockMinimo ) 
 END
 GO
 
@@ -24,7 +25,7 @@ AS
 BEGIN
 
     SET NOCOUNT ON
- Select A.Id 'Id',A.Nombre 'Nombre', A.IdMarca 'IdMarca',
+ Select A.Id 'Id',A.Nombre 'Nombre',A.Codigo 'Codigo',  A.IdMarca 'IdMarca',
 		M.Descripcion 'Marca', A.IdTipo 'IdCategoria',C.Descripcion 'Categoria',
 		A.PorcentajeGanancia 'PorcentajeGanancia', A.StockMinimo 'StockMinimo'
 	 from Articulos A  

@@ -46,30 +46,29 @@ VALUES
 ('Scott', 'Latz', '93-4056705-9', '(011) 5759-3127', 'Room 10', 'scoopei@naver.com'),
 ('Jacquelynn', 'Quatz', '70-2091809-0', '(011) 3745-8218', 'Room 1350', 'jiacovaccioj@meetup.com');
 
-
 -- Insert Articulos
-INSERT INTO Articulos (Nombre, IdMarca, IdTipo, StockMinimo, PorcentajeGanancia) 
+INSERT INTO Articulos (Nombre,Codigo, IdMarca, IdTipo, StockMinimo, PorcentajeGanancia) 
 VALUES 
-('Smartphone X', 8, 3, 976, 99),
-('Laptop Pro', 10, 4, 465, 100),
-('Tablet Plus', 7, 5, 715, 14),
-('Smartwatch Elite', 10, 3, 445, 8),
-('Gaming PC', 8, 4, 303, 26),
-('Wireless Headphones', 11, 1, 245, 76),
-('Virtual Reality Glasses', 6, 3, 129, 79),
-('Smart TV', 2, 3, 528, 4),
-('Drone X', 11, 3, 399, 74),
-('Fitness Tracker', 4, 4, 917, 99),
-('Portable Charger', 9, 1, 459, 57),
-('Bluetooth Speaker', 1, 1, 554, 31),
-('Action Camera', 2, 4, 422, 24),
-('Robot Vacuum', 1, 2, 192, 57),
-('Smart Home Hub', 2, 4, 466, 96),
-('Gaming Console', 9, 4, 587, 93),
-('E-reader', 11, 1, 970, 73),
-('Smart Thermostat', 10, 2, 908, 92),
-('Wireless Earbuds', 6, 4, 672, 62),
-('Home Security Camera', 1, 4, 364, 79);
+('Smartphone X','1', 8, 3, 976, 99),
+('Laptop Pro','1', 10, 4, 465, 100),
+('Tablet Plus','1', 7, 5, 715, 14),
+('Smartwatch Elite','1', 10, 3, 445, 8),
+('Gaming PC','1', 8, 4, 303, 26),
+('Wireless Headphones','1', 11, 1, 245, 76),
+('Virtual Reality Glasses','1', 6, 3, 129, 79),
+('Smart TV','1', 2, 3, 528, 4),
+('Drone X','1', 11, 3, 399, 74),
+('Fitness Tracker','1', 4, 4, 917, 99),
+('Portable Charger','1', 9, 1, 459, 57),
+('Bluetooth Speaker','1', 1, 1, 554, 31),
+('Action Camera','1', 2, 4, 422, 24),
+('Robot Vacuum','1', 1, 2, 192, 57),
+('Smart Home Hub','1', 2, 4, 466, 96),
+('Gaming Console','1', 9, 4, 587, 93),
+('E-reader','1', 11, 1, 970, 73),
+('Smart Thermostat','1', 10, 2, 908, 92),
+('Wireless Earbuds','1', 6, 4, 672, 62),
+('Home Security Camera','1', 1, 4, 364, 79);
 
 -- Insert Stock
 INSERT INTO Stock (IdProducto, IdProveedor, Cantidad) 

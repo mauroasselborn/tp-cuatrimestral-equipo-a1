@@ -49,6 +49,7 @@ namespace tp_cuatrimestral_equipo_a1
                 articulo.ProcentajeGanancia = Convert.ToDecimal(txtPorcentajeGanancia.Text);
                 articulo.StockMinimo = Convert.ToInt32(txtStockMinimo.Text);
 
+                articuloNegocio.Agregar(articulo);
                 ClientScript.RegisterStartupScript(this.GetType(), "Modal", script, true);
                 VaciarCampos();
             }

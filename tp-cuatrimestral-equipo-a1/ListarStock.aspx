@@ -35,13 +35,13 @@
                         </tr>
                     </tfoot>
                     <tbody>
-
-                        <%-- Acá Tengo que repetir esta sección con los datos de la base --%>
                         <asp:Repeater runat="server" ID="rptStock">
                             <ItemTemplate>
                                 <tr>
                                     <td><%#Eval("Articulo.Nombre")%></td>
-                                    <td><a href="DetalleProveedor.aspx?id=<%#Eval("Proveedor.ID")%>" class="btn btn-link"><%#Eval("Proveedor.Nombre")%></a></td>
+                                    <td>
+                                        <a href="DetalleProveedor.aspx?id=<%#Eval("Proveedor.ID")%>" class="btn btn-link"><%#Eval("Proveedor.Nombre")%></a>
+                                    </td>
                                     <td><%#Eval("Cantidad")%></td>
                                     <td>
                                         <asp:Button ID="btnEditar" runat="server" Text="Editar Datos" CssClass="btn btn-warning" CommandName="idStock" CommandArgument='<%#Eval("ID")%>' OnClick="btnEditar_Click" />
@@ -49,7 +49,6 @@
                                 </tr>
                             </ItemTemplate>
                         </asp:Repeater>
-                        <%-- -------------- --%>
                     </tbody>
                 </table>
             </div>

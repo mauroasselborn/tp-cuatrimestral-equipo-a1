@@ -2829,7 +2829,7 @@
                                         : ''
                                     }\n    ${t.searchable
                                         ? `<div class='${t.classes.search}'>\n            <input class='${t.classes.input
-                                        }' placeholder='${t.labels.placeholder}' type='search' title='${t.labels.searchTitle
+                                        }' placeholder='${t.labels.placeholder}' type='search' id='inputBuscarItem' title='${t.labels.searchTitle
                                         }'${e.id ? ` aria-controls="${e.id}"` : ''}>\n        </div>`
                                         : ''
                                     }\n</div>\n<div class='${t.classes.container}'${t.scrollY.length ? ` style='height: ${t.scrollY}; overflow-Y: auto;'` : ''

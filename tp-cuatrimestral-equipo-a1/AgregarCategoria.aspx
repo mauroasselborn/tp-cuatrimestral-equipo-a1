@@ -23,10 +23,9 @@
                                         </div>
 
                                     </div>
-                                    <div class="mt-4 mb-0">
-                                        <div class="d-grid">
-                                            <asp:Button Text="Crear Categoría" runat="server" class="btn btn-primary btn-block p-2" ID="btnAgregar" OnClick="btnAgregar_Click" />
-                                        </div>
+                                    <div class="d-grid gap-5 d-flex justify-content-evenly">
+                                        <asp:Button Text="Agregar" runat="server" class="btn btn-primary w-25 p-2" ID="btnAgregar" OnClick="btnAgregar_Click" />
+                                        <a href="Dashboard.aspx" class="btn btn-danger me-md-2 w-25 p-2">Cancelar</a>
                                     </div>
                                 </form>
                             </div>

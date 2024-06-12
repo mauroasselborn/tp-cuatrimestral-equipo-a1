@@ -11,6 +11,7 @@ namespace tp_cuatrimestral_equipo_a1
 {
     public partial class ListarStock : System.Web.UI.Page
     {
+        public Proveedor proveedorModal = null;
         protected void Page_Load(object sender, EventArgs e)
         {
             StockNegocio stockNegocio = new StockNegocio();

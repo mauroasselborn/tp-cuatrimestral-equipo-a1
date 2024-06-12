@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="ListarProveedores.aspx.cs" Inherits="tp_cuatrimestral_equipo_a1.ListarProveedores" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="DetalleProveedor.aspx.cs" Inherits="tp_cuatrimestral_equipo_a1.DetalleProveedor" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Listado Proveedores</title>
@@ -25,7 +25,7 @@
                             <th>Cuit</th>
                             <th>Teléfono</th>
                             <th>Email</th>
-                            <th>Acciones</th>
+
                         </tr>
                     </thead>
                     <tfoot>
@@ -35,29 +35,22 @@
                             <th>Cuit</th>
                             <th>Teléfono</th>
                             <th>Email</th>
-                            <th>Acciones</th>
+
                         </tr>
                     </tfoot>
                     <tbody>
-
-
-                        <asp:Repeater runat="server" ID="rptProveedor">
-                            <ItemTemplate>
-                                <tr>
-                                    <td><%#Eval("Nombre")%></td>
-                                    <td><%#Eval("Empresa")%></td>
-                                    <td><%#Eval("Cuit")%></td>
-                                    <td><%#Eval("Telefono")%></td>
-                                    <td><%#Eval("Email")%></td>
-                                    <td>
-                                        <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="btn btn-warning" CommandName="idProveedor" CommandArgument='<%#Eval("ID") %>' OnClick="btnEditar_Click" />
-                                        <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" CssClass="btn btn-danger" CommandName="idProveedor" CommandArgument='<%#Eval("ID") %>' OnClick="btnEliminar_Click" />
-                                    </td>
-                                </tr>
-                            </ItemTemplate>
-                        </asp:Repeater>
+                        <tr>
+                            <td><%:proveedor.Nombre%></td>
+                            <td><%:proveedor.Empresa%></td>
+                            <td><%:proveedor.Cuit%></td>
+                            <td><%:proveedor.Telefono%></td>
+                            <td><%:proveedor.Email%></td>
+                        </tr>
                     </tbody>
                 </table>
+                <div class="d-grid gap-3 d-flex justify-content-around">
+                    <a href="ListarStock.aspx" class="btn btn-warning me-md-2 w-25 p-2">Volver</a>
+                </div>
             </div>
         </div>
     </div>

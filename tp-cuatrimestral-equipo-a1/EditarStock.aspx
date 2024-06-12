@@ -31,8 +31,8 @@
 
                                     </div>
                                     <div class="d-grid gap-3 d-flex justify-content-around">
-                                        <asp:Button Text="Aceptar" runat="server" class="btn btn-primary w-25 p-2" ID="btnAceptar" OnClick="btnAceptar_Click" />
-                                        <a href="ListarStock.aspx" class="btn btn-danger me-md-2 w-25 p-2">Cancelar</a>
+                                        <asp:Button Text="Aceptar" runat="server" class="btn btn-primary w-50 p-2" ID="btnAceptar" OnClick="btnAceptar_Click" />
+                                        <a href="ListarStock.aspx" class="btn btn-danger me-md-2 w-50 p-2">Cancelar</a>
                                     </div>
                                 </form>
                             </div>

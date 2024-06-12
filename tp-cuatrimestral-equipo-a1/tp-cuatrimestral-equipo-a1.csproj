@@ -78,6 +78,7 @@
     <Content Include="Dashboard.aspx" />
     <Content Include="ABMArticulos.aspx" />
     <Content Include="ABMCliente.aspx" />
+    <Content Include="DetalleProveedor.aspx" />
     <Content Include="EditarCategoria.aspx" />
     <Content Include="EditarProveedor.aspx" />
     <Content Include="EditarStock.aspx" />
@@ -167,6 +168,13 @@
     </Compile>
     <Compile Include="ABMCliente.aspx.designer.cs">
       <DependentUpon>ABMCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DetalleProveedor.aspx.cs">
+      <DependentUpon>DetalleProveedor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DetalleProveedor.aspx.designer.cs">
+      <DependentUpon>DetalleProveedor.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditarCategoria.aspx.cs">
       <DependentUpon>EditarCategoria.aspx</DependentUpon>

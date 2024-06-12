@@ -1,4 +1,3 @@
-use [DB-EQUIPOA1]
 -- Insertar Articulos
 CREATE PROCEDURE sp_ins_articulo
 (

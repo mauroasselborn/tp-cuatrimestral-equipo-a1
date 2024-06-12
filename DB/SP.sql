@@ -333,3 +333,12 @@ BEGIN
 	
 END
 GO
+
+CREATE PROCEDURE sp_listar_clientes
+AS
+BEGIN
+
+    SET NOCOUNT ON
+	Select * FROM Clientes
+END
+GO

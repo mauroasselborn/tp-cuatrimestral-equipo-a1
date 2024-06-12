@@ -50,6 +50,7 @@ namespace tp_cuatrimestral_equipo_a1
                 articulo.StockMinimo = Convert.ToInt32(txtStockMinimo.Text);
 
                 articuloNegocio.Agregar(articulo);
+
                 ClientScript.RegisterStartupScript(this.GetType(), "Modal", script, true);
                 VaciarCampos();
             }

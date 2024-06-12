@@ -18,6 +18,8 @@ namespace tp_cuatrimestral_equipo_a1
             Cliente cliente = new Cliente();
             try
             {
+                string script = "document.getElementById('ModalConfirmar').style.display = 'block';";
+
                 cliente.Nombre = txtNombre.Text;
                 cliente.Apellido = txtApellido.Text;
                 cliente.Documento = txtDocumento.Text;
@@ -26,11 +28,25 @@ namespace tp_cuatrimestral_equipo_a1
                 cliente.Mail = txtEmail.Text;
 
                 clienteNegocio.Agregar(cliente);
+                ClientScript.RegisterStartupScript(this.GetType(), "Modal", script, true);
+                VaciarCampos();
             }
             catch (Exception)
             {
                 MessageBox.Show("Error en la subida");
             }
+            Response.Redirect("listarClientes.aspx");
         }
+        private void VaciarCampos()
+        {
+            txtNombre.Text = "";
+            txtApellido.Text = "";
+            txtDocumento.Text = "";
+            txtTelefono.Text = "";
+            txtDireccion.Text = "";
+            txtAltura.Text = "";
+            txtEmail.Text = "";
+        }
+
     }
 }

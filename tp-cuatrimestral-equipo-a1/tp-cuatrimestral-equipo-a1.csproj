@@ -85,7 +85,7 @@
     <Content Include="Error.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Img\ErrorPage.png" />
-    <Content Include="js\Scripts.js" />
+    <Content Include="js\Validaciones.js" />
     <Content Include="js\DataTable.js" />
     <Content Include="ListarArticulos.aspx" />
     <Content Include="ListarCategorias.aspx" />

@@ -16,12 +16,34 @@
                             <div class="card-body">
                                 <form>
                                     <div class="row mb-3">
-
                                         <div class="form-floating mb-3 mb-md-0">
-                                            <asp:TextBox runat="server" CssClass="form-control" ID="txtDescripcion" TextMode="SingleLine" placeholder="Descripcion" />
-                                            <label for="inputDireccion">Descripción</label>
-                                        </div>
+                                            <asp:TextBox
+                                                runat="server"
+                                                CssClass="form-control"
+                                                ID="txtDescripcion"
+                                                ClientIDMode="Static"
+                                                TextMode="SingleLine"
+                                                placeholder="Descripcion" />
 
+                                            <label for="txtDescripcion">Descripción</label>
+                                            <asp:RequiredFieldValidator
+                                                ID="rfvDescripcion"
+                                                runat="server"
+                                                ControlToValidate="txtDescripcion"
+                                                ErrorMessage="La descripción es obligatoria."
+                                                CssClass="text-danger"
+                                                Display="Dynamic">
+                                            </asp:RequiredFieldValidator>
+                                            <asp:RegularExpressionValidator
+                                                ID="revDescripcion"
+                                                runat="server"
+                                                ControlToValidate="txtDescripcion"
+                                                ErrorMessage="Debe tener entre 5 y 50 caracteres y solo puede contener letras, números, espacios, comas y puntos."
+                                                ValidationExpression="^[a-zA-Z0-9 ,.'-]{5,50}$"
+                                                CssClass="text-danger"
+                                                Display="Dynamic">
+                                            </asp:RegularExpressionValidator>
+                                        </div>
                                     </div>
                                     <div class="d-grid gap-3 d-flex justify-content-around">
                                         <asp:Button Text="Aceptar" runat="server" class="btn btn-primary w-50 p-2" ID="btnAceptar" OnClick="btnAceptar_Click" />

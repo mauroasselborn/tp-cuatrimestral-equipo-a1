@@ -18,6 +18,10 @@ namespace tp_cuatrimestral_equipo_a1
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
+
+            Page.Validate();
+            if (!Page.IsValid) return;
+
             ProveedorNegocio proveedorNegocio = new ProveedorNegocio();
             Proveedor proveedor = new Proveedor();
 

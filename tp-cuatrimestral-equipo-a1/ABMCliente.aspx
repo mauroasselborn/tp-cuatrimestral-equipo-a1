@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="ABMCliente.aspx.cs" Inherits="tp_cuatrimestral_equipo_a1.ABMCliente" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="ABMCliente.aspx.cs" Inherits="tp_cuatrimestral_equipo_a1.ABMCliente" EnableEventValidation="true" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -10,7 +10,8 @@
                     <div class="col-lg-7">
                         <div class="card shadow-lg border-0 rounded-lg mt-5">
                             <div class="card-header">
-                                <h3 class="text-center font-weight-light my-4">Agregar Cliente</h3>
+                                <h3 class="text-center font-weight-light my-4">
+                                    <asp:Label ID="lblTitulo" Text="Agregar cliente" runat="server"></asp:Label></h3>
                             </div>
                             <div class="card-body">
                                 <div class="row mb-3">
@@ -29,8 +30,10 @@
                                 </div>
                                 <div class="col-12 ">
                                     <div class="form-floating mb-3">
+                                        
                                         <asp:TextBox runat="server" ClientIDMode="static" CssClass="form-control" ID="txtDocumento" placeholder="1234567" />
                                         <label for="telefono">Documento</label>
+                                            <asp:Label ID="lblMismoCliente" Text="" CssClass="text-danger mismoDoc"  runat="server"></asp:Label>
                                     </div>
                                 </div>
                                 <div class="col-12 ">
@@ -42,16 +45,10 @@
 
 
                                 <div class="row mb-3">
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <div class="form-floating mb-3">
                                             <asp:TextBox runat="server" CssClass="form-control" ID="txtDireccion" TextMode="SingleLine" placeholder="Direccion" />
                                             <label for="inputDireccion">Calle</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-floating mb-3">
-                                            <asp:TextBox runat="server" CssClass="form-control" ID="txtAltura" TextMode="Number" placeholder="123" />
-                                            <label for="inputDireccion">Altura</label>
                                         </div>
                                     </div>
                                     <div class="col-12">

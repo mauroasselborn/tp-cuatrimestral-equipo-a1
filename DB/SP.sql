@@ -74,7 +74,15 @@ BEGIN
 END
 GO
 
--- Insertar Cliente
+--Cliente
+CREATE PROCEDURE sp_listar_clientes
+AS
+BEGIN
+
+    SET NOCOUNT ON
+	Select * FROM Clientes
+END
+GO
 CREATE PROCEDURE sp_ins_cliente
 (
     @Nombre nvarchar(50) = NULL,
@@ -91,6 +99,29 @@ BEGIN
 	
 	INSERT INTO Clientes (Nombre, Apellido, Documento, Telefono, Direccion, Mail) 
 		VALUES  ( @Nombre, @Apellido, @Documento, @Telefono, @Direccion, @Mail ) 
+END
+GO
+CREATE PROCEDURE sp_upd_cliente(
+	@Id int,
+    @Nombre nvarchar(50) = NULL,
+    @Apellido nvarchar(50),
+	@Telefono nvarchar(50),
+	@Direccion nvarchar(50),
+	@Mail nvarchar(50)
+)
+AS
+BEGIN
+
+    SET NOCOUNT ON
+	
+	UPDATE Clientes 
+	SET 
+		Nombre = @Nombre, 
+		Apellido = @Apellido, 
+		Telefono = @Telefono, 
+		Direccion = @Direccion,
+		Mail = @Mail
+	WHERE id = @Id 
 END
 GO
 
@@ -333,11 +364,4 @@ BEGIN
 END
 GO
 
-CREATE PROCEDURE sp_listar_clientes
-AS
-BEGIN
 
-    SET NOCOUNT ON
-	Select * FROM Clientes
-END
-GO

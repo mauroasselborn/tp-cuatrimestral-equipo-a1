@@ -11,6 +11,8 @@ namespace tp_cuatrimestral_equipo_a1
         {
             MarcaNegocio negocioMarca = new MarcaNegocio();
             CategoriaNegocio negocioCategoria = new CategoriaNegocio();
+            string idCliente = Request.QueryString["id"];
+
 
             #region DLLs
             List<Marca> ListaMarcas = negocioMarca.Listar();
@@ -28,6 +30,11 @@ namespace tp_cuatrimestral_equipo_a1
             ddlCategoria.DataValueField = "Id";
             ddlCategoria.DataBind();
             #endregion
+
+            if (idCliente != null)
+            {
+                idCliente.ToString();
+            }
 
         }
 

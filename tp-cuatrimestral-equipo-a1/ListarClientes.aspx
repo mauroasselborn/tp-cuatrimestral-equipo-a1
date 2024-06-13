@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="ListarClientes.aspx.cs" Inherits="tp_cuatrimestral_equipo_a1.ListarClientes" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="ListarClientes.aspx.cs" Inherits="tp_cuatrimestral_equipo_a1.ListarClientes" EnableEventValidation="false"%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -37,8 +37,8 @@
                                     <td><%#Eval("Direccion") %></td>
                                     <td><%#Eval("Mail") %></td>
                                     <td>
-                                        <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="btn btn-warning" CommandName="idCategoria" CommandArgument='<%#Eval("ID") %>'  />
-                                        <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" CssClass="btn btn-danger" CommandName="idCategoria" CommandArgument='<%#Eval("ID") %>' />
+                                        <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="btn btn-warning" CommandName="idCliente" OnClick="btnEditar_Click" CommandArgument='<%#Eval("Id")%>' />
+                                        <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" CssClass="btn btn-danger" CommandName="idCliente"  CommandArgument='<%#Eval("Id") %>' />
                                     </td>
 
                                 </tr>

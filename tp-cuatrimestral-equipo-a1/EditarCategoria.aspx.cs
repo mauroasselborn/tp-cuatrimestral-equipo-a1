@@ -18,7 +18,7 @@ namespace tp_cuatrimestral_equipo_a1
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.QueryString["id"] == null) Response.Redirect("Dashboard.aspx");
-            
+
             int id = int.Parse(Request.QueryString["id"].ToString());
 
             categoria = categoriaNegocio.ListarXID(id);
@@ -32,23 +32,14 @@ namespace tp_cuatrimestral_equipo_a1
 
         protected void btnAceptar_Click(object sender, EventArgs e)
         {
-            if (comprobarCampo())
-            {
-                CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
-                int id = int.Parse(Request.QueryString["id"].ToString());
-                categoriaNegocio.Update(id, txtDescripcion.Text);
-                Response.Redirect("ListarCategorias.aspx");
-            }
-            else
-            {
-                btnAceptar.Enabled = false;
-            }
-        }
+            Page.Validate();
+            if (!Page.IsValid) return;
 
-        public bool comprobarCampo()
-        {
-            if (txtDescripcion.Text.Length > 4) return true;
-            return false;
+            CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
+            int id = int.Parse(Request.QueryString["id"].ToString());
+            categoriaNegocio.Update(id, txtDescripcion.Text);
+            Response.Redirect("ListarCategorias.aspx");
+
         }
     }
 }

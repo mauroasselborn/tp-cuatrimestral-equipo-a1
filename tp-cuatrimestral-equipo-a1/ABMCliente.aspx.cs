@@ -2,6 +2,7 @@
 using Negocio;
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Windows;
 
 namespace tp_cuatrimestral_equipo_a1
@@ -44,7 +45,7 @@ namespace tp_cuatrimestral_equipo_a1
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-            string script = "document.getElementById('ModalConfirmar').style.display = 'block';";
+            string script = "document.getElementById('ModalConfirmar').style.display = 'block'";
 
             try
             {
@@ -75,14 +76,17 @@ namespace tp_cuatrimestral_equipo_a1
                     cliente.Id = Convert.ToInt32(idCliente);
                     clienteNegocio.Editar(cliente);
                 }
-                ClientScript.RegisterStartupScript(this.GetType(), "Modal", script, true);
-                VaciarCampos();
+
+
+
             }
             catch (Exception)
             {
                 MessageBox.Show("Error en la subida");
             }
-            Response.Redirect("listarClientes.aspx");
+            ClientScript.RegisterStartupScript(this.GetType(), "Modal", script, true);
+            VaciarCampos();
+
         }
         private void VaciarCampos()
         {
@@ -94,5 +98,10 @@ namespace tp_cuatrimestral_equipo_a1
             txtEmail.Text = "";
         }
 
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Thread.Sleep(1000);
+            Response.Redirect("listarClientes.aspx");
+        }
     }
 }

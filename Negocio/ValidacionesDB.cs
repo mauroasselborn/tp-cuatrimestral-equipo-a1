@@ -13,20 +13,20 @@ namespace Negocio
         {
             CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
             List<Categoria> lstCategoria = new List<Categoria>();
-            Categoria categoria = new Categoria();
+
 
             lstCategoria = categoriaNegocio.Listar();
 
-            categoria = lstCategoria.Find(cat => cat.Descripcion.ToUpper() == descripcion.ToUpper());
+            bool existe = lstCategoria.Any(cat => cat.Descripcion.ToUpper() == descripcion.ToUpper());
 
-            if (categoria == null) return true;
-            return false;
+            return !existe;
+
         }
         public static bool validarProveedor(Proveedor pro)
         {
             ProveedorNegocio proveedorNegocio = new ProveedorNegocio();
             List<Proveedor> lstProveedor = new List<Proveedor>();
-            
+
 
             lstProveedor = proveedorNegocio.Listar();
 
@@ -37,8 +37,7 @@ namespace Negocio
                 prov.Email.ToUpper() == pro.Email.ToUpper()
             );
 
-            if (!existe) return true;
-            return false;
+            return !existe;
         }
     }
 }

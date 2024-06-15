@@ -91,7 +91,7 @@ namespace Negocio
             }
         }
 
-        public bool Agregar(Articulo articulo)
+        public void Agregar(Articulo articulo)
         {
             AccesoDatos accesoDatos = new AccesoDatos();
 
@@ -111,14 +111,60 @@ namespace Negocio
             }
             catch (Exception ex)
             {
-                return false;
                 throw ex;
             }
             finally
             {
                 accesoDatos.cerrarConexion();
             }
-            return true;
+        }
+
+        public void Eliminar(int id)
+        {
+            AccesoDatos accesoDatos = new AccesoDatos();
+            try
+            {
+                accesoDatos.setearSP("sp_del_articulo");
+
+                accesoDatos.setearParametro("@Id", id);
+                accesoDatos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                accesoDatos.cerrarConexion();
+            }
+        }
+
+        public void Modificar(Articulo articulo)
+        {
+            AccesoDatos accesoDatos = new AccesoDatos();
+            try
+            {
+                accesoDatos.setearSP("sp_upd_articulo");
+
+                accesoDatos.setearParametro("@Id", articulo.ID);
+                accesoDatos.setearParametro("@Nombre", articulo.Nombre);
+                accesoDatos.setearParametro("@Codigo", articulo.Codigo);
+                accesoDatos.setearParametro("@IdMarca", articulo.Marca.id);
+                accesoDatos.setearParametro("@IdCategoria", articulo.Categoria.Id);
+                accesoDatos.setearParametro("@ProcentajeGanancia", articulo.ProcentajeGanancia);
+                accesoDatos.setearParametro("@StockMinimo", articulo.StockMinimo);
+
+                accesoDatos.ejecutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                accesoDatos.cerrarConexion();
+            }
         }
     }
 }

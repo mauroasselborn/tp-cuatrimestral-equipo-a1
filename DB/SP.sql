@@ -59,7 +59,8 @@ CREATE PROCEDURE sp_del_articulo(
 AS
 BEGIN
  SET NOCOUNT ON
- Delete Articulos where ID = @Id
+	Delete Stock where IdProducto = @Id  
+	Delete Articulos where ID = @Id
  END
 GO
 --------------

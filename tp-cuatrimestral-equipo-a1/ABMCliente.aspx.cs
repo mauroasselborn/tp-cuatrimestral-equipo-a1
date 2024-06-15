@@ -69,16 +69,12 @@ namespace tp_cuatrimestral_equipo_a1
                         lblMismoCliente.Text = "Ya existe un cliente con el mismo documento";
                         return;
                     }
-
                 }
                 else
                 {
                     cliente.Id = Convert.ToInt32(idCliente);
                     clienteNegocio.Editar(cliente);
                 }
-
-
-
             }
             catch (Exception)
             {

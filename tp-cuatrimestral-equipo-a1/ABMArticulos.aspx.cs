@@ -2,39 +2,54 @@
 using Negocio;
 using System;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace tp_cuatrimestral_equipo_a1
 {
     public partial class ABMArticulos : System.Web.UI.Page
     {
+        private List<Articulo> lstArticulos;
+        private string idArticulo;
         protected void Page_Load(object sender, EventArgs e)
         {
             MarcaNegocio negocioMarca = new MarcaNegocio();
             CategoriaNegocio negocioCategoria = new CategoriaNegocio();
-            string idCliente = Request.QueryString["id"];
+            idArticulo = Request.QueryString["id"];
+            ArticuloNegocio ArticuloNegocio = new ArticuloNegocio();
+            lstArticulos = ArticuloNegocio.Listar();
 
-
-            #region DLLs
-            List<Marca> ListaMarcas = negocioMarca.Listar();
-            Session.Add("listaMarcas", ListaMarcas);
-            ddlMarca.DataSource = ListaMarcas;
-            ddlMarca.DataTextField = "Descripcion";
-            ddlMarca.DataValueField = "Id";
-            ddlMarca.DataBind();
-
-            List<Categoria> ListaCategoria = negocioCategoria.Listar();
-
-            Session.Add("listaCat", ListaCategoria);
-            ddlCategoria.DataSource = ListaCategoria;
-            ddlCategoria.DataTextField = "Descripcion";
-            ddlCategoria.DataValueField = "Id";
-            ddlCategoria.DataBind();
-            #endregion
-
-            if (idCliente != null)
+            if (!IsPostBack)
             {
-                idCliente.ToString();
+                #region DLLs
+                List<Marca> ListaMarcas = negocioMarca.Listar();
+                Session.Add("listaMarcas", ListaMarcas);
+                ddlMarca.DataSource = ListaMarcas;
+                ddlMarca.DataTextField = "Descripcion";
+                ddlMarca.DataValueField = "Id";
+                ddlMarca.DataBind();
+
+                List<Categoria> ListaCategoria = negocioCategoria.Listar();
+
+                Session.Add("listaCat", ListaCategoria);
+                ddlCategoria.DataSource = ListaCategoria;
+                ddlCategoria.DataTextField = "Descripcion";
+                ddlCategoria.DataValueField = "Id";
+                ddlCategoria.DataBind();
+                #endregion
+
+                if (idArticulo != null)
+                {
+                    Articulo articulo = lstArticulos.Find(x => x.ID == Convert.ToInt32(idArticulo));
+                    txtNombre.Text = articulo.Nombre;
+                    txtCodigo.Text = articulo.Codigo;
+                    txtPorcentajeGanancia.Text = articulo.ProcentajeGanancia.ToString();
+                    txtStockMinimo.Text = articulo.StockMinimo.ToString();
+
+                    ddlCategoria.SelectedValue = articulo.Categoria.Id.ToString();
+                    ddlMarca.SelectedValue = articulo.Marca.id.ToString();
+                }
             }
+
 
         }
 
@@ -52,12 +67,28 @@ namespace tp_cuatrimestral_equipo_a1
                 articulo.Nombre = txtNombre.Text;
                 articulo.Codigo = txtCodigo.Text;
                 articulo.Marca = marcas.Find(x => x.id == int.Parse(ddlMarca.SelectedValue));
-                articulo.Categoria = categorias.Find(x => x.Id == Convert.ToInt32(ddlCategoria.SelectedItem.Value)); ;
+                articulo.Categoria = categorias.Find(x => x.Id == Convert.ToInt32(ddlCategoria.SelectedItem.Value));
                 articulo.ProcentajeGanancia = Convert.ToDecimal(txtPorcentajeGanancia.Text);
                 articulo.StockMinimo = Convert.ToInt32(txtStockMinimo.Text);
 
-                articuloNegocio.Agregar(articulo);
+                if (idArticulo == null)
+                {
+                    if (!lstArticulos.Exists(x => x.Codigo == articulo.Codigo))
+                    {
 
+                        articuloNegocio.Agregar(articulo);
+                    }
+                    else
+                    {
+                        lblMismoCodigo.Text = "Ya existe un articulo con el mismo codigo";
+                        return;
+                    }
+                }
+                else
+                {
+                    articulo.ID = Convert.ToInt32(idArticulo);
+                    articuloNegocio.Modificar(articulo);
+                }
                 ClientScript.RegisterStartupScript(this.GetType(), "Modal", script, true);
                 VaciarCampos();
             }
@@ -67,11 +98,6 @@ namespace tp_cuatrimestral_equipo_a1
                 throw ex;
 
             }
-        }
-
-        protected void btnCancelar_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Dashboard.aspx");
         }
 
         private void VaciarCampos()
@@ -99,6 +125,10 @@ namespace tp_cuatrimestral_equipo_a1
             }
         }
 
-
+        protected void BtnAceptarModal_Click(object sender, EventArgs e)
+        {
+            Thread.Sleep(1000);
+            Response.Redirect("ListarArticulos.aspx");
+        }
     }
 }

@@ -1,4 +1,4 @@
--- Insertar Articulos
+-- Articulos
 CREATE PROCEDURE sp_ins_articulo
 (
 	@Nombre nvarchar(50) = NULL,
@@ -17,8 +17,29 @@ BEGIN
 		VALUES  ( @Nombre,@Codigo,@IdMarca,@IdCategoria,@ProcentajeGanancia,@StockMinimo ) 
 END
 GO
+CREATE PROCEDURE sp_upd_articulo
+(
+	@ID int,
+	@Nombre nvarchar(50),
+	@Codigo nvarchar(50),
+    @IdMarca int,
+	@IdCategoria int,
+	@ProcentajeGanancia decimal,
+	@StockMinimo int
+)
+AS
+BEGIN
 
--- Listar Articulos
+    SET NOCOUNT ON
+
+	Update Articulos SET Nombre=@Nombre ,Codigo=@Codigo,
+						 IdMarca=@IdMarca,IdTipo=@IdCategoria,
+						 PorcentajeGanancia=@ProcentajeGanancia,
+						 StockMinimo=@StockMinimo 
+	Where Id = @ID
+END
+GO
+
 CREATE PROCEDURE sp_listar_Articulo
 AS
 BEGIN
@@ -32,7 +53,16 @@ BEGIN
 	 inner join Categorias C on C.ID = A.IdTipo
 END
 GO
-
+CREATE PROCEDURE sp_del_articulo(
+	@Id int
+	)
+AS
+BEGIN
+ SET NOCOUNT ON
+ Delete Articulos where ID = @Id
+ END
+GO
+--------------
 -- Listar Articulos por ID
 CREATE PROCEDURE sp_listarID_Articulo
 (
@@ -46,9 +76,6 @@ BEGIN
 	 WHERE Id = @id
 END
 GO
-
-
-
 
 -- Listar Marca
 CREATE PROCEDURE sp_listar_marca
@@ -124,7 +151,16 @@ BEGIN
 	WHERE id = @Id 
 END
 GO
-
+CREATE PROCEDURE sp_del_cliente(
+	@Id int
+	)
+AS
+BEGIN
+ SET NOCOUNT ON
+ Delete Clientes where ID = @Id
+ END
+GO
+--------------
 -------------MAURO-------------
 
 -- Listar Categoria

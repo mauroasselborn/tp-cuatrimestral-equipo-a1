@@ -401,4 +401,48 @@ BEGIN
 END
 GO
 
+-- Insertar Marcas
+CREATE PROCEDURE sp_ins_marca
+(
+    @Descripcion nvarchar(50)
+)
+AS
+BEGIN
 
+    SET NOCOUNT ON
+
+	INSERT INTO Marcas (Descripcion) 
+		VALUES  (@Descripcion) 
+END
+GO
+
+-- Update Categorias
+CREATE PROCEDURE sp_upd_marca
+(
+	@id int,
+    @Descripcion nvarchar(50)
+)
+AS
+BEGIN
+
+    SET NOCOUNT ON
+
+	UPDATE Marcas 
+	SET Descripcion = @Descripcion 
+	WHERE ID = @id
+	
+END
+GO
+
+-- Eliminar Categoria
+CREATE PROCEDURE sp_del_marca
+(
+	@id int
+)
+AS
+BEGIN
+DELETE FROM Marcas 
+	WHERE ID = @id
+	
+END
+GO

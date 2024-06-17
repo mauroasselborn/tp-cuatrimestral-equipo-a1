@@ -159,11 +159,11 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE TABLE [dbo].[Usuario](
+CREATE TABLE [dbo].[Usuarios](
 	[ID] [int] IDENTITY(1,1) NOT NULL,
 	[NombreUsuario] [nvarchar](50) NOT NULL,
 	[Pass] [nvarchar](50) NOT NULL,
-	[TipoUsuario] [int] NOT NULL,
+	[TipoUsuario] [nvarchar](50) NOT NULL,
  CONSTRAINT [PK_Usuario] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC

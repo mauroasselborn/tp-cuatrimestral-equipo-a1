@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Dominio;
+using Negocio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,7 +18,24 @@ namespace tp_cuatrimestral_equipo_a1
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
+            Page.Validate();
+            if (!Page.IsValid) return;
 
+
+            Usuario usuario = new Usuario();
+            usuario.NombreUsuario = inputUsuario.Text;
+            usuario.Pass = inputPassword.Text;
+            usuario.TipoUsuario = inputConfirmPassword.Text;
+            //if (!ValidacionesDB.validarMarca(marca))
+            //{
+            //    Session.Add("Error", "Error en la Validacion con la Base de Datos, Esa Marca Ya se encuentra");
+            //    Response.Redirect("Error.aspx");
+            //}
+
+            UsuarioNegocio usuarioNegocio = new UsuarioNegocio();
+
+            usuarioNegocio.Agregar(usuario);
+            Response.Redirect("ListarUsuarios.aspx");
         }
     }
 }

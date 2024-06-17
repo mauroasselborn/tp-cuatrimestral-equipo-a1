@@ -39,5 +39,18 @@ namespace Negocio
 
             return !existe;
         }
+        public static bool validarMarca(Marca marca)
+        {
+            MarcaNegocio marcaNegocio = new MarcaNegocio();
+            List<Marca> lstMarca = new List<Marca>();
+
+
+            lstMarca = marcaNegocio.Listar();
+
+            bool existe = lstMarca.Any(m => m.Descripcion.ToUpper() == marca.Descripcion.ToUpper() && m.id!=marca.id);
+
+            return !existe;
+
+        }
     }
 }

@@ -21,12 +21,14 @@
                         <tr>
                             <th>Nombre</th>
                             <th>Tipo</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
                             <th>Nombre</th>
                             <th>Tipo</th>
+                            <th>Acciones</th>
                         </tr>
                     </tfoot>
                     <tbody>

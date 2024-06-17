@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Negocio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,7 +17,13 @@ namespace tp_cuatrimestral_equipo_a1
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
+            MarcaNegocio marcaNegocio = new MarcaNegocio();
 
+            if (txtDescripcion.Text.Length > 0)
+            {
+                marcaNegocio.Agregar(txtDescripcion.Text);
+                Response.Redirect("ListarMarcas.aspx");
+            }
         }
     }
 }

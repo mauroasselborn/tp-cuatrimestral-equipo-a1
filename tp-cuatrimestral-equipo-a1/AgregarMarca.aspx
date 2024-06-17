@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="AgregarMarca.aspx.cs" Inherits="tp_cuatrimestral_equipo_a1.AgregarMarca" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>Agregar Categoría</title>
+    <title>Agregar Marca</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <div id="layoutAuthentication">
@@ -11,22 +11,51 @@
                     <div class="col-lg-4">
                         <div class="card shadow-lg border-0 rounded-lg mt-5">
                             <div class="card-header">
-                                <h3 class="text-center font-weight-light my-4">Agregar Marca de Articulo</h3>
+                                <h3 class="text-center font-weight-light my-4">Agregar Marca de Artículo</h3>
                             </div>
                             <div class="card-body">
                                 <form>
                                     <div class="row mb-3">
-
                                         <div class="form-floating mb-3 mb-md-0">
-                                            <asp:TextBox runat="server" CssClass="form-control" ID="inputDescripcion" TextMode="SingleLine" placeholder="Descripcion" />
-                                            <label for="inputDireccion">Descripción</label>
-                                        </div>
+                                            <asp:TextBox
+                                                runat="server"
+                                                CssClass="form-control"
+                                                ID="txtDescripcion"
+                                                ClientIDMode="Static"
+                                                TextMode="SingleLine"
+                                                placeholder="Descripcion" />
 
-                                    </div>
-                                    <div class="mt-4 mb-0">
-                                        <div class="d-grid">
-                                            <asp:Button Text="Crear Marca" runat="server" class="btn btn-primary btn-block p-2" ID="btnAgregar" OnClick="btnAgregar_Click" />
+                                            <label for="txtDescripcion">Descripción</label>
+                                            <asp:RequiredFieldValidator
+                                                ID="rfvDescripcion"
+                                                runat="server"
+                                                ControlToValidate="txtDescripcion"
+                                                ErrorMessage="La descripción es obligatoria."
+                                                CssClass="text-danger"
+                                                Display="Dynamic">
+                                            </asp:RequiredFieldValidator>
+                                            <asp:RegularExpressionValidator
+                                                ID="revDescripcion"
+                                                runat="server"
+                                                ControlToValidate="txtDescripcion"
+                                                ErrorMessage="Debe tener entre 5 y 50 caracteres y solo puede contener letras, números, espacios, comas y puntos."
+                                                ValidationExpression="^[a-zA-Z0-9 ,.'-]{5,50}$"
+                                                CssClass="text-danger"
+                                                Display="Dynamic">
+                                            </asp:RegularExpressionValidator>
                                         </div>
+                                    </div>
+                                    <div class="d-grid gap-5 d-flex justify-content-evenly">
+                                        <asp:Button
+                                            Text="Agregar"
+                                            runat="server"
+                                            class="btn btn-primary w-25 p-2"
+                                            ID="btnAgregar"
+                                            ClientIDMode="Static"
+                                            OnClientClick="return validar()"
+                                            OnClick="btnAgregar_Click" />
+
+                                        <a href="Dashboard.aspx" class="btn btn-danger me-md-2 w-25 p-2">Cancelar</a>
                                     </div>
                                 </form>
                             </div>

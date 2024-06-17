@@ -416,7 +416,7 @@ BEGIN
 END
 GO
 
--- Update Categorias
+-- Update Marcas
 CREATE PROCEDURE sp_upd_marca
 (
 	@id int,
@@ -434,7 +434,7 @@ BEGIN
 END
 GO
 
--- Eliminar Categoria
+-- Eliminar Marca
 CREATE PROCEDURE sp_del_marca
 (
 	@id int
@@ -444,5 +444,77 @@ BEGIN
 DELETE FROM Marcas 
 	WHERE ID = @id
 	
+END
+GO
+
+-- Insertar usuario
+CREATE PROCEDURE sp_ins_usuario
+(
+	@Nombre nvarchar(50) = NULL,
+	@Pass nvarchar(50),
+    @Tipo nvarchar(50)
+)
+AS
+BEGIN
+
+    SET NOCOUNT ON
+
+	INSERT INTO Usuarios (NombreUsuario,Pass,TipoUsuario) 
+		VALUES  ( @Nombre,@Pass,@Tipo) 
+END
+GO
+
+--Editar usuario
+CREATE PROCEDURE sp_upd_usuario
+(
+	@Id int,
+	@Nombre nvarchar(50),
+	@Pass nvarchar(50),
+    @Tipo nvarchar(50)
+)
+AS
+BEGIN
+
+    SET NOCOUNT ON
+
+	Update Usuarios SET NombreUsuario=@Nombre, Pass=@Pass,
+						 TipoUsuario=@Tipo 
+	Where Id = @Id
+END
+GO
+
+--listar usuarios
+CREATE PROCEDURE sp_listar_usuario
+AS
+BEGIN
+
+    SET NOCOUNT ON
+ Select *
+	 from Usuarios
+END
+GO
+
+--eliminar usuario
+CREATE PROCEDURE sp_del_usuario(
+	@Id int
+	)
+AS
+BEGIN
+ SET NOCOUNT ON
+	Delete Usuarios where Id = @Id
+ END
+GO
+--------------
+-- Listar Articulos por ID
+CREATE PROCEDURE sp_listarID_Usuario
+(
+	@id int
+)
+AS
+BEGIN
+
+    SET NOCOUNT ON
+ Select  * from Usuarios
+	 WHERE Id = @id
 END
 GO

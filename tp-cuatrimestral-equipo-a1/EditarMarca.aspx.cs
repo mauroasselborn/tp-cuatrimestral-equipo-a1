@@ -9,20 +9,31 @@ using System.Web.UI.WebControls;
 
 namespace tp_cuatrimestral_equipo_a1
 {
-    public partial class AgregarMarca : System.Web.UI.Page
+    public partial class EditarMarca : System.Web.UI.Page
     {
+        Marca marca = new Marca();
+        MarcaNegocio marcaNegocio = new MarcaNegocio();
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Request.QueryString["id"] == null) Response.Redirect("Dashboard.aspx");
 
+            int id = int.Parse(Request.QueryString["id"].ToString());
+
+            marca = marcaNegocio.ListarXID(id);
+
+
+            if (!IsPostBack)
+            {
+                txtDescripcion.Text = marca.Descripcion;
+            }
         }
 
-        protected void btnAgregar_Click(object sender, EventArgs e)
+        protected void btnAceptar_Click(object sender, EventArgs e)
         {
             Page.Validate();
             if (!Page.IsValid) return;
 
-
-            Marca marca = new Marca();
             marca.Descripcion = txtDescripcion.Text;
             if (!ValidacionesDB.validarMarca(marca))
             {
@@ -31,8 +42,8 @@ namespace tp_cuatrimestral_equipo_a1
             }
 
             MarcaNegocio marcaNegocio = new MarcaNegocio();
-
-            marcaNegocio.Agregar(txtDescripcion.Text);
+            int id = int.Parse(Request.QueryString["id"].ToString());
+            marcaNegocio.Update(id, txtDescripcion.Text);
             Response.Redirect("ListarMarcas.aspx");
         }
     }

@@ -1,7 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="AgregarMarca.aspx.cs" Inherits="tp_cuatrimestral_equipo_a1.AgregarMarca" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="EditarMarca.aspx.cs" Inherits="tp_cuatrimestral_equipo_a1.EditarMarca" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>Agregar Marca</title>
+    <title>Editar Marca</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <div id="layoutAuthentication">
@@ -11,7 +11,7 @@
                     <div class="col-lg-4">
                         <div class="card shadow-lg border-0 rounded-lg mt-5">
                             <div class="card-header">
-                                <h3 class="text-center font-weight-light my-4">Agregar Marca de Artículo</h3>
+                                <h3 class="text-center font-weight-light my-4">Editar Marca de Artículo</h3>
                             </div>
                             <div class="card-body">
                                 <form>
@@ -45,18 +45,11 @@
                                             </asp:RegularExpressionValidator>
                                         </div>
                                     </div>
-                                    <div class="d-grid gap-5 d-flex justify-content-evenly">
-                                        <asp:Button
-                                            Text="Agregar"
-                                            runat="server"
-                                            class="btn btn-primary w-25 p-2"
-                                            ID="btnAgregar"
-                                            ClientIDMode="Static"
-                                            OnClientClick="return validar()"
-                                            OnClick="btnAgregar_Click" />
-
-                                        <a href="Dashboard.aspx" class="btn btn-danger me-md-2 w-25 p-2">Cancelar</a>
+                                    <div class="d-grid gap-3 d-flex justify-content-around">
+                                        <asp:Button Text="Aceptar" runat="server" class="btn btn-primary w-50 p-2" ID="btnAceptar" OnClick="btnAceptar_Click" />
+                                        <a href="ListarMarcas.aspx" class="btn btn-danger me-md-2 w-50 p-2">Cancelar</a>
                                     </div>
+
                                 </form>
                             </div>
                         </div>

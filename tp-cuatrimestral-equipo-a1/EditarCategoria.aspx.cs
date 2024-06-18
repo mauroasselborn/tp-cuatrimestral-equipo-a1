@@ -35,6 +35,12 @@ namespace tp_cuatrimestral_equipo_a1
             Page.Validate();
             if (!Page.IsValid) return;
 
+            if (!ValidacionesDB.validarCategoria(txtDescripcion.Text))
+            {
+                Session.Add("Error", "Error en la Validacion con la Base de Datos, Esa Categoria Ya se encuentra");
+                Response.Redirect("Error.aspx");
+            }
+
             CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
             int id = int.Parse(Request.QueryString["id"].ToString());
             categoriaNegocio.Update(id, txtDescripcion.Text);

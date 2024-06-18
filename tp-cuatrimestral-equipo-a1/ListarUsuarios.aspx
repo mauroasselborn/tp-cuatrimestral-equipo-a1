@@ -3,25 +3,53 @@
     <title>Listado Usuarios</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-    <table class="table table-striped table-hover">
-        <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Nombre</th>
-        <th scope="col">Tipo usuario</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Admin</td>
-      <td>Administrador</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Usuario</td>
-      <td>Usuario</td>
-    </tr>
-  </tbody>
-    </table>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">Usuarios</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item"><a href="Dashboard.aspx">Dashboard</a></li>
+            <li class="breadcrumb-item active">Usuarios</li>
+        </ol>
+
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                <b>Listado de Usuarios</b>
+            </div>
+            <div class="card-body">
+                <table id="datatablesSimple">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Tipo</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Tipo</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+
+                        <%-- Acá Tengo que repetir esta sección con los datos de la base --%>
+                        <asp:Repeater runat="server" ID="rptUsuario">
+                            <ItemTemplate>
+                                <tr>
+                                    <td><%#Eval("NombreUsuario")%></td>
+                                    <td><%#Eval("TipoUsuario")%></td>
+                                    <td>
+                                        <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="btn btn-warning" CommandName="idMarca" CommandArgument='<%#Eval("ID") %>' OnClick="btnEditar_Click" />
+                                        <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" CssClass="btn btn-danger" CommandName="idMarca" CommandArgument='<%#Eval("ID") %>' OnClick="btnEliminar_Click" />
+                                    </td>
+                                </tr>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                        <%-- -------------- --%>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </asp:Content>

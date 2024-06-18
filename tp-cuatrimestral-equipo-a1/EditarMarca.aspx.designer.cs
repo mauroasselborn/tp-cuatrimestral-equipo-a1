@@ -11,7 +11,7 @@ namespace tp_cuatrimestral_equipo_a1
 {
 
 
-    public partial class AgregarMarca
+    public partial class EditarMarca
     {
 
         /// <summary>
@@ -42,12 +42,12 @@ namespace tp_cuatrimestral_equipo_a1
         protected global::System.Web.UI.WebControls.RegularExpressionValidator revDescripcion;
 
         /// <summary>
-        /// Control btnAgregar.
+        /// Control btnAceptar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAgregar;
+        protected global::System.Web.UI.WebControls.Button btnAceptar;
     }
 }

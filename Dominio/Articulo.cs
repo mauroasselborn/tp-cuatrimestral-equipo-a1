@@ -8,7 +8,7 @@
         public Marca Marca { get; set; }
         public Categoria Categoria { get; set; }
         public int StockMinimo { get; set; }
-        public decimal ProcentajeGanancia { get; set; }
-
+        public float ProcentajeGanancia { get; set; }
+        public bool Estado { get; set; }
     }
 }

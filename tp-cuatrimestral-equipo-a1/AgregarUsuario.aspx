@@ -26,6 +26,7 @@
                                                 CssClass="text-danger"
                                                 Display="Dynamic">
                                             </asp:RequiredFieldValidator>
+                                            <asp:Label ID="lblErrorUsuario" CssClass="text-danger" Text="" runat="server"></asp:Label>
                                             <asp:RegularExpressionValidator
                                                 ID="revUsuario"
                                                 runat="server"
@@ -85,8 +86,8 @@
                                     <div class="row mb-3">
                                         <div class="form-floating mb-3 mb-md-0">                                            
                                             <asp:DropDownList CssClass="form-select" ID="dropTipoUsuario" runat="server">
-                                                <asp:ListItem Text="Administrador" />
-                                                <asp:ListItem Text="Usuario" />
+                                                <asp:ListItem Value="admin" Text="Administrador" />
+                                                <asp:ListItem Valuie="user" Text="Usuario" />
                                             </asp:DropDownList>
                                             <label for="dropTipoUsuario">Tipo de usuario</label>
                                         </div>

@@ -1,11 +1,7 @@
 ﻿using Dominio;
 using Negocio;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace tp_cuatrimestral_equipo_a1
 {
@@ -25,12 +21,12 @@ namespace tp_cuatrimestral_equipo_a1
             Usuario usuario = new Usuario();
             usuario.NombreUsuario = inputUsuario.Text;
             usuario.Pass = inputPassword.Text;
-            usuario.TipoUsuario = inputConfirmPassword.Text;
+            usuario.TipoUsuario = dropTipoUsuario.SelectedValue;
 
-            if (!ValidacionesDB.validarUsuario(usuario))
+            if (ValidacionesDB.validarUsuario(usuario))
             {
-                Session.Add("Error", "Error en la Validacion con la Base de Datos, Ese Usuario Ya se encuentra");
-                Session.Add("redirect", "AgregarUsuario.aspx");
+                lblErrorUsuario.Text = "Usuario ya existe";
+                return;
             }
 
             UsuarioNegocio usuarioNegocio = new UsuarioNegocio();

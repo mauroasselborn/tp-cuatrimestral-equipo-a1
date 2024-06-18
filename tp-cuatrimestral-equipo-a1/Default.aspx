@@ -25,19 +25,18 @@
                                     </div>
                                     <div class="card-body">
                                         <div class="form-floating mb-3">
-                                            <input
-                                                class="form-control"
-                                                id="inputEmail"
-                                                type="email"
-                                                placeholder="name@example.com" />
+                                            <asp:TextBox CssClass="form-control"
+                                                ID="inputEmail"
+                                                runat="server"></asp:TextBox>
                                             <label for="inputEmail">Email</label>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input
-                                                class="form-control"
-                                                id="inputPassword"
+                                            <asp:TextBox
+                                                CssClass="form-control"
+                                                ID="inputPassword"
                                                 type="password"
-                                                placeholder="Password" />
+                                                placeholder="Password"
+                                                runat="server"></asp:TextBox>
                                             <label for="inputPassword">Password</label>
                                         </div>
 

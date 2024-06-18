@@ -47,10 +47,23 @@ namespace Negocio
 
             lstMarca = marcaNegocio.Listar();
 
-            bool existe = lstMarca.Any(m => m.Descripcion.ToUpper() == marca.Descripcion.ToUpper() && m.id!=marca.id);
+            bool existe = lstMarca.Any(m => m.Descripcion.ToUpper() == marca.Descripcion.ToUpper() && m.id != marca.id);
 
             return !existe;
 
+        }
+
+        public static bool validarUsuario(Usuario usuario)
+        {
+            UsuarioNegocio usuarioNegocio = new UsuarioNegocio();
+            List<Usuario> lstUsuarios = new List<Usuario>();
+
+
+            lstUsuarios = usuarioNegocio.Listar();
+
+            bool existe = lstUsuarios.Any(u => u.NombreUsuario.ToUpper() == usuario.NombreUsuario.ToUpper());
+
+            return !existe;
         }
     }
 }

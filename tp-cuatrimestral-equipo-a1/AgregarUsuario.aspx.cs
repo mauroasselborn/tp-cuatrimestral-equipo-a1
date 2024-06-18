@@ -26,11 +26,12 @@ namespace tp_cuatrimestral_equipo_a1
             usuario.NombreUsuario = inputUsuario.Text;
             usuario.Pass = inputPassword.Text;
             usuario.TipoUsuario = inputConfirmPassword.Text;
-            //if (!ValidacionesDB.validarMarca(marca))
-            //{
-            //    Session.Add("Error", "Error en la Validacion con la Base de Datos, Esa Marca Ya se encuentra");
-            //    Response.Redirect("Error.aspx");
-            //}
+
+            if (!ValidacionesDB.validarUsuario(usuario))
+            {
+                Session.Add("Error", "Error en la Validacion con la Base de Datos, Ese Usuario Ya se encuentra");
+                Session.Add("redirect", "AgregarUsuario.aspx");
+            }
 
             UsuarioNegocio usuarioNegocio = new UsuarioNegocio();
 

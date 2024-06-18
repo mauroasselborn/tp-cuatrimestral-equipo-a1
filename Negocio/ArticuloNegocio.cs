@@ -31,8 +31,10 @@ namespace Negocio
                     articulo.Categoria.Id = Convert.ToInt32(accesoDatos.Lector["IdCategoria"]);
                     articulo.Categoria.Descripcion = accesoDatos.Lector["Categoria"].ToString();
 
-                    articulo.ProcentajeGanancia = (decimal)accesoDatos.Lector["PorcentajeGanancia"];
+                    articulo.ProcentajeGanancia = float.Parse(accesoDatos.Lector["PorcentajeGanancia"].ToString());
                     articulo.StockMinimo = (int)accesoDatos.Lector["StockMinimo"];
+                    articulo.Estado = (bool)accesoDatos.Lector["Estado"];
+
                     lstArticulo.Add(articulo);
                 }
 
@@ -75,7 +77,7 @@ namespace Negocio
                 articulo.Marca = marcaNegocio.ListarXID((int)(accesoDatos.Lector["IdMarca"]));
                 articulo.Categoria = categoriaNegocio.ListarXID((int)(accesoDatos.Lector["IdTipo"]));
 
-                articulo.ProcentajeGanancia = (decimal)accesoDatos.Lector["PorcentajeGanancia"];
+                articulo.ProcentajeGanancia = (float)accesoDatos.Lector["PorcentajeGanancia"];
                 articulo.StockMinimo = (int)accesoDatos.Lector["StockMinimo"];
 
                 return articulo;

@@ -68,7 +68,7 @@ namespace tp_cuatrimestral_equipo_a1
                 articulo.Codigo = txtCodigo.Text;
                 articulo.Marca = marcas.Find(x => x.id == int.Parse(ddlMarca.SelectedValue));
                 articulo.Categoria = categorias.Find(x => x.Id == Convert.ToInt32(ddlCategoria.SelectedItem.Value));
-                articulo.ProcentajeGanancia = Convert.ToDecimal(txtPorcentajeGanancia.Text);
+                articulo.ProcentajeGanancia = float.Parse(txtPorcentajeGanancia.Text);
                 articulo.StockMinimo = Convert.ToInt32(txtStockMinimo.Text);
 
                 if (idArticulo == null)
@@ -110,7 +110,7 @@ namespace tp_cuatrimestral_equipo_a1
 
         protected void txtStockMinimo_TextChanged(object sender, EventArgs e)
         {
-            if (Convert.ToInt32(txtStockMinimo.Text) < 0)
+            if (Convert.ToInt32(txtStockMinimo.Text) < 0 || txtStockMinimo.Text.Contains("."))
             {
                 txtStockMinimo.Text = "0";
             }
@@ -119,10 +119,11 @@ namespace tp_cuatrimestral_equipo_a1
 
         protected void txtPorcentajeGanancia_TextChanged(object sender, EventArgs e)
         {
-            if (Convert.ToInt32(txtPorcentajeGanancia.Text) < 0)
+            if (Convert.ToDecimal(txtPorcentajeGanancia.Text) < 0)
             {
                 txtStockMinimo.Text = "0";
             }
+
         }
 
         protected void BtnAceptarModal_Click(object sender, EventArgs e)

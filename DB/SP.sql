@@ -1,3 +1,5 @@
+use [DB-EQUIPOA1]
+
 -- Articulos
 CREATE PROCEDURE sp_ins_articulo
 (
@@ -5,7 +7,7 @@ CREATE PROCEDURE sp_ins_articulo
 	@Codigo nvarchar(50),
     @IdMarca int,
 	@IdCategoria int,
-	@ProcentajeGanancia decimal,
+	@ProcentajeGanancia decimal(18,2),
 	@StockMinimo int
 )
 AS
@@ -13,8 +15,8 @@ BEGIN
 
     SET NOCOUNT ON
 
-	INSERT INTO Articulos (Nombre,Codigo,IdMarca,IdTipo,PorcentajeGanancia,StockMinimo) 
-		VALUES  ( @Nombre,@Codigo,@IdMarca,@IdCategoria,@ProcentajeGanancia,@StockMinimo ) 
+	INSERT INTO Articulos (Nombre,Codigo,IdMarca,IdTipo,PorcentajeGanancia,StockMinimo,Estado) 
+		VALUES  ( @Nombre,@Codigo,@IdMarca,@IdCategoria,@ProcentajeGanancia,@StockMinimo,1 ) 
 END
 GO
 CREATE PROCEDURE sp_upd_articulo
@@ -24,7 +26,7 @@ CREATE PROCEDURE sp_upd_articulo
 	@Codigo nvarchar(50),
     @IdMarca int,
 	@IdCategoria int,
-	@ProcentajeGanancia decimal,
+	@ProcentajeGanancia decimal(18,2),
 	@StockMinimo int
 )
 AS
@@ -36,7 +38,7 @@ BEGIN
 						 IdMarca=@IdMarca,IdTipo=@IdCategoria,
 						 PorcentajeGanancia=@ProcentajeGanancia,
 						 StockMinimo=@StockMinimo 
-	Where Id = @ID
+	Where Id = @ID 
 END
 GO
 
@@ -47,10 +49,12 @@ BEGIN
     SET NOCOUNT ON
  Select A.Id 'Id',A.Nombre 'Nombre',A.Codigo 'Codigo',  A.IdMarca 'IdMarca',
 		M.Descripcion 'Marca', A.IdTipo 'IdCategoria',C.Descripcion 'Categoria',
-		A.PorcentajeGanancia 'PorcentajeGanancia', A.StockMinimo 'StockMinimo'
+		A.PorcentajeGanancia 'PorcentajeGanancia', A.StockMinimo 'StockMinimo',
+		A.Estado 'Estado'
 	 from Articulos A  
 	 inner join Marcas M on M.ID = A.IdMarca
 	 inner join Categorias C on C.ID = A.IdTipo
+	 where A.Estado = 1
 END
 GO
 CREATE PROCEDURE sp_del_articulo(
@@ -60,7 +64,7 @@ AS
 BEGIN
  SET NOCOUNT ON
 	Delete Stock where IdProducto = @Id  
-	Delete Articulos where ID = @Id
+	update Articulos set estado = 0 where ID = @Id
  END
 GO
 --------------

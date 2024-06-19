@@ -1,5 +1,3 @@
-use [DB-EQUIPOA1]
-
 -- Articulos
 CREATE PROCEDURE sp_ins_articulo
 (
@@ -57,9 +55,10 @@ BEGIN
 	 where A.Estado = 1
 END
 GO
-CREATE PROCEDURE sp_del_articulo(
+CREATE PROCEDURE sp_del_articulo
+(
 	@Id int
-	)
+)
 AS
 BEGIN
  SET NOCOUNT ON
@@ -156,9 +155,10 @@ BEGIN
 	WHERE id = @Id 
 END
 GO
-CREATE PROCEDURE sp_del_cliente(
+CREATE PROCEDURE sp_del_cliente
+(
 	@Id int
-	)
+)
 AS
 BEGIN
  SET NOCOUNT ON
@@ -399,7 +399,8 @@ BEGIN
 
     SET NOCOUNT ON
 
-	DELETE FROM Proveedores 
+	UPDATE Proveedores 
+	SET Estado = 0
 	WHERE ID = @id
 	
 END
@@ -505,7 +506,9 @@ CREATE PROCEDURE sp_del_usuario(
 AS
 BEGIN
  SET NOCOUNT ON
-	Delete Usuarios where Id = @Id
+	UPDATE Usuarios 
+	SET Estado = 0
+	where Id = @Id
  END
 GO
 --------------

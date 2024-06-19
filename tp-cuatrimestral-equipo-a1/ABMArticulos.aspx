@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="ABMArticulos.aspx.cs" Inherits="tp_cuatrimestral_equipo_a1.ABMArticulos" %>
+﻿<%@ Page Title="Gestion articulo" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="ABMArticulos.aspx.cs" Inherits="tp_cuatrimestral_equipo_a1.ABMArticulos" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -17,34 +17,35 @@
                                     <div class="row">
                                         <div class="mb-3 col-12">
                                             <label for="txtNombre" class="form-label">Nombre</label>
-                                            <asp:TextBox ID="txtNombre" ClientIDMode="Static" class="form-control " runat="server"></asp:TextBox>
+                                            <asp:TextBox ID="txtNombre" ClientIDMode="Static" class="form-control " runat="server" TabIndex="1"></asp:TextBox>
                                         </div>
                                         <div class="mb-3 col-12">
                                             <label for="txtCodigo" class="form-label">Codigo</label>
-                                            <asp:TextBox ID="txtCodigo" ClientIDMode="Static" class="form-control" runat="server"></asp:TextBox>
+                                            <asp:TextBox ID="txtCodigo" ClientIDMode="Static" class="form-control" runat="server" TabIndex="2"></asp:TextBox>
                                             <asp:Label ID="lblMismoCodigo" CssClass="text-danger" Text="" runat="server"></asp:Label>
                                         </div>
                                         <div class="mb-3 col-12">
                                             <label for="cmbMarca" class="form-label">Marca</label>
-                                            <asp:DropDownList ID="ddlMarca" class="form-select" aria-label="Default select example" runat="server"></asp:DropDownList>
+                                            <asp:DropDownList ID="ddlMarca" class="form-select" aria-label="Default select example" runat="server" TabIndex="3"></asp:DropDownList>
                                         </div>
                                         <div class="mb-3 col-12">
                                             <label for="cmbTipo" class="form-label">Categorias</label>
-                                            <asp:DropDownList ID="ddlCategoria" class="form-select" aria-label="Default select example" runat="server"></asp:DropDownList>
+                                            <asp:DropDownList ID="ddlCategoria" class="form-select" aria-label="Default select example" runat="server" TabIndex="4"></asp:DropDownList>
                                         </div>
                                         <div class="mb-5 col-5 ">
                                             <label for="txtStockMinimo" class="form-label">Stock minimo</label>
-                                            <asp:TextBox ID="txtStockMinimo" ClientIDMode="Static" min="0" class="form-control" runat="server" TextMode="Number" OnTextChanged="txtStockMinimo_TextChanged"></asp:TextBox>
+                                            <asp:TextBox ID="txtStockMinimo" ClientIDMode="Static" min="0" class="form-control" runat="server" TextMode="Number" OnTextChanged="txtStockMinimo_TextChanged" TabIndex="5"></asp:TextBox>
                                         </div>
                                         <div class="mb-5 col-2 ">
                                         </div>
                                         <div class="mb-5 col-5">
                                             <label for="txtProcentajeGanancia" class="form-label">Procentaje ganancia</label>
-                                            <asp:TextBox ID="txtPorcentajeGanancia" ClientIDMode="Static" min="0" class="form-control" runat="server" TextMode="Number" OnTextChanged="txtPorcentajeGanancia_TextChanged"></asp:TextBox>
+                                            <asp:TextBox ID="txtPorcentajeGanancia" onkeypress="return filterFloat(event,this);" ClientIDMode="Static" min="0" class="form-control" runat="server"  OnTextChanged="txtPorcentajeGanancia_TextChanged" TabIndex="6"></asp:TextBox>
+                                            <label >separar decimales con coma (",")</label>
                                         </div>
                                         <div class="mt-4 mb-0">
                                             <div class="d-grid">
-                                                <asp:Button ID="btnAceptar" OnClientClick="Validar()" Text="Confirmar" class="btn btn-primary" runat="server" OnClick="btnAceptar_Click" />
+                                                <asp:Button ID="btnAceptar" OnClientClick="Validar()" Text="Confirmar" class="btn btn-primary" runat="server" OnClick="btnAceptar_Click" TabIndex="7" />
                                             </div>
                                         </div>
 
@@ -118,7 +119,7 @@
                 txtStock.classList.add("is-valid")
             }
 
-            if (txtPorcentaje.value == '') {
+            if (txtPorcentaje.value == '' ) {
                 txtPorcentaje.classList.add("is-invalid")
                 event.preventDefault()
             } else {

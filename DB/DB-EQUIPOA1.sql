@@ -7,6 +7,7 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
+
 CREATE TABLE [dbo].[Articulos](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[Nombre] [nvarchar](50) NOT NULL,
@@ -14,7 +15,8 @@ CREATE TABLE [dbo].[Articulos](
 	[IdMarca] [int] NOT NULL,
 	[IdTipo] [int] NOT NULL,
 	[StockMinimo] [int] NULL,
-	[PorcentajeGanancia] [decimal](18, 0) NULL,
+	[PorcentajeGanancia] [decimal](18, 2) NULL,
+	[Estado] [bit] NULL,
  CONSTRAINT [PK_Productos] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC

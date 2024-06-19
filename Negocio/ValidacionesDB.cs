@@ -1,9 +1,6 @@
 ﻿using Dominio;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Negocio
 {
@@ -61,9 +58,9 @@ namespace Negocio
 
             lstUsuarios = usuarioNegocio.Listar();
 
-            bool existe = lstUsuarios.Any(u => u.NombreUsuario.ToUpper() == nombreUsuario.ToUpper());
+            bool existe = lstUsuarios.Exists(u => u.NombreUsuario.ToUpper() == usuario.NombreUsuario.ToUpper());
 
-            return !existe;
+            return existe;
         }
     }
 }

@@ -1,3 +1,4 @@
+use [DB-EQUIPOA1]
 -- Insert Marcas
 INSERT INTO Marcas (Descripcion) 
 VALUES 
@@ -47,28 +48,28 @@ VALUES
 ('Jacquelynn', 'Quatz', '70-2091809-0', '(011) 3745-8218', 'Room 1350', 'jiacovaccioj@meetup.com');
 
 -- Insert Articulos
-INSERT INTO Articulos (Nombre,Codigo, IdMarca, IdTipo, StockMinimo, PorcentajeGanancia) 
+INSERT INTO Articulos (Nombre,Codigo, IdMarca, IdTipo, StockMinimo, PorcentajeGanancia,estado) 
 VALUES 
-('Smartphone X','1', 8, 3, 976, 99),
-('Laptop Pro','1', 10, 4, 465, 100),
-('Tablet Plus','1', 7, 5, 715, 14),
-('Smartwatch Elite','1', 10, 3, 445, 8),
-('Gaming PC','1', 8, 4, 303, 26),
-('Wireless Headphones','1', 11, 1, 245, 76),
-('Virtual Reality Glasses','1', 6, 3, 129, 79),
-('Smart TV','1', 2, 3, 528, 4),
-('Drone X','1', 11, 3, 399, 74),
-('Fitness Tracker','1', 4, 4, 917, 99),
-('Portable Charger','1', 9, 1, 459, 57),
-('Bluetooth Speaker','1', 1, 1, 554, 31),
-('Action Camera','1', 2, 4, 422, 24),
-('Robot Vacuum','1', 1, 2, 192, 57),
-('Smart Home Hub','1', 2, 4, 466, 96),
-('Gaming Console','1', 9, 4, 587, 93),
-('E-reader','1', 11, 1, 970, 73),
-('Smart Thermostat','1', 10, 2, 908, 92),
-('Wireless Earbuds','1', 6, 4, 672, 62),
-('Home Security Camera','1', 1, 4, 364, 79);
+('Smartphone X','1', 8, 3, 976, 99,1),
+('Laptop Pro','2', 10, 4, 465, 100,1),
+('Tablet Plus','3', 7, 5, 715, 14,1),
+('Smartwatch Elite','4', 10, 3, 445, 8,1),
+('Gaming PC','5', 8, 4, 303, 26,1),
+('Wireless Headphones','6', 11, 1, 245, 76,1),
+('Virtual Reality Glasses','7', 6, 3, 129, 79,1),
+('Smart TV','8', 2, 3, 528, 4,1),
+('Drone X','9', 11, 3, 399, 74,1),
+('Fitness Tracker','10', 4, 4, 917, 99,1),
+('Portable Charger','11', 9, 1, 459, 57,1),
+('Bluetooth Speaker','12', 1, 1, 554, 31,1),
+('Action Camera','13', 2, 4, 422, 24,1),
+('Robot Vacuum','14', 1, 2, 192, 57,1),
+('Smart Home Hub','15', 2, 4, 466, 96,1),
+('Gaming Console','16', 9, 4, 587, 93,1),
+('E-reader','17', 11, 1, 970, 73,1),
+('Smart Thermostat','18', 10, 2, 908, 92,1),
+('Wireless Earbuds','19', 6, 4, 672, 62,1),
+('Home Security Camera','20', 1, 4, 364, 79,0);
 
 -- Insert Stock
 INSERT INTO Stock (IdProducto, IdProveedor, Cantidad) 

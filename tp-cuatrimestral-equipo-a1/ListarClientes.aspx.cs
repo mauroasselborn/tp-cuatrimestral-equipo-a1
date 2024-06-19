@@ -19,7 +19,7 @@ namespace tp_cuatrimestral_equipo_a1
                 rptClientes.DataSource = lstCliente;
                 rptClientes.DataBind();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 Response.Redirect("Error.aspx");
             }

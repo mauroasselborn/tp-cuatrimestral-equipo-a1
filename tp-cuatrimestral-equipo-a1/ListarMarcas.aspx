@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="ListarMarcas.aspx.cs" Inherits="tp_cuatrimestral_equipo_a1.ListarMarcas" %>
+﻿<%@ Page Title="Marcas" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="ListarMarcas.aspx.cs" Inherits="tp_cuatrimestral_equipo_a1.ListarMarcas" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Listado Marcas</title>
 </asp:Content>
@@ -7,7 +8,7 @@
         <h1 class="mt-4">Categrías</h1>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item"><a href="Dashboard.aspx">Dashboard</a></li>
-            <li class="breadcrumb-item active">Categorías</li>
+            <li class="breadcrumb-item active">Marcas</li>
         </ol>
 
         <div class="card mb-4">
@@ -49,4 +50,11 @@
             </div>
         </div>
     </div>
+    <script>
+        ddlMarcas = document.getElementById('ddlMarcas')
+        ddlMarcas.classList.remove('collapsed');
+        ddlMarcas.setAttribute("aria-expanded", "true");
+        document.getElementById('collapseLayoutsMarcas').className += " show"
+        document.getElementById('lstMarcas').className += ' active'
+    </script>
 </asp:Content>

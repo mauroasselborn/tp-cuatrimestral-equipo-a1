@@ -10,7 +10,7 @@ namespace tp_cuatrimestral_equipo_a1
     public partial class ABMCliente : System.Web.UI.Page
     {
         public List<Cliente> lstCliente;
-        private string idCliente;
+        public string idCliente;
         protected void Page_Load(object sender, EventArgs e)
         {
             ClienteNegocio clienteNegocio = new ClienteNegocio();
@@ -40,6 +40,11 @@ namespace tp_cuatrimestral_equipo_a1
                 {
                     Response.Redirect("ListarCliente.aspx");
                 }
+            }
+            else
+            {
+                string script = "document.getElementById('addCliente').className +=' active'";
+                ClientScript.RegisterStartupScript(this.GetType(), "Modal", script, true);
             }
         }
 

@@ -73,6 +73,11 @@
     </div>
 
     <script>
+        ddlCategorias = document.getElementById('dllCategorias')
+        ddlCategorias.classList.remove('collapsed');
+        ddlCategorias.setAttribute("aria-expanded", "true");
+        document.getElementById('collapseLayoutsCategoria').className += " show"
+        document.getElementById('lstCategorias').className += ' active'
 
         function CerrarModal(event) {
             event.preventDefault()

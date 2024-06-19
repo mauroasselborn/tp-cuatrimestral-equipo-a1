@@ -32,15 +32,15 @@
                                             <label for="cmbTipo" class="form-label">Categorias</label>
                                             <asp:DropDownList ID="ddlCategoria" class="form-select" aria-label="Default select example" runat="server" TabIndex="4"></asp:DropDownList>
                                         </div>
-                                        <div class="mb-5 col-5 ">
+                                        <div class="mb-2 col-5 ">
                                             <label for="txtStockMinimo" class="form-label">Stock minimo</label>
-                                            <asp:TextBox ID="txtStockMinimo" ClientIDMode="Static" min="0" class="form-control" runat="server" TextMode="Number" OnTextChanged="txtStockMinimo_TextChanged" TabIndex="5"></asp:TextBox>
+                                            <asp:TextBox ID="txtStockMinimo" ClientIDMode="Static" min="0" CssClass="form-control" runat="server" TextMode="Number" OnTextChanged="txtStockMinimo_TextChanged" TabIndex="5"></asp:TextBox>
                                         </div>
-                                        <div class="mb-5 col-2 ">
+                                        <div class="mb-2 col-2 ">
                                         </div>
-                                        <div class="mb-5 col-5">
+                                        <div class="mb-2 col-5">
                                             <label for="txtProcentajeGanancia" class="form-label">Procentaje ganancia</label>
-                                            <asp:TextBox ID="txtPorcentajeGanancia" onkeypress="return filterFloat(event,this);" ClientIDMode="Static" min="0" class="form-control" runat="server"  OnTextChanged="txtPorcentajeGanancia_TextChanged" TabIndex="6"></asp:TextBox>
+                                            <asp:TextBox ID="txtPorcentajeGanancia" onkeypress="return filterFloat(event,this);" ClientIDMode="Static" min="0" CssClass="form-control" runat="server"  OnTextChanged="txtPorcentajeGanancia_TextChanged" TabIndex="6"></asp:TextBox>
                                             <label >separar decimales con coma (",")</label>
                                         </div>
                                         <div class="mt-4 mb-0">

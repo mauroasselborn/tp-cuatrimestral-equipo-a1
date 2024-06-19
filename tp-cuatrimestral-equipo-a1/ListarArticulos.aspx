@@ -71,6 +71,8 @@
         </div>
     </div>
     <script>
+        document.getElementById("listArt").className += ' active'
+
         function CerrarModal() {
             event.preventDefault()
             document.getElementById('ModalEliminar').style.display = 'none'

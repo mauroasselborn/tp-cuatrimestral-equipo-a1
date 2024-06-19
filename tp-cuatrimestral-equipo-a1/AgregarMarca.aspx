@@ -65,4 +65,12 @@
             </div>
         </div>
     </div>
+    <script>
+        ddlMarcas = document.getElementById('ddlMarcas')
+        ddlMarcas.classList.remove('collapsed');
+        ddlMarcas.setAttribute("aria-expanded", "true");
+        document.getElementById('collapseLayoutsMarcas').className += " show"
+        document.getElementById('addMarcas').className += ' active'
+    </script>
+
 </asp:Content>

@@ -136,5 +136,8 @@
             </div>
         </div>
     </div>
+    <script>
+        document.getElementById("addProv").className += ' active'
+    </script>
 </asp:Content>
 

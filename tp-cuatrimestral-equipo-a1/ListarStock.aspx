@@ -54,4 +54,7 @@
             </div>
         </div>
     </div>
+    <script>
+        document.getElementById("listStock").className += ' active'
+    </script>
 </asp:Content>

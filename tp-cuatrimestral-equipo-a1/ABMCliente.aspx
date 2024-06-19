@@ -38,7 +38,7 @@
                                 </div>
                                 <div class="col-12 ">
                                     <div class="form-floating mb-3">
-                                        <asp:TextBox runat="server" ClientIDMode="static" CssClass="form-control" ID="txtTelefono" TextMode="Phone" placeholder="011-15-123456" autocomplete="off"  />
+                                        <asp:TextBox runat="server" ClientIDMode="static" CssClass="form-control" ID="txtTelefono" TextMode="Number" placeholder="011-15-123456" autocomplete="off"  />
                                         <label for="telefono">Teléfono</label>
                                     </div>
                                 </div>

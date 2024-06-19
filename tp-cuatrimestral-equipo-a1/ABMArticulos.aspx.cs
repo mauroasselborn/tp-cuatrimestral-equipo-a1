@@ -48,6 +48,11 @@ namespace tp_cuatrimestral_equipo_a1
                     ddlCategoria.SelectedValue = articulo.Categoria.Id.ToString();
                     ddlMarca.SelectedValue = articulo.Marca.id.ToString();
                 }
+                else
+                {
+                    string script = "document.getElementById('addArt').className +=' active'";
+                    ClientScript.RegisterStartupScript(this.GetType(), "active", script, true);
+                }
             }
 
 

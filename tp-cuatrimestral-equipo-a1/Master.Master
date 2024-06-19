@@ -65,11 +65,12 @@
                         </a>
                         <div class="sb-sidenav-menu-heading">Artículos</div>
 
-                        <a class="nav-link" href="ListarArticulos.aspx">- Listar Artículos</a>
-                        <a class="nav-link" href="ABMArticulos.aspx">- Nuevo Artículo</a>
-                        <a class="nav-link" href="ListarStock.aspx">- Stock de Artículos</a>
+                        <a id="listArt" class="nav-link" href="ListarArticulos.aspx">- Listar Artículos</a>
+                        <a id="addArt" class="nav-link" href="ABMArticulos.aspx">- Nuevo Artículo</a>
+                        <a id="listStock" class="nav-link" href="ListarStock.aspx">- Stock de Artículos</a>
 
                         <a
+                            id="ddlCompra"
                             class="nav-link collapsed"
                             href="#"
                             data-bs-toggle="collapse"
@@ -84,12 +85,13 @@
                             aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="Compras.aspx">Listar Compras</a>
-                                <a class="nav-link" href="CrearCompras.aspx">Nueva Compra</a>
+                                <a id="lstCompra" class="nav-link" href="Compras.aspx">Listar Compras</a>
+                                <a id="addCompra" class="nav-link" href="CrearCompras.aspx">Nueva Compra</a>
                             </nav>
                         </div>
 
                         <a
+                            id="ddlVenta"
                             class="nav-link collapsed"
                             href="#"
                             data-bs-toggle="collapse"
@@ -104,12 +106,13 @@
                             aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="Ventas.aspx">Listar Ventas</a>
-                                <a class="nav-link" href="CrearVentas.aspx">Nueva Venta</a>
+                                <a id="lstVentas" class="nav-link" href="Ventas.aspx">Listar Ventas</a>
+                                <a id="addVentas" class="nav-link" href="CrearVentas.aspx">Nueva Venta</a>
                             </nav>
                         </div>
 
                         <a
+                            id="ddlMarcas"
                             class="nav-link collapsed"
                             href="#"
                             data-bs-toggle="collapse"
@@ -124,12 +127,13 @@
                             aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="ListarMarcas.aspx">Listar Marcas</a>
-                                <a class="nav-link" href="AgregarMarca.aspx">Agregar Marca</a>
+                                <a id="lstMarcas" class="nav-link" href="ListarMarcas.aspx">Listar Marcas</a>
+                                <a id="addMarcas" class="nav-link" href="AgregarMarca.aspx">Agregar Marca</a>
                             </nav>
                         </div>
 
                         <a
+                            id="dllCategorias"
                             class="nav-link collapsed"
                             href="#"
                             data-bs-toggle="collapse"
@@ -144,23 +148,23 @@
                             aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="ListarCategorias.aspx">Listar Categorías</a>
-                                <a class="nav-link" href="AgregarCategoria.aspx">Agregar Categoría</a>
+                                <a id="lstCategorias" class="nav-link" href="ListarCategorias.aspx">Listar Categorías</a>
+                                <a id="addCategorias" class="nav-link" href="AgregarCategoria.aspx">Agregar Categoría</a>
                             </nav>
                         </div>
 
 
                         <div class="sb-sidenav-menu-heading">clientes</div>
-                        <a class="nav-link" href="ListarClientes.aspx">- Listar Clientes</a>
-                        <a class="nav-link" href="ABMCliente.aspx">- Nuevo Cliente</a>
+                        <a id="listCliente" class="nav-link" href="ListarClientes.aspx">- Listar Clientes</a>
+                        <a id="addCliente" class="nav-link" href="ABMCliente.aspx">- Nuevo Cliente</a>
 
                         <div class="sb-sidenav-menu-heading">proveedores</div>
-                        <a class="nav-link" href="ListarProveedores.aspx">- Listar Proveedores</a>
-                        <a class="nav-link" href="AgregarProveedor.aspx">- Nuevo Proveedor</a>
+                        <a id="listProv" class="nav-link" href="ListarProveedores.aspx">- Listar Proveedores</a>
+                        <a id="addProv" class="nav-link" href="AgregarProveedor.aspx">- Nuevo Proveedor</a>
 
                         <div class="sb-sidenav-menu-heading">usuarios</div>
-                        <a class="nav-link" href="ListarUsuarios.aspx">- Listar Usuarios</a>
-                        <a class="nav-link" href="AgregarUsuario.aspx">- Nuevo Usuario</a>
+                        <a id="listUser" class="nav-link" href="ListarUsuarios.aspx">- Listar Usuarios</a>
+                        <a id="addUser" class="nav-link" href="AgregarUsuario.aspx">- Nuevo Usuario</a>
                     </div>
                 </div>
                 <div class="sb-sidenav-footer">

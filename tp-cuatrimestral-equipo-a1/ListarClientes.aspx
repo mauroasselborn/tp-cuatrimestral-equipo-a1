@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="ListarClientes.aspx.cs" Inherits="tp_cuatrimestral_equipo_a1.ListarClientes" EnableEventValidation="false" %>
+﻿<%@ Page Title="Clientes" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="ListarClientes.aspx.cs" Inherits="tp_cuatrimestral_equipo_a1.ListarClientes" EnableEventValidation="false" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -71,6 +71,8 @@
     </div>
 
     <script>
+
+        document.getElementById("listCliente").className += " active";
 
         function CerrarModal() {
             event.preventDefault()

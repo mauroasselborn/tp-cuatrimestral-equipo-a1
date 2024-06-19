@@ -52,4 +52,11 @@
             </div>
         </div>
     </div>
+    <script>
+        ddlCompra = document.getElementById('ddlCompra')
+        ddlCompra.classList.remove('collapsed');
+        ddlCompra.setAttribute("aria-expanded", "true");
+        document.getElementById('collapseLayoutsCompras').className += " show"
+        document.getElementById('addCompra').className += ' active'
+    </script>
 </asp:Content>

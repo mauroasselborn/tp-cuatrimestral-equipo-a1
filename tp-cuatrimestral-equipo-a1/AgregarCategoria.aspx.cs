@@ -3,6 +3,7 @@ using Negocio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -19,14 +20,21 @@ namespace tp_cuatrimestral_equipo_a1
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
+            Page.Validate();
+            if (!Page.IsValid) return;
+
             CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
-            
-            if (txtDescripcion.Text.Length > 0)
+
+            if (!ValidacionesDB.validarCategoria(txtDescripcion.Text)) 
             {
-                //VALIDAR
-                categoriaNegocio.Agregar(txtDescripcion.Text);
-                Response.Redirect("ListarCategorias.aspx");
+                Session.Add("Error", "Error en la Validacion con la Base de Datos, Esa Categoria Ya se encuentra");
+                Session.Add("redirect", "AgregarCategoria.aspx");
+                Response.Redirect("Error.aspx");
             }
+
+            categoriaNegocio.Agregar(txtDescripcion.Text);
+            Response.Redirect("ListarCategorias.aspx");
+
         }
     }
 }

@@ -34,13 +34,20 @@ namespace tp_cuatrimestral_equipo_a1
 
         protected void btnEliminar_Click(object sender, EventArgs e)
         {
-            int id = int.Parse(((Button)sender).CommandArgument);
+            int id = int.Parse(btnEliminar.ToolTip);
             CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
-        
+
             categoriaNegocio.Eliminar(id);
 
             Response.Redirect("ListarCategorias.aspx");
-            
+
+        }
+
+        protected void btnModalEliminar_Click(object sender, EventArgs e)
+        {
+            string script = "document.getElementById('ModalEliminar').style.display = 'block'";
+            btnEliminar.ToolTip = ((Button)sender).CommandArgument.ToString();
+            ClientScript.RegisterStartupScript(this.GetType(), "Modal", script, true);
         }
     }
 }

@@ -44,13 +44,13 @@ namespace Negocio
 
             lstMarca = marcaNegocio.Listar();
 
-            bool existe = lstMarca.Any(m => m.Descripcion.ToUpper() == marca.Descripcion.ToUpper() && m.id != marca.id);
+            bool existe = lstMarca.Any(m => m.Descripcion.ToUpper() == marca.Descripcion.ToUpper());
 
             return !existe;
 
         }
 
-        public static bool validarUsuario(Usuario usuario)
+        public static bool validarUsuario(string nombreUsuario)
         {
             UsuarioNegocio usuarioNegocio = new UsuarioNegocio();
             List<Usuario> lstUsuarios = new List<Usuario>();

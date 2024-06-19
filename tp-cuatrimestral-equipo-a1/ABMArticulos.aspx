@@ -94,7 +94,7 @@
         txtStock = document.getElementById('txtStockMinimo')
         txtPorcentaje = document.getElementById('txtPorcentajeGanancia')
 
-        function Validar() {
+        function Validar(event) {
             if (txtNombre.value == '') {
                 txtNombre.classList.add("is-invalid")
                 event.preventDefault()

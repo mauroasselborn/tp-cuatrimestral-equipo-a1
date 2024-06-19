@@ -32,17 +32,19 @@ namespace tp_cuatrimestral_equipo_a1
 
         protected void btnAceptar_Click(object sender, EventArgs e)
         {
+            int id = int.Parse(Request.QueryString["id"].ToString());
+
             Page.Validate();
             if (!Page.IsValid) return;
 
             if (!ValidacionesDB.validarCategoria(txtDescripcion.Text))
             {
                 Session.Add("Error", "Error en la Validacion con la Base de Datos, Esa Categoria Ya se encuentra");
+                Session.Add("redirect", "EditarCategoria.aspx?id=" + id);
                 Response.Redirect("Error.aspx");
             }
 
             CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
-            int id = int.Parse(Request.QueryString["id"].ToString());
             categoriaNegocio.Update(id, txtDescripcion.Text);
             Response.Redirect("ListarCategorias.aspx");
 

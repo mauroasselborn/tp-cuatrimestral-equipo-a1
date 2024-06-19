@@ -1,4 +1,4 @@
-use [DB-EQUIPOA1]
+
 -- Insert Marcas
 INSERT INTO Marcas (Descripcion) 
 VALUES 
@@ -26,26 +26,26 @@ VALUES
 -- Insert Proveedores
 INSERT INTO Proveedores (Nombre, Empresa, Cuit, Telefono, Direccion, Email) 
 VALUES 
-('Tana', 'Lajo', '03-2435214-1', '(011) 7338-6187', 'Room 1691', 'tbalaizot0@spotify.com'),
-('Serene', 'Eazzy', '09-5332224-2', '(011) 8331-8485', 'Apt 625', 'sgeockle1@devhub.com'),
-('Berkly', 'Zoomlounge', '04-4175862-3', '(011) 3833-4734', 'Apt 1649', 'bpentony2@cnn.com'),
-('Millicent', 'Twiyo', '32-7630668-4', '(011) 8093-9374', 'Suite 32', 'mtrowler3@slideshare.net'),
-('Antonius', 'Bubbletube', '57-4136236-5', '(011) 9548-1323', 'Apt 110', 'amidgley4@ihg.com'),
-('Linda', 'Jabbersphere', '65-0585562-6', '(011) 9478-3374', 'Apt 1766', 'lmatuszyk5@jiathis.com'),
-('Sheeree', 'Gevee', '76-9206921-7', '(011) 2822-8075', '1st Floor', 'sangerstein6@pinterest.com'),
-('Korry', 'Mybuzz', '65-0525530-8', '(011) 9563-8954', 'Room 988', 'ksmallpeace7@columbia.edu'),
-('Beaufort', 'Geba', '75-8693691-9', '(011) 5703-1303', 'Apt 1556', 'btacker8@qq.com'),
-('Jason', 'Zoomdog', '32-9287667-0', '(011) 4147-7266', 'Suite 61', 'jrawdall9@g.co'),
-('Lisha', 'Kanoodle', '61-3020965-1', '(011) 7571-2102', 'PO Box 26349', 'lrowa@studiopress.com'),
-('Julee', 'Kamba', '02-3377139-2', '(011) 2704-1752', 'PO Box 80327', 'jvaughtonb@ning.com'),
-('Grantley', 'Voonte', '88-8808373-3', '(011) 5967-5937', 'Suite 70', 'gmacnockaterc@delicious.com'),
-('Siana', 'Janyx', '07-7684975-4', '(011) 3366-3600', 'Apt 1775', 'sneljesd@clickbank.net'),
-('Mathew', 'Youfeed', '24-6998433-5', '(011) 5309-9360', 'Room 1524', 'mgersone@shinystat.com'),
-('Morie', 'Youfeed', '96-7835467-6', '(011) 9833-1052', '8th Floor', 'mjackettf@harvard.edu'),
-('Booth', 'Browsecat', '80-9105541-7', '(011) 2156-0547', 'Apt 749', 'bferronig@multiply.com'),
-('Roobbie', 'Gigazoom', '57-1026371-8', '(011) 7976-1008', 'Apt 811', 'rivanonkoh@multiply.com'),
-('Scott', 'Latz', '93-4056705-9', '(011) 5759-3127', 'Room 10', 'scoopei@naver.com'),
-('Jacquelynn', 'Quatz', '70-2091809-0', '(011) 3745-8218', 'Room 1350', 'jiacovaccioj@meetup.com');
+('Tana', 'Lajo', '03-24353214-1', '(011) 7338-6187', 'Room 1691', 'tbalaizot0@spotify.com'),
+('Serene', 'Eazzy', '09-53323224-2', '(011) 8331-8485', 'Apt 625', 'sgeockle1@devhub.com'),
+('Berkly', 'Zoomlounge', '04-41735862-3', '(011) 3833-4734', 'Apt 1649', 'bpentony2@cnn.com'),
+('Millicent', 'Twiyo', '32-76303668-4', '(011) 8093-9374', 'Suite 32', 'mtrowler3@slideshare.net'),
+('Antonius', 'Bubbletube', '57-41336236-5', '(011) 9548-1323', 'Apt 110', 'amidgley4@ihg.com'),
+('Linda', 'Jabbersphere', '65-05385562-6', '(011) 9478-3374', 'Apt 1766', 'lmatuszyk5@jiathis.com'),
+('Sheeree', 'Gevee', '76-92063921-7', '(011) 2822-8075', '1st Floor', 'sangerstein6@pinterest.com'),
+('Korry', 'Mybuzz', '65-05235530-8', '(011) 9563-8954', 'Room 988', 'ksmallpeace7@columbia.edu'),
+('Beaufort', 'Geba', '75-86393691-9', '(011) 5703-1303', 'Apt 1556', 'btacker8@qq.com'),
+('Jason', 'Zoomdog', '32-92873667-0', '(011) 4147-7266', 'Suite 61', 'jrawdall9@g.co'),
+('Lisha', 'Kanoodle', '61-30230965-1', '(011) 7571-2102', 'PO Box 26349', 'lrowa@studiopress.com'),
+('Julee', 'Kamba', '02-33737139-2', '(011) 2704-1752', 'PO Box 80327', 'jvaughtonb@ning.com'),
+('Grantley', 'Voonte', '88-83808373-3', '(011) 5967-5937', 'Suite 70', 'gmacnockaterc@delicious.com'),
+('Siana', 'Janyx', '07-76484975-4', '(011) 3366-3600', 'Apt 1775', 'sneljesd@clickbank.net'),
+('Mathew', 'Youfeed', '24-69958433-5', '(011) 5309-9360', 'Room 1524', 'mgersone@shinystat.com'),
+('Morie', 'Youfeed', '96-78325467-6', '(011) 9833-1052', '8th Floor', 'mjackettf@harvard.edu'),
+('Booth', 'Browsecat', '80-91065541-7', '(011) 2156-0547', 'Apt 749', 'bferronig@multiply.com'),
+('Roobbie', 'Gigazoom', '57-10226371-8', '(011) 7976-1008', 'Apt 811', 'rivanonkoh@multiply.com'),
+('Scott', 'Latz', '93-40566705-9', '(011) 5759-3127', 'Room 10', 'scoopei@naver.com'),
+('Jacquelynn', 'Quatz', '70-20911809-0', '(011) 3745-8218', 'Room 1350', 'jiacovaccioj@meetup.com');
 
 -- Insert Articulos
 INSERT INTO Articulos (Nombre,Codigo, IdMarca, IdTipo, StockMinimo, PorcentajeGanancia,estado) 

@@ -50,6 +50,7 @@ CREATE TABLE [dbo].[Clientes](
 	[Telefono] [nvarchar](50) NULL,
 	[Direccion] [nvarchar](50) NULL,
 	[Mail] [nvarchar](50) NULL,
+	[Estado] [bit] NULL,
  CONSTRAINT [PK_Clientes] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
@@ -134,6 +135,7 @@ CREATE TABLE [dbo].[Proveedores](
 	[Telefono] [nvarchar](30) NULL,
 	[Direccion] [nvarchar](50) NULL,
 	[Email] [nvarchar](50) NULL,
+	[Estado] [bit] NULL,
  CONSTRAINT [PK_Proveedores] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
@@ -166,6 +168,7 @@ CREATE TABLE [dbo].[Usuarios](
 	[NombreUsuario] [nvarchar](50) NOT NULL,
 	[Pass] [nvarchar](50) NOT NULL,
 	[TipoUsuario] [nvarchar](50) NOT NULL,
+	[Estado] [bit] NULL,
  CONSTRAINT [PK_Usuario] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC

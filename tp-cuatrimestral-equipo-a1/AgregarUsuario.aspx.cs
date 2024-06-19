@@ -23,7 +23,7 @@ namespace tp_cuatrimestral_equipo_a1
             usuario.Pass = inputPassword.Text;
             usuario.TipoUsuario = dropTipoUsuario.SelectedValue;
 
-            if (ValidacionesDB.validarUsuario(usuario))
+            if (ValidacionesDB.validarUsuario(inputUsuario.Text))
             {
                 lblErrorUsuario.Text = "Usuario ya existe";
                 return;

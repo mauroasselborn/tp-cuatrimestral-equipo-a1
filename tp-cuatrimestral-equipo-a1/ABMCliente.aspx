@@ -105,7 +105,7 @@
         txtTelefono = document.getElementById('txtTelefono')
         txtEmail = document.getElementById('txtEmail')
 
-        function Validar() {
+        function Validar(event) {
             if (txtNombre.value == '') {
                 txtNombre.classList.add("is-invalid")
                 event.preventDefault()

@@ -79,8 +79,8 @@
                                                 <asp:RegularExpressionValidator
                                                     runat="server"
                                                     ControlToValidate="txtTelefono"
-                                                    ErrorMessage="Formato de teléfono no válido."
-                                                    ValidationExpression="^\d{2,4}-\d{2,4}-\d{4,8}$"
+                                                    ErrorMessage="Formato de teléfono no válido. Debe contener solo números y tener entre 8 y 16 dígitos."
+                                                    ValidationExpression="^\d{8,16}$"
                                                     CssClass="text-danger"
                                                     Display="Dynamic">
                                                 </asp:RegularExpressionValidator>
@@ -123,6 +123,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <asp:Label ID="lblErrorProveedor" CssClass="text-danger" Text="" runat="server"></asp:Label>
                                     <div class="d-grid gap-5 d-flex justify-content-evenly">
                                         <asp:Button Text="Agregar" runat="server" class="btn btn-primary w-25 p-2" ID="btnAgregar" OnClick="btnAgregar_Click" />
                                         <a href="Dashboard.aspx" class="btn btn-danger me-md-2 w-25 p-2">Cancelar</a>

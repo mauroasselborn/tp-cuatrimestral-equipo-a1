@@ -6,5 +6,6 @@
         public string NombreUsuario { get; set; }
         public string Pass { get; set; }
         public string TipoUsuario { get; set; }
+        public bool Estado { get; set; }
     }
 }

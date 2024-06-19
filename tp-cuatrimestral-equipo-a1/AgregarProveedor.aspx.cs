@@ -31,12 +31,13 @@ namespace tp_cuatrimestral_equipo_a1
             proveedor.Telefono = txtTelefono.Text;
             proveedor.Direccion = txtDireccion.Text;
             proveedor.Email = txtEmail.Text;
+            proveedor.Estado = true;
 
             if (!ValidacionesDB.validarProveedor(proveedor))
+
             {
-                Session.Add("Error", "Error en la Validacion con la Base de Datos, Revise los Datos ingresados de Empresa, Cuit, Telefono, Email Se encuentren repetidos");
-                Session.Add("redirect", "AgregarProveedor.aspx");
-                Response.Redirect("Error.aspx");
+                lblErrorProveedor.Text = "Proveedor Existente, Intente de nuevo";
+                return;
             }
 
             proveedorNegocio.Agregar(proveedor);

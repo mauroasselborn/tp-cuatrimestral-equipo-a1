@@ -17,35 +17,39 @@ namespace tp_cuatrimestral_equipo_a1
             lstCliente = clienteNegocio.Listar();
 
             idCliente = Request.QueryString["id"];
-
-            if (idCliente != null && !IsPostBack)
+            if (!IsPostBack)
             {
-                lblTitulo.Text = "Editar Cliente";
-
-                try
+                if (idCliente != null)
                 {
-                    Cliente Seleccionado = lstCliente.Find(x => x.Id == Convert.ToInt32(idCliente));
+                    lblTitulo.Text = "Editar Cliente";
 
-                    txtNombre.Text = Seleccionado.Nombre;
-                    txtApellido.Text = Seleccionado.Apellido;
-                    txtDocumento.Text = Seleccionado.Documento;
-                    txtDocumento.Enabled = false;
-                    txtTelefono.Text = Seleccionado.Telefono;
-                    txtDireccion.Text = Seleccionado.Direccion;
-                    txtEmail.Text = Seleccionado.Mail;
+                    try
+                    {
+                        Cliente Seleccionado = lstCliente.Find(x => x.Id == Convert.ToInt32(idCliente));
 
-                    btnAgregar.Text = "Confirmar";
+                        txtNombre.Text = Seleccionado.Nombre;
+                        txtApellido.Text = Seleccionado.Apellido;
+                        txtDocumento.Text = Seleccionado.Documento;
+                        txtDocumento.Enabled = false;
+                        txtTelefono.Text = Seleccionado.Telefono;
+                        txtDireccion.Text = Seleccionado.Direccion;
+                        txtEmail.Text = Seleccionado.Mail;
+
+                        btnAgregar.Text = "Confirmar";
+                    }
+                    catch (Exception)
+                    {
+                        Response.Redirect("ListarCliente.aspx");
+                    }
                 }
-                catch (Exception)
+                else
                 {
-                    Response.Redirect("ListarCliente.aspx");
+                    string script = "document.getElementById('addCliente').className +=' active'";
+                    ClientScript.RegisterStartupScript(this.GetType(), "link", script, true);
                 }
             }
-            //else
-            //{
-            //    string script = "document.getElementById('addCliente').className +=' active'";
-            //    ClientScript.RegisterStartupScript(this.GetType(), "link", script, true);
-            //}
+
+
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)

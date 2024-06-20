@@ -25,7 +25,7 @@ namespace tp_cuatrimestral_equipo_a1
                 Response.Redirect("Dashboard.aspx");
             }
             else
-                Response.Redirect("Dashboard.aspx");
+                Response.Redirect("Default.aspx");
         }
     }
 }

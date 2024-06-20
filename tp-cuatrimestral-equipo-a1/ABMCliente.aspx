@@ -99,6 +99,8 @@
     </div>
 
     <script>
+
+
         txtNombre = document.getElementById("<%= txtNombre.ClientID %>")
         txtApellido = document.getElementById('txtApellido')
         txtDocumento = document.getElementById('txtDocumento')

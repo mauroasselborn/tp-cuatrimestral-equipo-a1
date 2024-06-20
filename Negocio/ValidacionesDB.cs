@@ -50,7 +50,7 @@ namespace Negocio
 
         }
 
-        public static bool validarUsuario(string nombreUsuario)
+        public static bool validarUsuario(int id, string nombreUsuario)
         {
             UsuarioNegocio usuarioNegocio = new UsuarioNegocio();
             List<Usuario> lstUsuarios = new List<Usuario>();
@@ -58,7 +58,7 @@ namespace Negocio
 
             lstUsuarios = usuarioNegocio.Listar();
 
-            bool existe = lstUsuarios.Exists(u => u.NombreUsuario.ToUpper() == nombreUsuario.ToUpper());
+            bool existe = lstUsuarios.Exists(u => u.NombreUsuario.ToUpper() == nombreUsuario.ToUpper() && u.Id!=id);
 
             return existe;
         }

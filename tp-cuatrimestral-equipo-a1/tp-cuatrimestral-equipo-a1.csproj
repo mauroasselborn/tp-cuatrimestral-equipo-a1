@@ -83,6 +83,7 @@
     <Content Include="EditarMarca.aspx" />
     <Content Include="EditarProveedor.aspx" />
     <Content Include="EditarStock.aspx" />
+    <Content Include="EditarUsuario.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Img\ErrorPage.png" />
@@ -204,6 +205,13 @@
     </Compile>
     <Compile Include="EditarStock.aspx.designer.cs">
       <DependentUpon>EditarStock.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditarUsuario.aspx.cs">
+      <DependentUpon>EditarUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditarUsuario.aspx.designer.cs">
+      <DependentUpon>EditarUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Error.aspx.cs">
       <DependentUpon>Error.aspx</DependentUpon>

@@ -21,7 +21,7 @@ namespace tp_cuatrimestral_equipo_a1
             //El momento de desarrollar el login es sacar el 1==2 y en el else pasar un return y un mensaje de contrasenia invalida
             if (usuario != null && 1 == 2)
             {
-                Session.Add("Loguedo", new Usuario());
+                Session.Add("Logueado", usuario);
                 Response.Redirect("Dashboard.aspx");
             }
             else

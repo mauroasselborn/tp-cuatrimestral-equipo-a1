@@ -34,7 +34,7 @@
                     </tfoot>
                     <tbody>
 
-                        <%-- Acá Tengo que repetir esta sección con los datos de la base --%>
+                       
                         <asp:Repeater runat="server" ID="rptUsuario">
                             <ItemTemplate>
                                 <tr>
@@ -47,7 +47,7 @@
                                 </tr>
                             </ItemTemplate>
                         </asp:Repeater>
-                        <%-- -------------- --%>
+                      
                     </tbody>
                 </table>
             </div>

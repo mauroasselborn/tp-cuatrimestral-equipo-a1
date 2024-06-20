@@ -112,6 +112,7 @@ BEGIN
 
     SET NOCOUNT ON
 	Select * FROM Clientes
+	where Estado = 1
 END
 GO
 CREATE PROCEDURE sp_ins_cliente
@@ -127,9 +128,9 @@ AS
 BEGIN
 
     SET NOCOUNT ON
-	
-	INSERT INTO Clientes (Nombre, Apellido, Documento, Telefono, Direccion, Mail) 
-		VALUES  ( @Nombre, @Apellido, @Documento, @Telefono, @Direccion, @Mail ) 
+	select * from Clientes
+	INSERT INTO Clientes (Nombre, Apellido, Documento, Telefono, Direccion, Mail,Estado) 
+		VALUES  ( @Nombre, @Apellido, @Documento, @Telefono, @Direccion, @Mail,1) 
 END
 GO
 CREATE PROCEDURE sp_upd_cliente(
@@ -155,14 +156,14 @@ BEGIN
 	WHERE id = @Id 
 END
 GO
-CREATE PROCEDURE sp_del_cliente
+Create PROCEDURE sp_del_cliente
 (
 	@Id int
 )
 AS
 BEGIN
  SET NOCOUNT ON
- Delete Clientes where ID = @Id
+ Update Clientes set Estado=0 where ID = @Id
  END
 GO
 --------------

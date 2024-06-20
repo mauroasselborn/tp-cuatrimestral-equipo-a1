@@ -41,11 +41,11 @@ namespace tp_cuatrimestral_equipo_a1
                     Response.Redirect("ListarCliente.aspx");
                 }
             }
-            else
-            {
-                string script = "document.getElementById('addCliente').className +=' active'";
-                ClientScript.RegisterStartupScript(this.GetType(), "Modal", script, true);
-            }
+            //else
+            //{
+            //    string script = "document.getElementById('addCliente').className +=' active'";
+            //    ClientScript.RegisterStartupScript(this.GetType(), "link", script, true);
+            //}
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)

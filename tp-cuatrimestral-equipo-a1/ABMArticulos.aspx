@@ -45,7 +45,7 @@
                                         </div>
                                         <div class="mt-4 mb-0">
                                             <div class="d-grid">
-                                                <asp:Button ID="btnAceptar" OnClientClick="Validar()" Text="Confirmar" class="btn btn-primary" runat="server" OnClick="btnAceptar_Click" TabIndex="7" />
+                                                <asp:Button ID="btnAceptar" OnClientClick="return Validar()" Text="Confirmar" class="btn btn-primary" runat="server" OnClick="btnAceptar_Click" TabIndex="7" />
                                             </div>
                                         </div>
 
@@ -97,7 +97,7 @@
         function Validar(event) {
             if (txtNombre.value == '') {
                 txtNombre.classList.add("is-invalid")
-                event.preventDefault()
+                return false
             } else {
                 txtNombre.classList.remove("is-invalid")
                 txtNombre.classList.add("is-valid")
@@ -105,7 +105,7 @@
 
             if (txtCodigo.value == '') {
                 txtCodigo.classList.add("is-invalid")
-                event.preventDefault()
+                return false
             } else {
                 txtCodigo.classList.remove("is-invalid")
                 txtCodigo.classList.add("is-valid")
@@ -113,7 +113,7 @@
 
             if (txtStock.value == '') {
                 txtStock.classList.add("is-invalid")
-                event.preventDefault()
+                return false
             } else {
                 txtStock.classList.remove("is-invalid")
                 txtStock.classList.add("is-valid")
@@ -121,13 +121,13 @@
 
             if (txtPorcentaje.value == '' ) {
                 txtPorcentaje.classList.add("is-invalid")
-                event.preventDefault()
+                return false
             } else {
                 txtPorcentaje.classList.remove("is-invalid")
                 txtPorcentaje.classList.add("is-valid")
             } if (txtNombre.value == '') {
                 txtNombre.classList.add("is-invalid")
-                event.preventDefault()
+                return false
             } else {
                 txtNombre.classList.remove("is-invalid")
                 txtNombre.classList.add("is-valid")
@@ -135,7 +135,7 @@
 
             if (txtCodigo.value == '') {
                 txtCodigo.classList.add("is-invalid")
-                event.preventDefault()
+                return false
             } else {
                 txtCodigo.classList.remove("is-invalid")
                 txtCodigo.classList.add("is-valid")
@@ -143,7 +143,7 @@
 
             if (txtStock.value == '') {
                 txtStock.classList.add("is-invalid")
-                event.preventDefault()
+                return false
             } else {
                 txtStock.classList.remove("is-invalid")
                 txtStock.classList.add("is-valid")
@@ -151,7 +151,7 @@
 
             if (txtPorcentaje.value == '') {
                 txtPorcentaje.classList.add("is-invalid")
-                event.preventDefault()
+                return false
             } else {
                 txtPorcentaje.classList.remove("is-invalid")
                 txtPorcentaje.classList.add("is-valid")

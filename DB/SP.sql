@@ -223,6 +223,7 @@ BEGIN
 
     SET NOCOUNT ON
 	Select * FROM Proveedores
+	WHERE Estado = 1
 END
 GO
 
@@ -496,6 +497,7 @@ BEGIN
     SET NOCOUNT ON
  Select *
 	 from Usuarios
+	 WHERE Estado = 1
 END
 GO
 

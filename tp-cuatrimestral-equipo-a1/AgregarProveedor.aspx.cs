@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Threading;
 
 namespace tp_cuatrimestral_equipo_a1
 {
@@ -21,6 +22,8 @@ namespace tp_cuatrimestral_equipo_a1
 
             Page.Validate();
             if (!Page.IsValid) return;
+
+            string script = "document.getElementById('ModalConfirmar').style.display = 'block';";
 
             ProveedorNegocio proveedorNegocio = new ProveedorNegocio();
             Proveedor proveedor = new Proveedor();
@@ -42,8 +45,14 @@ namespace tp_cuatrimestral_equipo_a1
 
             proveedorNegocio.Agregar(proveedor);
 
-            Response.Redirect("ListarProveedores.aspx");
+            ClientScript.RegisterStartupScript(this.GetType(), "Modal", script, true);
 
+        }
+
+        protected void BtnAceptarModal_Click(object sender, EventArgs e)
+        {
+            Thread.Sleep(1000);
+            Response.Redirect("ListarProveedores.aspx");
         }
     }
 }

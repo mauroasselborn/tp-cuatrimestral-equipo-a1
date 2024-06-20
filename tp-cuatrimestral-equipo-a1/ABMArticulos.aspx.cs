@@ -113,24 +113,6 @@ namespace tp_cuatrimestral_equipo_a1
             txtPorcentajeGanancia.Text = "";
         }
 
-        protected void txtStockMinimo_TextChanged(object sender, EventArgs e)
-        {
-            if (Convert.ToInt32(txtStockMinimo.Text) < 0 || txtStockMinimo.Text.Contains("."))
-            {
-                txtStockMinimo.Text = "0";
-            }
-
-        }
-
-        protected void txtPorcentajeGanancia_TextChanged(object sender, EventArgs e)
-        {
-            if (Convert.ToDecimal(txtPorcentajeGanancia.Text) < 0)
-            {
-                txtStockMinimo.Text = "0";
-            }
-
-        }
-
         protected void BtnAceptarModal_Click(object sender, EventArgs e)
         {
             Thread.Sleep(1000);

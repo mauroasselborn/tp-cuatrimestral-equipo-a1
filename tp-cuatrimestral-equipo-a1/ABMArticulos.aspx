@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-    <div id="layoutAuthentication">
+    <div id="layoutAuthentication" style="min-height: 85vh">
         <div id="layoutAuthentication_content">
             <div class="container">
                 <div class="row justify-content-center">

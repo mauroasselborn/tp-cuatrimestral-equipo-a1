@@ -24,28 +24,28 @@ VALUES
 ('Monitores');
 
 -- Insert Proveedores
-INSERT INTO Proveedores (Nombre, Empresa, Cuit, Telefono, Direccion, Email) 
+INSERT INTO Proveedores (Nombre, Empresa, Cuit, Telefono, Direccion, Email, Estado) 
 VALUES 
-('Tana', 'Lajo', '03-24353214-1', '(011) 7338-6187', 'Room 1691', 'tbalaizot0@spotify.com'),
-('Serene', 'Eazzy', '09-53323224-2', '(011) 8331-8485', 'Apt 625', 'sgeockle1@devhub.com'),
-('Berkly', 'Zoomlounge', '04-41735862-3', '(011) 3833-4734', 'Apt 1649', 'bpentony2@cnn.com'),
-('Millicent', 'Twiyo', '32-76303668-4', '(011) 8093-9374', 'Suite 32', 'mtrowler3@slideshare.net'),
-('Antonius', 'Bubbletube', '57-41336236-5', '(011) 9548-1323', 'Apt 110', 'amidgley4@ihg.com'),
-('Linda', 'Jabbersphere', '65-05385562-6', '(011) 9478-3374', 'Apt 1766', 'lmatuszyk5@jiathis.com'),
-('Sheeree', 'Gevee', '76-92063921-7', '(011) 2822-8075', '1st Floor', 'sangerstein6@pinterest.com'),
-('Korry', 'Mybuzz', '65-05235530-8', '(011) 9563-8954', 'Room 988', 'ksmallpeace7@columbia.edu'),
-('Beaufort', 'Geba', '75-86393691-9', '(011) 5703-1303', 'Apt 1556', 'btacker8@qq.com'),
-('Jason', 'Zoomdog', '32-92873667-0', '(011) 4147-7266', 'Suite 61', 'jrawdall9@g.co'),
-('Lisha', 'Kanoodle', '61-30230965-1', '(011) 7571-2102', 'PO Box 26349', 'lrowa@studiopress.com'),
-('Julee', 'Kamba', '02-33737139-2', '(011) 2704-1752', 'PO Box 80327', 'jvaughtonb@ning.com'),
-('Grantley', 'Voonte', '88-83808373-3', '(011) 5967-5937', 'Suite 70', 'gmacnockaterc@delicious.com'),
-('Siana', 'Janyx', '07-76484975-4', '(011) 3366-3600', 'Apt 1775', 'sneljesd@clickbank.net'),
-('Mathew', 'Youfeed', '24-69958433-5', '(011) 5309-9360', 'Room 1524', 'mgersone@shinystat.com'),
-('Morie', 'Youfeed', '96-78325467-6', '(011) 9833-1052', '8th Floor', 'mjackettf@harvard.edu'),
-('Booth', 'Browsecat', '80-91065541-7', '(011) 2156-0547', 'Apt 749', 'bferronig@multiply.com'),
-('Roobbie', 'Gigazoom', '57-10226371-8', '(011) 7976-1008', 'Apt 811', 'rivanonkoh@multiply.com'),
-('Scott', 'Latz', '93-40566705-9', '(011) 5759-3127', 'Room 10', 'scoopei@naver.com'),
-('Jacquelynn', 'Quatz', '70-20911809-0', '(011) 3745-8218', 'Room 1350', 'jiacovaccioj@meetup.com');
+('Tana', 'Lajo', '03-24353214-1', '(011) 7338-6187', 'Room 1691', 'tbalaizot0@spotify.com',1),
+('Serene', 'Eazzy', '09-53323224-2', '(011) 8331-8485', 'Apt 625', 'sgeockle1@devhub.com',1),
+('Berkly', 'Zoomlounge', '04-41735862-3', '(011) 3833-4734', 'Apt 1649', 'bpentony2@cnn.com',1),
+('Millicent', 'Twiyo', '32-76303668-4', '(011) 8093-9374', 'Suite 32', 'mtrowler3@slideshare.net',1),
+('Antonius', 'Bubbletube', '57-41336236-5', '(011) 9548-1323', 'Apt 110', 'amidgley4@ihg.com',1),
+('Linda', 'Jabbersphere', '65-05385562-6', '(011) 9478-3374', 'Apt 1766', 'lmatuszyk5@jiathis.com',1),
+('Sheeree', 'Gevee', '76-92063921-7', '(011) 2822-8075', '1st Floor', 'sangerstein6@pinterest.com',1),
+('Korry', 'Mybuzz', '65-05235530-8', '(011) 9563-8954', 'Room 988', 'ksmallpeace7@columbia.edu',1),
+('Beaufort', 'Geba', '75-86393691-9', '(011) 5703-1303', 'Apt 1556', 'btacker8@qq.com',1),
+('Jason', 'Zoomdog', '32-92873667-0', '(011) 4147-7266', 'Suite 61', 'jrawdall9@g.co',1),
+('Lisha', 'Kanoodle', '61-30230965-1', '(011) 7571-2102', 'PO Box 26349', 'lrowa@studiopress.com',1),
+('Julee', 'Kamba', '02-33737139-2', '(011) 2704-1752', 'PO Box 80327', 'jvaughtonb@ning.com',1),
+('Grantley', 'Voonte', '88-83808373-3', '(011) 5967-5937', 'Suite 70', 'gmacnockaterc@delicious.com',1),
+('Siana', 'Janyx', '07-76484975-4', '(011) 3366-3600', 'Apt 1775', 'sneljesd@clickbank.net',1),
+('Mathew', 'Youfeed', '24-69958433-5', '(011) 5309-9360', 'Room 1524', 'mgersone@shinystat.com',1),
+('Morie', 'Youfeed', '96-78325467-6', '(011) 9833-1052', '8th Floor', 'mjackettf@harvard.edu',1),
+('Booth', 'Browsecat', '80-91065541-7', '(011) 2156-0547', 'Apt 749', 'bferronig@multiply.com',1),
+('Roobbie', 'Gigazoom', '57-10226371-8', '(011) 7976-1008', 'Apt 811', 'rivanonkoh@multiply.com',1),
+('Scott', 'Latz', '93-40566705-9', '(011) 5759-3127', 'Room 10', 'scoopei@naver.com',1),
+('Jacquelynn', 'Quatz', '70-20911809-0', '(011) 3745-8218', 'Room 1350', 'jiacovaccioj@meetup.com',1);
 
 -- Insert Articulos
 INSERT INTO Articulos (Nombre,Codigo, IdMarca, IdTipo, StockMinimo, PorcentajeGanancia,estado) 

@@ -34,13 +34,13 @@
                                         </div>
                                         <div class="mb-2 col-5 ">
                                             <label for="txtStockMinimo" class="form-label">Stock minimo</label>
-                                            <asp:TextBox ID="txtStockMinimo" ClientIDMode="Static" min="0" CssClass="form-control" runat="server" TextMode="Number" OnTextChanged="txtStockMinimo_TextChanged" TabIndex="5"></asp:TextBox>
+                                            <asp:TextBox ID="txtStockMinimo" ClientIDMode="Static" min="1" CssClass="form-control" runat="server" TextMode="Number" TabIndex="5"></asp:TextBox>
                                         </div>
                                         <div class="mb-2 col-2 ">
                                         </div>
                                         <div class="mb-2 col-5">
                                             <label for="txtProcentajeGanancia" class="form-label">Procentaje ganancia</label>
-                                            <asp:TextBox ID="txtPorcentajeGanancia" onkeypress="return filterFloat(event,this);" ClientIDMode="Static" min="0" CssClass="form-control" runat="server" OnTextChanged="txtPorcentajeGanancia_TextChanged" TabIndex="6"></asp:TextBox>
+                                            <asp:TextBox ID="txtPorcentajeGanancia" onkeypress="return filterFloat(event,this);" ClientIDMode="Static" min="1" CssClass="form-control" runat="server" TabIndex="6"></asp:TextBox>
                                             <label>separar decimales con coma (",")</label>
                                         </div>
                                         <div class="mt-4 mb-0">
@@ -143,7 +143,7 @@
                 txtCodigo.classList.add("is-valid")
             }
 
-            if (txtStock.value == '') {
+            if (txtStock.value == '' && txtStock.value > 0) {
                 txtStock.classList.add("is-invalid")
                 return false
             } else {
@@ -151,7 +151,7 @@
                 txtStock.classList.add("is-valid")
             }
 
-            if (txtPorcentaje.value == '') {
+            if (txtPorcentaje.value == '' && txtPorcentaje.value > 0 ) {
                 txtPorcentaje.classList.add("is-invalid")
                 return false
             } else {

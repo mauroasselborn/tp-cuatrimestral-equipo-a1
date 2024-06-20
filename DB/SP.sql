@@ -466,8 +466,8 @@ BEGIN
 
     SET NOCOUNT ON
 
-	INSERT INTO Usuarios (NombreUsuario,Pass,TipoUsuario) 
-		VALUES  ( @Nombre,@Pass,@Tipo) 
+	INSERT INTO Usuarios (NombreUsuario,Pass,TipoUsuario,Estado) 
+		VALUES  ( @Nombre,@Pass,@Tipo,1) 
 END
 GO
 
@@ -528,3 +528,4 @@ BEGIN
 	 WHERE Id = @id
 END
 GO
+

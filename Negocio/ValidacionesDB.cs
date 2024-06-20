@@ -14,7 +14,7 @@ namespace Negocio
 
             lstCategoria = categoriaNegocio.Listar();
 
-            bool existe = lstCategoria.Any(cat => cat.Descripcion.ToUpper() == descripcion.ToUpper());
+            bool existe = lstCategoria.Exists(cat => cat.Descripcion.ToUpper() == descripcion.ToUpper());
 
             return !existe;
 
@@ -27,7 +27,7 @@ namespace Negocio
 
             lstProveedor = proveedorNegocio.Listar();
 
-            bool existe = lstProveedor.Any(prov =>
+            bool existe = lstProveedor.Exists(prov =>
                 prov.Empresa.ToUpper() == pro.Empresa.ToUpper() ||
                 prov.Cuit.ToUpper() == pro.Cuit.ToUpper() ||
                 prov.Telefono.ToUpper() == pro.Telefono.ToUpper() ||
@@ -44,9 +44,9 @@ namespace Negocio
 
             lstMarca = marcaNegocio.Listar();
 
-            bool existe = lstMarca.Any(m => m.Descripcion.ToUpper() == marca.Descripcion.ToUpper());
+            bool existe = lstMarca.Exists(m => m.Descripcion.ToUpper() == marca.Descripcion.ToUpper());
 
-            return !existe;
+            return existe;
 
         }
 

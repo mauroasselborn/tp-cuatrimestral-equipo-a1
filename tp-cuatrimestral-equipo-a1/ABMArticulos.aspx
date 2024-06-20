@@ -40,8 +40,8 @@
                                         </div>
                                         <div class="mb-2 col-5">
                                             <label for="txtProcentajeGanancia" class="form-label">Procentaje ganancia</label>
-                                            <asp:TextBox ID="txtPorcentajeGanancia" onkeypress="return filterFloat(event,this);" ClientIDMode="Static" min="0" CssClass="form-control" runat="server"  OnTextChanged="txtPorcentajeGanancia_TextChanged" TabIndex="6"></asp:TextBox>
-                                            <label >separar decimales con coma (",")</label>
+                                            <asp:TextBox ID="txtPorcentajeGanancia" onkeypress="return filterFloat(event,this);" ClientIDMode="Static" min="0" CssClass="form-control" runat="server" OnTextChanged="txtPorcentajeGanancia_TextChanged" TabIndex="6"></asp:TextBox>
+                                            <label>separar decimales con coma (",")</label>
                                         </div>
                                         <div class="mt-4 mb-0">
                                             <div class="d-grid">
@@ -82,7 +82,7 @@
                     Guardado exitoso!
                 </div>
                 <div class="modal-footer">
-                    <asp:Button ID="BtnAceptarModal" Text="Aceptar" CssClass="btn btn-primary" OnClick="BtnAceptarModal_Click" runat="server"  />
+                    <asp:Button ID="BtnAceptarModal" Text="Aceptar" CssClass="btn btn-primary" OnClick="BtnAceptarModal_Click" runat="server" />
                 </div>
             </div>
         </div>
@@ -119,13 +119,15 @@
                 txtStock.classList.add("is-valid")
             }
 
-            if (txtPorcentaje.value == '' ) {
+            if (txtPorcentaje.value == '') {
                 txtPorcentaje.classList.add("is-invalid")
                 return false
             } else {
                 txtPorcentaje.classList.remove("is-invalid")
                 txtPorcentaje.classList.add("is-valid")
-            } if (txtNombre.value == '') {
+            }
+
+            if (txtNombre.value == '') {
                 txtNombre.classList.add("is-invalid")
                 return false
             } else {

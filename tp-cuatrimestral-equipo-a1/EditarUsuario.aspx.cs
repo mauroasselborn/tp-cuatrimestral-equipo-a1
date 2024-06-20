@@ -1,11 +1,7 @@
 ﻿using Dominio;
 using Negocio;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace tp_cuatrimestral_equipo_a1
 {
@@ -13,7 +9,7 @@ namespace tp_cuatrimestral_equipo_a1
     {
         Usuario usuario = new Usuario();
         UsuarioNegocio usuarioNegocio = new UsuarioNegocio();
-
+        Encriptacion encriptacion = new Encriptacion();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.QueryString["id"] == null) Response.Redirect("Dashboard.aspx");
@@ -27,6 +23,7 @@ namespace tp_cuatrimestral_equipo_a1
             {
                 inputUsuario.Text = usuario.NombreUsuario;
                 dropTipoUsuario.SelectedValue = usuario.TipoUsuario;
+                inputPassword.Text = encriptacion.Desencripta(usuario.Pass);
             }
         }
 

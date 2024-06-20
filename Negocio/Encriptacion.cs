@@ -29,6 +29,24 @@ namespace Negocio
             }
             return Convert.ToBase64String(encripted);
         }
+        public string Desencripta(string Cadena)
+        {
+            byte[] inputBytes = Convert.FromBase64String(Cadena);
+            byte[] resultBytes = new byte[inputBytes.Length];
+            string textoLimpio = String.Empty;
+            RijndaelManaged cripto = new RijndaelManaged();
+            using (MemoryStream ms = new MemoryStream(inputBytes))
+            {
+                using (CryptoStream objCryptoStream = new CryptoStream(ms, cripto.CreateDecryptor(Clave, IV), CryptoStreamMode.Read))
+                {
+                    using (StreamReader sr = new StreamReader(objCryptoStream, true))
+                    {
+                        textoLimpio = sr.ReadToEnd();
+                    }
+                }
+            }
+            return textoLimpio;
+        }
 
     }
 }

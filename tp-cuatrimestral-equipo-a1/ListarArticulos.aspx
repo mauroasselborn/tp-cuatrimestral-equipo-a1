@@ -49,6 +49,8 @@
                     </tbody>
                 </table>
             </div>
+
+            <%-- Modal --%>
             <div class="modal show" id="ModalEliminar" style="display: none" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-dialog">
@@ -73,7 +75,7 @@
     <script>
         document.getElementById("listArt").className += ' active'
 
-        function CerrarModal() {
+        function CerrarModal(event) {
             event.preventDefault()
             document.getElementById('ModalEliminar').style.display = 'none'
         }

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -25,16 +26,22 @@ namespace tp_cuatrimestral_equipo_a1
 
             CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
 
-            if (!ValidacionesDB.validarCategoria(txtDescripcion.Text)) 
+            if (!ValidacionesDB.validarCategoria(txtDescripcion.Text))
             {
-                Session.Add("Error", "Error en la Validacion con la Base de Datos, Esa Categoria Ya se encuentra");
-                Session.Add("redirect", "AgregarCategoria.aspx");
-                Response.Redirect("Error.aspx");
+                lblMismaCategoria.Text = "Ya existe una Categoria con la misma descripcion";
+                return;
             }
 
             categoriaNegocio.Agregar(txtDescripcion.Text);
-            Response.Redirect("ListarCategorias.aspx");
+            string script = "document.getElementById('ModalConfirmar').style.display = 'block';";
+            ClientScript.RegisterStartupScript(this.GetType(), "Modal", script, true);
 
+        }
+
+        protected void BtnAceptarModal_Click(object sender, EventArgs e)
+        {
+            Thread.Sleep(1000);
+            Response.Redirect("ListarCategorias.aspx");
         }
     }
 }

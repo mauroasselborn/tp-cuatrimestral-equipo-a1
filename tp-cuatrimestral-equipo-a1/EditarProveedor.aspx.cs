@@ -36,6 +36,9 @@ namespace tp_cuatrimestral_equipo_a1
 
         protected void btnAceptar_Click(object sender, EventArgs e)
         {
+            Page.Validate();
+            if (!Page.IsValid) return;
+
             ProveedorNegocio proveedorNegocio = new ProveedorNegocio();
             Proveedor proveedor = new Proveedor();
 
@@ -49,8 +52,21 @@ namespace tp_cuatrimestral_equipo_a1
             proveedor.Direccion = txtDireccion.Text;
             proveedor.Email = txtEmail.Text;
 
-            proveedorNegocio.Update(proveedor);
-            Response.Redirect("ListarProveedores.aspx");
+            //if (!ValidacionesDB.validarProveedor(proveedor))
+            //{
+            //    lblErrorProveedor.Text = "Proveedor Existente, Intente de nuevo";
+            //    return;
+            //}
+
+            try
+            {
+                proveedorNegocio.Update(proveedor);
+                Response.Redirect("ListarProveedores.aspx");
+            }
+            catch (Exception ex)
+            {
+                lblErrorProveedor.Text = "Error al agregar el proveedor. Intente nuevamente más tarde.";
+            }
         }
     }
 }

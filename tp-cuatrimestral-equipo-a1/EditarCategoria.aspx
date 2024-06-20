@@ -26,6 +26,7 @@
                                                 placeholder="Descripcion" />
 
                                             <label for="txtDescripcion">Descripción</label>
+                                            <asp:Label ID="lblMismaCategoria" CssClass="text-danger" Text="" runat="server"></asp:Label>
                                             <asp:RequiredFieldValidator
                                                 ID="rfvDescripcion"
                                                 runat="server"
@@ -39,7 +40,7 @@
                                                 runat="server"
                                                 ControlToValidate="txtDescripcion"
                                                 ErrorMessage="Debe tener entre 5 y 50 caracteres y solo puede contener letras, números, espacios, comas y puntos."
-                                                ValidationExpression="^[a-zA-Z0-9 ,.'-]{5,50}$"
+                                                ValidationExpression="^[a-zA-Z0-9 áéíóúÁÉÍÓÚüÜñÑ,.'-]{5,50}$"
                                                 CssClass="text-danger"
                                                 Display="Dynamic">
                                             </asp:RegularExpressionValidator>

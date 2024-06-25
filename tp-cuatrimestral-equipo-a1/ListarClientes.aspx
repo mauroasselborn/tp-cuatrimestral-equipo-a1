@@ -74,7 +74,7 @@
 
         document.getElementById("listCliente").className += " active";
 
-        function CerrarModal() {
+        function CerrarModal(event) {
             event.preventDefault()
             document.getElementById('ModalEliminar').style.display = 'none'
         }

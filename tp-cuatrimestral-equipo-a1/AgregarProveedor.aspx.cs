@@ -19,11 +19,8 @@ namespace tp_cuatrimestral_equipo_a1
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-
             Page.Validate();
             if (!Page.IsValid) return;
-
-            string script = "document.getElementById('ModalConfirmar').style.display = 'block';";
 
             ProveedorNegocio proveedorNegocio = new ProveedorNegocio();
             Proveedor proveedor = new Proveedor();
@@ -34,19 +31,24 @@ namespace tp_cuatrimestral_equipo_a1
             proveedor.Telefono = txtTelefono.Text;
             proveedor.Direccion = txtDireccion.Text;
             proveedor.Email = txtEmail.Text;
-            proveedor.Estado = true;
+            
 
             if (!ValidacionesDB.validarProveedor(proveedor))
-
             {
                 lblErrorProveedor.Text = "Proveedor Existente, Intente de nuevo";
                 return;
             }
 
-            proveedorNegocio.Agregar(proveedor);
-
-            ClientScript.RegisterStartupScript(this.GetType(), "Modal", script, true);
-
+            try
+            {
+                proveedorNegocio.Agregar(proveedor);
+                string script = "document.getElementById('ModalConfirmar').style.display = 'block';";
+                ClientScript.RegisterStartupScript(this.GetType(), "Modal", script, true);
+            }
+            catch (Exception ex)
+            {
+                lblErrorProveedor.Text = "Error al agregar el proveedor. Intente nuevamente más tarde.";
+            }
         }
 
         protected void BtnAceptarModal_Click(object sender, EventArgs e)

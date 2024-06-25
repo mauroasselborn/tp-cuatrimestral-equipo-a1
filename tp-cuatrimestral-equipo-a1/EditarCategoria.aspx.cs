@@ -39,9 +39,8 @@ namespace tp_cuatrimestral_equipo_a1
 
             if (!ValidacionesDB.validarCategoria(txtDescripcion.Text))
             {
-                Session.Add("Error", "Error en la Validacion con la Base de Datos, Esa Categoria Ya se encuentra");
-                Session.Add("redirect", "EditarCategoria.aspx?id=" + id);
-                Response.Redirect("Error.aspx");
+                lblMismaCategoria.Text = "Ya existe una Categoria con la misma descripcion";
+                return;
             }
 
             CategoriaNegocio categoriaNegocio = new CategoriaNegocio();

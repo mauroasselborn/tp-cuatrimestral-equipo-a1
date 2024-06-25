@@ -123,6 +123,9 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="d-flex justify-content-center mb-1">
+                                        <asp:Label ID="lblErrorProveedor" CssClass="text-danger" Text="" runat="server"></asp:Label>
+                                    </div>
                                     <div class="d-grid gap-3 d-flex justify-content-around">
                                         <asp:Button Text="Aceptar" runat="server" class="btn btn-primary w-25 p-2" ID="btnAceptar" OnClick="btnAceptar_Click" />
                                         <a href="ListarProveedores.aspx" class="btn btn-danger me-md-2 w-25 p-2">Cancelar</a>

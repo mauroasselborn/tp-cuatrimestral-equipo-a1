@@ -290,8 +290,8 @@ BEGIN
 
     SET NOCOUNT ON
 
-	INSERT INTO Proveedores (Nombre,Empresa,Cuit,Telefono,Direccion,Email) 
-		VALUES  ( @Nombre,@Empresa,@Cuit,@Telefono,@Direccion,@Email) 
+	INSERT INTO Proveedores (Nombre,Empresa,Cuit,Telefono,Direccion,Email, Estado) 
+		VALUES  ( @Nombre,@Empresa,@Cuit,@Telefono,@Direccion,@Email, 1) 
 END
 GO
 

@@ -46,7 +46,8 @@ namespace Negocio
 
             bool existe = lstMarca.Exists(m => m.Descripcion.ToUpper() == marca.Descripcion.ToUpper());
 
-            return existe;
+            return !existe;
+           
 
         }
 

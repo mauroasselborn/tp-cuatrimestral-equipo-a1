@@ -125,13 +125,14 @@ namespace Negocio
         public void Modificar(Usuario usuario)
         {
             AccesoDatos accesoDatos = new AccesoDatos();
+            Encriptacion encriptacion = new Encriptacion();
             try
             {
                 accesoDatos.setearSP("sp_upd_usuario");
 
                 accesoDatos.setearParametro("@Id", usuario.Id);
                 accesoDatos.setearParametro("@Nombre", usuario.NombreUsuario);
-                accesoDatos.setearParametro("@Pass", usuario.Pass);
+                accesoDatos.setearParametro("@Pass", encriptacion.Encripta(usuario.Pass));
                 accesoDatos.setearParametro("@Tipo", usuario.TipoUsuario);
 
                 accesoDatos.ejecutarAccion();

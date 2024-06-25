@@ -169,7 +169,7 @@
                 </div>
                 <div class="sb-sidenav-footer">
                     <div class="small">Logueado Como:</div>
-                    Admin
+                    <%: usuario.NombreUsuario %> - (<%: usuario.TipoUsuario%>)
                 </div>
             </nav>
         </div>

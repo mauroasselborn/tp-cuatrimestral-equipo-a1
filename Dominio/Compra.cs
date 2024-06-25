@@ -18,18 +18,18 @@ namespace Dominio
             Detalle = new List<DetalleCompra>();
         }
 
-        //public void AgregarDetalle(DetalleCompra detalle)
-        //{
-        //    var detalleExistente = Detalles.FirstOrDefault(d => d.Articulo.ID == detalle.Articulo.ID);
-        //    if (detalleExistente != null)
-        //    {
-        //        detalleExistente.Cantidad += detalle.Cantidad;
-        //    }
-        //    else
-        //    {
-        //        Detalles.Add(detalle);
-        //    }
-        //}
+        public void AgregarDetalle(DetalleCompra detalle)
+        {
+            var detalleExistente = Detalle.FirstOrDefault(d => d.Articulo.ID == detalle.Articulo.ID);
+            if (detalleExistente != null)
+            {
+                detalleExistente.Cantidad += detalle.Cantidad;
+            }
+            else
+            {
+                Detalle.Add(detalle);
+            }
+        }
 
         public decimal ValorTotal
         {

@@ -12887,3 +12887,12 @@ body {
 .mismoDoc {
     margin-left: 5px;
 }
+
+.input-cantidad {
+    width: 60px;
+}
+.row-venta {
+    max-height: 80vh;
+    overflow: scroll;
+    overflow-x: hidden;
+}

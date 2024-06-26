@@ -3,9 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-    <div class="row" style="min-height: 100vh">
+    <div class="row" style="max-height: 86vh;">
         <div class="col-6">
-            <div class="row">
+            <div class="row row-venta">
                 <% if (Venta.Items != null)
                     {%>
                 <table class="table table-hover">
@@ -23,25 +23,35 @@
                                 <tr>
                                     <td><%#Eval("articulo.Codigo")%></td>
                                     <td><%#Eval("articulo.Nombre")%></td>
-                                    <td><%#Eval("Cantidad")%></td>
+                                    <td style="padding-left: 20px">
+                                        <asp:TextBox ID="txtCantidad" Text='<%#Eval("Cantidad")%>' ToolTip='<%#Eval("articulo.ID")%>' TextMode="Number" min="0" CssClass="form-control input-cantidad" runat="server" OnTextChanged="txtCantidad_TextChanged" AutoPostBack="true"></asp:TextBox>
+                                    </td>
                                     <td><%#Eval("Subtotal")%></td>
                                     <tr>
                             </ItemTemplate>
                         </asp:Repeater>
                     </tbody>
                 </table>
-                <%}%>
-
-                <% else
-                    {%>
-
-                <h3 class="text-center">No hay articulos </h3>
-
-                <% } %>
             </div>
             <div class="row">
-                <asp:Button ID="BtnPago" CssClass="btn btn-primary" Text="Pago >" runat="server" />
+                <div class="col-4 d-flex">
+                    <h5>TOTAL: $ </h5>
+                    <asp:Label ID="lblTotal" Font-Size="Large" Font-Bold="true" Text="0" runat="server"></asp:Label>
+                </div>
+                <div class="col-4"></div>
+                <div class="col-4 mr-0">
+                    <asp:Button ID="BtnPago" CssClass="btn btn-primary" Text="Pago >" runat="server" />
+                </div>
+
             </div>
+            <%}%>
+
+            <% else
+                {%>
+
+            <h3 class="text-center">No hay articulos </h3>
+
+            <% } %>
         </div>
         <div class="col-6 mt-3">
             <table id="datatablesSimple" class="table table-striped table-hover">
@@ -70,15 +80,12 @@
             </table>
         </div>
     </div>
-        <script>
-            ddlVenta = document.getElementById('ddlVenta')
-            ddlVenta.classList.remove('collapsed');
-            ddlVenta.setAttribute("aria-expanded", "true");
-            document.getElementById('collapseLayoutsVentas').className += " show"
-            document.getElementById('addVentas').className += ' active'
-        </script>
-
-
-
+    <script>
+        ddlVenta = document.getElementById('ddlVenta')
+        ddlVenta.classList.remove('collapsed');
+        ddlVenta.setAttribute("aria-expanded", "true");
+        document.getElementById('collapseLayoutsVentas').className += " show"
+        document.getElementById('addVentas').className += ' active'
+    </script>
 
 </asp:Content>

@@ -2,6 +2,7 @@
 using Negocio;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.UI.WebControls;
 
 namespace tp_cuatrimestral_equipo_a1
@@ -9,6 +10,7 @@ namespace tp_cuatrimestral_equipo_a1
     public partial class Ventas : System.Web.UI.Page
     {
         public Venta Venta;
+        float Total;
         public List<Articulo> lstArticulo { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -22,11 +24,7 @@ namespace tp_cuatrimestral_equipo_a1
 
                 if (Venta.Items == null) Venta.Items = new List<ItemVenta>();
             }
-            else
-            {
-                rptVenta.DataSource = Venta.Items;
-                rptVenta.DataBind();
-            }
+
 
 
             if (!IsPostBack)
@@ -42,6 +40,11 @@ namespace tp_cuatrimestral_equipo_a1
                 Session.Add("lstArticulos", lstArticulo);
                 rptArticulo.DataSource = lstArticulo;
                 rptArticulo.DataBind();
+                if (Venta != null)
+                {
+                    rptVenta.DataSource = Venta.Items;
+                    rptVenta.DataBind();
+                }
 
             }
         }
@@ -79,9 +82,33 @@ namespace tp_cuatrimestral_equipo_a1
 
                 Session.Add("Venta", Venta);
             }
+            Total = Venta.Items.Sum(x => x.subtotal);
+            lblTotal.Text = Total.ToString();
 
             rptVenta.DataSource = Venta.Items;
             rptVenta.DataBind();
+        }
+
+
+
+        protected void txtCantidad_TextChanged(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(((TextBox)sender).Text) > 0)
+            {
+                int cantidad = Convert.ToInt32(((TextBox)sender).Text);
+                var Item = Venta.Items.Find(x => x.articulo.ID == Convert.ToInt32(((TextBox)sender).ToolTip));
+
+                Item.Cantidad = cantidad;
+                Item.subtotal = Item.articulo.Precio * cantidad;
+
+                Session.Add("Venta", Venta);
+
+                Total = Venta.Items.Sum(x => x.subtotal);
+                lblTotal.Text = Total.ToString();
+
+                rptVenta.DataSource = Venta.Items;
+                rptVenta.DataBind();
+            }
         }
     }
 }

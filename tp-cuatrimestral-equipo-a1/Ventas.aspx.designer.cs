@@ -11,7 +11,7 @@ namespace tp_cuatrimestral_equipo_a1
 {
 
 
-    public partial class Ventas
+    public partial class CrearVentas
     {
     }
 }

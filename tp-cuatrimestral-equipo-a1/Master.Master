@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master.master.cs" Inherits="tp_cuatrimestral_equipo_a1.Master" %>
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master.master.cs" Inherits="tp_cuatrimestral_equipo_a1.Master" %>
 
 <!DOCTYPE html>
 
@@ -108,9 +108,19 @@
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a id="lstVentas" class="nav-link" href="Ventas.aspx">Listar Ventas</a>
                                 <a id="addVentas" class="nav-link" href="CrearVentas.aspx">Nueva Venta</a>
+                                <a id="CierreDia" class="nav-link" href="CerrarCaja.aspx">Cerrar caja</a>
                             </nav>
                         </div>
-
+                        <div
+                            class="collapse"
+                            id="collapseLayoutsFacturas"
+                            aria-labelledby="headingOne"
+                            data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a id="lstFacturas" class="nav-link" href="Facturas.aspx">Facturas</a>
+                                <a id="lstNotasCredito" class="nav-link" href="NotasCredito.aspx">Notas de credito </a>
+                            </nav> 
+                        </div>
                         <a
                             id="ddlMarcas"
                             class="nav-link collapsed"
@@ -174,6 +184,7 @@
                     <%: usuario.NombreUsuario %> - (<%: usuario.TipoUsuario%>)
 
                     <%}%>
+
                 </div>
             </nav>
         </div>

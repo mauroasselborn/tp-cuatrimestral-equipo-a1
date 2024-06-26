@@ -8,12 +8,32 @@ namespace Dominio
 {
     public class Compra
     {
-        public Compra() { }
-
         public int ID { get; set; }
-        public List<Articulo> Articulo { get; set; }
         public Proveedor Proveedor { get; set; }
-        public int Cantidad { get; set; }
-        public float ValorCompra { get; set; }
+        public List<DetalleCompra> Detalle { get; set; }
+        public DateTime Fecha { get; set; }
+
+        public Compra()
+        {
+            Detalle = new List<DetalleCompra>();
+        }
+
+        public void AgregarDetalle(DetalleCompra detalle)
+        {
+            var detalleExistente = Detalle.FirstOrDefault(d => d.Articulo.ID == detalle.Articulo.ID);
+            if (detalleExistente != null)
+            {
+                detalleExistente.Cantidad += detalle.Cantidad;
+            }
+            else
+            {
+                Detalle.Add(detalle);
+            }
+        }
+
+        public decimal ValorTotal
+        {
+            get { return Detalle.Sum(d => d.Subtotal); }
+        }
     }
 }

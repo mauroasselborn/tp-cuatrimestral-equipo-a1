@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace tp_cuatrimestral_equipo_a1
 {
-    public partial class Compras : System.Web.UI.Page
+    public partial class EditarCompra : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

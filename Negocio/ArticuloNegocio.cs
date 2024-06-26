@@ -24,16 +24,15 @@ namespace Negocio
                     articulo.Codigo = accesoDatos.Lector["Codigo"].ToString();
 
                     articulo.Marca = new Marca();
-                    articulo.Marca.id = Convert.ToInt32(accesoDatos.Lector["IdMarca"]);
+                    articulo.Marca.ID = Convert.ToInt32(accesoDatos.Lector["IdMarca"]);
                     articulo.Marca.Descripcion = accesoDatos.Lector["Marca"].ToString();
 
                     articulo.Categoria = new Categoria();
-                    articulo.Categoria.Id = Convert.ToInt32(accesoDatos.Lector["IdCategoria"]);
+                    articulo.Categoria.ID = Convert.ToInt32(accesoDatos.Lector["IdCategoria"]);
                     articulo.Categoria.Descripcion = accesoDatos.Lector["Categoria"].ToString();
 
                     articulo.ProcentajeGanancia = float.Parse(accesoDatos.Lector["PorcentajeGanancia"].ToString());
                     articulo.StockMinimo = (int)accesoDatos.Lector["StockMinimo"];
-                    articulo.Estado = (bool)accesoDatos.Lector["Estado"];
 
                     lstArticulo.Add(articulo);
                 }
@@ -79,7 +78,6 @@ namespace Negocio
 
                 articulo.ProcentajeGanancia = float.Parse(accesoDatos.Lector["PorcentajeGanancia"].ToString());
                 articulo.StockMinimo = (int)accesoDatos.Lector["StockMinimo"];
-                articulo.Estado = (bool)accesoDatos.Lector["Estado"];
 
                 return articulo;
             }
@@ -104,8 +102,8 @@ namespace Negocio
 
                 accesoDatos.setearParametro("@Nombre", articulo.Nombre);
                 accesoDatos.setearParametro("@Codigo", articulo.Codigo);
-                accesoDatos.setearParametro("@IdMarca", articulo.Marca.id);
-                accesoDatos.setearParametro("@IdCategoria", articulo.Categoria.Id);
+                accesoDatos.setearParametro("@IdMarca", articulo.Marca.ID);
+                accesoDatos.setearParametro("@IdCategoria", articulo.Categoria.ID);
                 accesoDatos.setearParametro("@ProcentajeGanancia", articulo.ProcentajeGanancia);
                 accesoDatos.setearParametro("@StockMinimo", articulo.StockMinimo);
 
@@ -152,8 +150,8 @@ namespace Negocio
                 accesoDatos.setearParametro("@Id", articulo.ID);
                 accesoDatos.setearParametro("@Nombre", articulo.Nombre);
                 accesoDatos.setearParametro("@Codigo", articulo.Codigo);
-                accesoDatos.setearParametro("@IdMarca", articulo.Marca.id);
-                accesoDatos.setearParametro("@IdCategoria", articulo.Categoria.Id);
+                accesoDatos.setearParametro("@IdMarca", articulo.Marca.ID);
+                accesoDatos.setearParametro("@IdCategoria", articulo.Categoria.ID);
                 accesoDatos.setearParametro("@ProcentajeGanancia", articulo.ProcentajeGanancia);
                 accesoDatos.setearParametro("@StockMinimo", articulo.StockMinimo);
 

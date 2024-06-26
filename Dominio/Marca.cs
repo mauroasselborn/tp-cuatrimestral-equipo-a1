@@ -2,12 +2,12 @@
 {
     public class Marca
     {
-        public int id { get; set; }
+        public int ID { get; set; }
         public string Descripcion { get; set; }
 
         public Marca(int id, string Descripcion)
         {
-            this.id = id;
+            this.ID = id;
             this.Descripcion = Descripcion;
         }
 

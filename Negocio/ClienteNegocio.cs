@@ -20,7 +20,7 @@ namespace Negocio
                 {
                     Cliente cliente = new Cliente();
 
-                    cliente.Id = (int)accesoDatos.Lector["id"];
+                    cliente.ID = (int)accesoDatos.Lector["id"];
                     cliente.Nombre = (string)accesoDatos.Lector["Nombre"];
                     cliente.Apellido = (string)accesoDatos.Lector["Apellido"];
                     cliente.Documento = (string)accesoDatos.Lector["Documento"];
@@ -77,7 +77,7 @@ namespace Negocio
             {
                 accesoDatos.setearSP("sp_upd_cliente");
 
-                accesoDatos.setearParametro("@Id", cliente.Id);
+                accesoDatos.setearParametro("@Id", cliente.ID);
                 accesoDatos.setearParametro("@Nombre", cliente.Nombre);
                 accesoDatos.setearParametro("@Apellido", cliente.Apellido);
                 accesoDatos.setearParametro("@Direccion", cliente.Direccion);

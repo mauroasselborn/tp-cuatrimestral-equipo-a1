@@ -9,7 +9,6 @@
         public Categoria Categoria { get; set; }
         public int StockMinimo { get; set; }
         public float ProcentajeGanancia { get; set; }
-        public bool Estado { get; set; }
         
     }
 }

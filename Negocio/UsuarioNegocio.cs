@@ -18,7 +18,7 @@ namespace Negocio
                 while (accesoDatos.Lector.Read())
                 {
                     Usuario usuario = new Usuario();
-                    usuario.Id = Convert.ToInt32(accesoDatos.Lector["Id"]);
+                    usuario.ID = Convert.ToInt32(accesoDatos.Lector["Id"]);
                     usuario.NombreUsuario = accesoDatos.Lector["Nombreusuario"].ToString();
                     usuario.Pass = accesoDatos.Lector["Pass"].ToString();
                     usuario.TipoUsuario = accesoDatos.Lector["TipoUsuario"].ToString();
@@ -55,7 +55,7 @@ namespace Negocio
 
                 accesoDatos.Lector.Read();
 
-                usuario.Id = (int)(accesoDatos.Lector["Id"]);
+                usuario.ID = (int)(accesoDatos.Lector["Id"]);
                 usuario.NombreUsuario = accesoDatos.Lector["NombreUsuario"].ToString();
                 usuario.Pass = accesoDatos.Lector["Pass"].ToString();
                 usuario.TipoUsuario = accesoDatos.Lector["TipoUsuario"].ToString();
@@ -130,7 +130,7 @@ namespace Negocio
             {
                 accesoDatos.setearSP("sp_upd_usuario");
 
-                accesoDatos.setearParametro("@Id", usuario.Id);
+                accesoDatos.setearParametro("@Id", usuario.ID);
                 accesoDatos.setearParametro("@Nombre", usuario.NombreUsuario);
                 accesoDatos.setearParametro("@Pass", encriptacion.Encripta(usuario.Pass));
                 accesoDatos.setearParametro("@Tipo", usuario.TipoUsuario);
@@ -165,7 +165,7 @@ namespace Negocio
                 while (accesoDatos.Lector.Read())
                 {
                     Usuario usuario = new Usuario();
-                    usuario.Id = Convert.ToInt32((int)accesoDatos.Lector["Id"]);
+                    usuario.ID = Convert.ToInt32((int)accesoDatos.Lector["Id"]);
                     usuario.NombreUsuario = (string)accesoDatos.Lector["NombreUsuario"];
                     usuario.TipoUsuario = (string)accesoDatos.Lector["TipoUsuario"];
                     usuario.Pass = (string)accesoDatos.Lector["Pass"];

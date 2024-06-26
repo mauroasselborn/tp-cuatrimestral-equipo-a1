@@ -25,7 +25,7 @@ namespace tp_cuatrimestral_equipo_a1
 
                     try
                     {
-                        Cliente Seleccionado = lstCliente.Find(x => x.Id == Convert.ToInt32(idCliente));
+                        Cliente Seleccionado = lstCliente.Find(x => x.ID == Convert.ToInt32(idCliente));
 
                         txtNombre.Text = Seleccionado.Nombre;
                         txtApellido.Text = Seleccionado.Apellido;
@@ -81,7 +81,7 @@ namespace tp_cuatrimestral_equipo_a1
                 }
                 else
                 {
-                    cliente.Id = Convert.ToInt32(idCliente);
+                    cliente.ID = Convert.ToInt32(idCliente);
                     clienteNegocio.Editar(cliente);
                 }
             }

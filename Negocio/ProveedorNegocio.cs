@@ -31,7 +31,6 @@ namespace Negocio
                     proveedor.Telefono = accesoDatos.Lector["Telefono"].ToString();
                     proveedor.Direccion = accesoDatos.Lector["Direccion"].ToString();
                     proveedor.Email = accesoDatos.Lector["Email"].ToString();
-                    proveedor.Estado = (bool)accesoDatos.Lector["Estado"];
 
                     lista.Add(proveedor);
                 }
@@ -73,8 +72,6 @@ namespace Negocio
                     proveedor.Telefono = accesoDatos.Lector["Telefono"].ToString();
                     proveedor.Direccion = accesoDatos.Lector["Direccion"].ToString();
                     proveedor.Email = accesoDatos.Lector["Email"].ToString();
-                    proveedor.Estado = (bool)accesoDatos.Lector["Estado"];
-
 
                     return proveedor;
                 }

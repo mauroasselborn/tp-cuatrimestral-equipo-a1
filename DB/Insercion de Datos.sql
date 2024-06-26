@@ -1,3 +1,8 @@
+-- Insertar Usuarios
+INSERT INTO Usuarios (NombreUsuario, Pass, TipoUsuario, Estado) 
+VALUES
+('Admin' , 'Yjma8V2C9Dlx5myuTxP3rw==', 'admin' ,1),
+('UserTest' ,'Gtrxqbrw65bBEFbBQ60NkA==' , 'Usuario' , 1)
 
 -- Insert Marcas
 INSERT INTO Marcas (Descripcion) 

@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master.master.cs" Inherits="tp_cuatrimestral_equipo_a1.Master" %>
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master.master.cs" Inherits="tp_cuatrimestral_equipo_a1.Master" %>
 
 <!DOCTYPE html>
 
@@ -179,7 +179,12 @@
                 </div>
                 <div class="sb-sidenav-footer">
                     <div class="small">Logueado Como:</div>
-                  <%--  <%: usuario.NombreUsuario %> - (<%: usuario.TipoUsuario %>)--%>
+                    <%if (usuario != null)
+                        {%>
+                    <%: usuario.NombreUsuario %> - (<%: usuario.TipoUsuario%>)
+
+                    <%}%>
+
                 </div>
             </nav>
         </div>

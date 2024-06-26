@@ -59,7 +59,7 @@ namespace Negocio
 
             lstUsuarios = usuarioNegocio.Listar();
 
-            bool existe = lstUsuarios.Exists(u => u.NombreUsuario.ToUpper() == nombreUsuario.ToUpper() && u.Id!=id);
+            bool existe = lstUsuarios.Exists(u => u.NombreUsuario.ToUpper() == nombreUsuario.ToUpper() && u.ID!=id);
 
             return existe;
         }

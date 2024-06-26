@@ -45,8 +45,8 @@ namespace tp_cuatrimestral_equipo_a1
                     txtPorcentajeGanancia.Text = articulo.ProcentajeGanancia.ToString();
                     txtStockMinimo.Text = articulo.StockMinimo.ToString();
 
-                    ddlCategoria.SelectedValue = articulo.Categoria.Id.ToString();
-                    ddlMarca.SelectedValue = articulo.Marca.id.ToString();
+                    ddlCategoria.SelectedValue = articulo.Categoria.ID.ToString();
+                    ddlMarca.SelectedValue = articulo.Marca.ID.ToString();
                 }
                 else
                 {
@@ -71,8 +71,8 @@ namespace tp_cuatrimestral_equipo_a1
 
                 articulo.Nombre = txtNombre.Text;
                 articulo.Codigo = txtCodigo.Text;
-                articulo.Marca = marcas.Find(x => x.id == int.Parse(ddlMarca.SelectedValue));
-                articulo.Categoria = categorias.Find(x => x.Id == Convert.ToInt32(ddlCategoria.SelectedItem.Value));
+                articulo.Marca = marcas.Find(x => x.ID == int.Parse(ddlMarca.SelectedValue));
+                articulo.Categoria = categorias.Find(x => x.ID == Convert.ToInt32(ddlCategoria.SelectedItem.Value));
                 articulo.ProcentajeGanancia = float.Parse(txtPorcentajeGanancia.Text);
                 articulo.StockMinimo = Convert.ToInt32(txtStockMinimo.Text);
 

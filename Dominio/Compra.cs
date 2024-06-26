@@ -12,6 +12,7 @@ namespace Dominio
         public Proveedor Proveedor { get; set; }
         public List<DetalleCompra> Detalle { get; set; }
         public DateTime Fecha { get; set; }
+        
 
         public Compra()
         {

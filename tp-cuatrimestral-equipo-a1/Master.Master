@@ -85,7 +85,7 @@
                             aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a id="lstCompra" class="nav-link" href="Compras.aspx">Listar Compras</a>
+                                <a id="lstCompra" class="nav-link" href="ListarCompras.aspx">Listar Compras</a>
                                 <a id="addCompra" class="nav-link" href="CrearCompras.aspx">Nueva Compra</a>
                             </nav>
                         </div>

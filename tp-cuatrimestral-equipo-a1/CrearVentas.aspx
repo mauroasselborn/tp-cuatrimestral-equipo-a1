@@ -15,6 +15,7 @@
                             <th scope="col">Articulo</th>
                             <th scope="col">Cantidad</th>
                             <th scope="col">Precio</th>
+                            <th scope="col">Eliminar</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -27,6 +28,9 @@
                                         <asp:TextBox ID="txtCantidad" Text='<%#Eval("Cantidad")%>' ToolTip='<%#Eval("articulo.ID")%>' TextMode="Number" min="0" CssClass="form-control input-cantidad" runat="server" OnTextChanged="txtCantidad_TextChanged" AutoPostBack="true"></asp:TextBox>
                                     </td>
                                     <td><%#Eval("Subtotal")%></td>
+                                    <td>
+                                        <asp:Button ID="BtnEliminar" OnClick="BtnEliminar_Click" CommandArgument='<%#Eval("articulo.ID")%>' runat="server" Text="X" CssClass="btn btn-danger"/>
+                                    </td>
                                     <tr>
                             </ItemTemplate>
                         </asp:Repeater>

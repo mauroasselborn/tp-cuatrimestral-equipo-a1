@@ -110,5 +110,21 @@ namespace tp_cuatrimestral_equipo_a1
                 rptVenta.DataBind();
             }
         }
+
+        protected void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            int idItem = Convert.ToInt32(((Button)sender).CommandArgument);
+            ItemVenta itemSelec = Venta.Items.Find(x => x.articulo.ID == idItem);
+
+            Venta.Items.Remove(itemSelec);
+
+            Session.Add("Venta", Venta);
+
+            Total = Venta.Items.Sum(x => x.subtotal);
+            lblTotal.Text = Total.ToString();
+
+            rptVenta.DataSource = Venta.Items;
+            rptVenta.DataBind();
+        }
     }
 }

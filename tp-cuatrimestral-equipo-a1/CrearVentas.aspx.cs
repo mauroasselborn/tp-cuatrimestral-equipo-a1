@@ -11,11 +11,14 @@ namespace tp_cuatrimestral_equipo_a1
     {
         public Venta Venta;
         float Total;
+        public int numero = 1;
         public List<Articulo> lstArticulo { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
             ArticuloNegocio ArticuloNegocio = new ArticuloNegocio();
+            ClienteNegocio clienteNegocio = new ClienteNegocio();
+
             Venta = (Venta)Session["Venta"];
 
             if (Venta == null)
@@ -38,14 +41,28 @@ namespace tp_cuatrimestral_equipo_a1
 
                 }
                 Session.Add("lstArticulos", lstArticulo);
+
                 rptArticulo.DataSource = lstArticulo;
                 rptArticulo.DataBind();
+
                 if (Venta != null)
                 {
                     rptVenta.DataSource = Venta.Items;
                     rptVenta.DataBind();
                 }
+                #region DLLs
+                List<Cliente> LstClientes = clienteNegocio.Listar();
+                Session.Add("lstClientes", LstClientes);
 
+                ddlClientes.DataSource = LstClientes;
+                ddlClientes.DataTextField = "Nombre";
+                ddlClientes.DataValueField = "Id";
+                ddlClientes.DataBind();
+
+                #endregion
+
+                Total = Venta.Items.Sum(x => x.subtotal);
+                lblTotal.Text = Total.ToString();
             }
         }
 
@@ -125,6 +142,35 @@ namespace tp_cuatrimestral_equipo_a1
 
             rptVenta.DataSource = Venta.Items;
             rptVenta.DataBind();
+        }
+
+        protected void BtnPago_Click(object sender, EventArgs e)
+        {
+            VentaNegocio ventaNegocio = new VentaNegocio();
+            List<Cliente> clientes = (List<Cliente>)Session["lstClientes"];
+
+            try
+            {
+                if (Venta.Id == 0)
+                {
+                    Venta.nroFactura = "0001-000001";
+                }
+                else
+                {
+                    Venta.nroFactura = "0001-00000" + Venta.Id;
+                }
+
+                Venta.cliente = clientes.Find(x => x.ID == int.Parse(ddlClientes.SelectedValue));
+                Venta.FechaVenta = DateTime.Now;
+
+                ventaNegocio.AgregarVenta(Venta);
+                ventaNegocio.AgregarItems(Venta);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
         }
     }
 }

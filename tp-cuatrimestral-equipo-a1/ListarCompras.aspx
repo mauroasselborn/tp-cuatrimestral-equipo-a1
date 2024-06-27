@@ -5,7 +5,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <div class="row">
-        <div class="px-4 col-8">
+        <div class="px-4 col-6">
             <h1 class="mt-4">Compras</h1>
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item"><a href="Dashboard.aspx">Dashboard</a></li>
@@ -21,18 +21,18 @@
                     <table id="datatablesSimple">
                         <thead>
                             <tr>
-                                <th>Nombre Proveedor</th>
-                                <th>Detalle de Compra</th>
-                                <th>Fecha</th>
+                                <th>Numero de Compra</th>
+                                <th>Nombre de Proveedor</th>
+                                <th>Fecha de Compra</th>
                                 <th>Valor Total</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
-                                <th>Nombre Proveedor</th>
-                                <th>Detalle de Compra</th>
-                                <th>Fecha</th>
+                                <th>Numero de Compra</th>
+                                <th>Nombre de Proveedor</th>
+                                <th>Fecha de Compra</th>
                                 <th>Valor Total</th>
                                 <th>Acciones</th>
                             </tr>
@@ -65,37 +65,139 @@
                 </div>
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-6">
             <%--  --%>
             <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-            <asp:UpdatePanel ID="DetalleCompra" runat="server">
+
+            <asp:UpdatePanel ID="DetalleCompra" runat="server" style="min-height: 65vh; max-height: 65vh; overflow-x: hidden;">
                 <ContentTemplate>
-                    <table class="table">
-                        <tr>
-                            <td>Nombre Articulo</td>
-                            <td>Codigo</td>
-                            <td>Cantidad</td>
-                        </tr>
+                    <h2 style="text-align: center; margin-bottom: 20px; margin-top: 20px;">Detalle de Compra</h2>
+                    <table class="table table-striped table-bordered text-center" style="border-radius: 50%;">
+                        <thead>
+                            <tr>
+                                <th scope="col">Nombre Articulo</th>
+                                <th scope="col">Codigo</th>
+                                <th scope="col">Cantidad</th>
+                                <th scope="col">Precio Unitario</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Escoba</td>
+                                <td>123</td>
+                                <td>5</td>
+                                <td>1500$</td>
+                            </tr>
+                            <tr>
+                                <td>Escoba</td>
+                                <td>123</td>
+                                <td>5</td>
+                                <td>1500$</td>
+                            </tr>
+                            <tr>
+                                <td>Escoba</td>
+                                <td>123</td>
+                                <td>5</td>
+                                <td>1500$</td>
+                            </tr>
+                            <tr>
+                                <td>Escoba</td>
+                                <td>123</td>
+                                <td>5</td>
+                                <td>1500$</td>
+                            </tr>
+                            <tr>
+                                <td>Escoba</td>
+                                <td>123</td>
+                                <td>5</td>
+                                <td>1500$</td>
+                            </tr>
+                            <tr>
+                                <td>Escoba</td>
+                                <td>123</td>
+                                <td>5</td>
+                                <td>1500$</td>
+                            </tr>
+                            <tr>
+                                <td>Escoba</td>
+                                <td>123</td>
+                                <td>5</td>
+                                <td>1500$</td>
+                            </tr>
+                            <tr>
+                                <td>Escoba</td>
+                                <td>123</td>
+                                <td>5</td>
+                                <td>1500$</td>
+                            </tr>
+                            <tr>
+                                <td>Escoba</td>
+                                <td>123</td>
+                                <td>5</td>
+                                <td>1500$</td>
+                            </tr>
+                            <tr>
+                                <td>Escoba</td>
+                                <td>123</td>
+                                <td>5</td>
+                                <td>1500$</td>
+                            </tr>
+                            <tr>
+                                <td>Escoba</td>
+                                <td>123</td>
+                                <td>5</td>
+                                <td>1500$</td>
+                            </tr>
+                            <tr>
+                                <td>Escoba</td>
+                                <td>123</td>
+                                <td>5</td>
+                                <td>1500$</td>
+                            </tr>
+                            <tr>
+                                <td>Escoba</td>
+                                <td>123</td>
+                                <td>5</td>
+                                <td>1500$</td>
+                            </tr>
+                            <tr>
+                                <td>Escoba</td>
+                                <td>123</td>
+                                <td>5</td>
+                                <td>1500$</td>
+                            </tr>
+                            <tr>
+                                <td>Escoba</td>
+                                <td>123</td>
+                                <td>5</td>
+                                <td>1500$</td>
+                            </tr>
+
+                        </tbody>
                     </table>
                 </ContentTemplate>
             </asp:UpdatePanel>
 
-            <asp:UpdatePanel ID="DetalleProveedor" runat="server" cssclass="table">
+
+            <asp:UpdatePanel ID="DetalleProveedor" runat="server" style="min-height: 10vh;">
                 <ContentTemplate>
-                    <table class="table">
+                    <h2 style="text-align: center; margin-bottom: 20px;">Detalle de Proveedor</h2>
+                    <table class="table table-bordered text-center">
                         <tr>
                             <th>Nombre</th>
                             <th>Empresa</th>
                             <th>Cuit</th>
                             <th>Teléfono</th>
+                            <th>Dirección</th>
                             <th>Email</th>
                         </tr>
                         <tbody>
-                            <td>Nombre</td>
-                            <td>Empresa</td>
-                            <td>Cuit</td>
-                            <td>Teléfono</td>
-                            <td>Email</td>
+                            <td>Pedro Ruben</td>
+                            <td>La Pastoriza</td>
+                            <td>20-33456987-2</td>
+                            <td>3456477239</td>
+                            <td>Avenida siempre viva 742</td>
+                            <td>Email@email.com</td>
                         </tbody>
                     </table>
                 </ContentTemplate>

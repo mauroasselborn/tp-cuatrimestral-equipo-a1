@@ -24,6 +24,7 @@
                             <th>Empresa</th>
                             <th>Cuit</th>
                             <th>Teléfono</th>
+                            <th>Dirección</th>
                             <th>Email</th>
                             <th>Acciones</th>
                         </tr>
@@ -34,6 +35,7 @@
                             <th>Empresa</th>
                             <th>Cuit</th>
                             <th>Teléfono</th>
+                            <th>Dirección</th>
                             <th>Email</th>
                             <th>Acciones</th>
                         </tr>
@@ -48,6 +50,7 @@
                                     <td><%#Eval("Empresa")%></td>
                                     <td><%#Eval("Cuit")%></td>
                                     <td><%#Eval("Telefono")%></td>
+                                    <td><%#Eval("Direccion")%></td>
                                     <td><%#Eval("Email")%></td>
                                     <td>
                                         <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="btn btn-warning" CommandName="idProveedor" CommandArgument='<%#Eval("ID") %>' OnClick="btnEditar_Click" />

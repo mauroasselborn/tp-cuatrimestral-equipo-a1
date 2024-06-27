@@ -2,10 +2,10 @@
 
 <!DOCTYPE html>
 
-<html lang="es">
+<html lang="Es">
 <head runat="server">
 
-    <meta charset="utf-8" />
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="Tecno Store creado por alumnos de Programacion 3 de la carrera TUP UTN-FRGP" />
@@ -119,7 +119,7 @@
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a id="lstFacturas" class="nav-link" href="Facturas.aspx">Facturas</a>
                                 <a id="lstNotasCredito" class="nav-link" href="NotasCredito.aspx">Notas de credito </a>
-                            </nav> 
+                            </nav>
                         </div>
                         <a
                             id="ddlMarcas"
@@ -184,20 +184,17 @@
                     <%: usuario.NombreUsuario %> - (<%: usuario.TipoUsuario%>)
 
                     <%}%>
-
                 </div>
             </nav>
         </div>
         <div id="layoutSidenav_content">
-            <main>
-                <div class="container-fluid">
-                    <form id="form1" runat="server">
+            <main class="container-fluid">
+                <form id="form1" runat="server">
 
-                        <asp:ContentPlaceHolder ID="body" runat="server">
-                        </asp:ContentPlaceHolder>
+                    <asp:ContentPlaceHolder ID="body" runat="server">
+                    </asp:ContentPlaceHolder>
 
-                    </form>
-                </div>
+                </form>
             </main>
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid px-4">

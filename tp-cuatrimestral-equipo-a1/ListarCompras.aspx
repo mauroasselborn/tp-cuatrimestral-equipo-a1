@@ -4,64 +4,103 @@
     <title>Listado de Compras</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-    <div class="container-fluid px-4">
-        <h1 class="mt-4">Compras</h1>
-        <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item"><a href="Dashboard.aspx">Dashboard</a></li>
-            <li class="breadcrumb-item active">Compras</li>
-        </ol>
+    <div class="row">
+        <div class="px-4 col-8">
+            <h1 class="mt-4">Compras</h1>
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item"><a href="Dashboard.aspx">Dashboard</a></li>
+                <li class="breadcrumb-item active">Compras</li>
+            </ol>
 
-        <div class="card mb-4">
-            <div class="card-header">
-                <i class="fas fa-table me-1"></i>
-                <b>Listado de Compras</b>
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-table me-1"></i>
+                    <b>Listado de Compras</b>
+                </div>
+                <div class="card-body">
+                    <table id="datatablesSimple">
+                        <thead>
+                            <tr>
+                                <th>Nombre Proveedor</th>
+                                <th>Detalle de Compra</th>
+                                <th>Fecha</th>
+                                <th>Valor Total</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>Nombre Proveedor</th>
+                                <th>Detalle de Compra</th>
+                                <th>Fecha</th>
+                                <th>Valor Total</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+
+
+                            <asp:Repeater runat="server" ID="rptCompras">
+                                <ItemTemplate>
+                                    <tr>
+                                        <%-- Aca debo poner un boton que abra un modal para detallar el proveedor --%>
+                                        <%--<td><%#Eval("Proveedor.Nombre")%></td>--%>
+
+                                        <%-- Aca debo poner un boton que abra un modal para detallar todos los productos incluidos en la compra --%>
+                                        <%--<td><%#Eval("Empresa")%></td>--%>
+
+                                        <%--<td><%#Eval("Cuit")%></td>--%>
+                                        <%--<td><%#Eval("Telefono")%></td>--%>
+                                        <%--<td><%#Eval("Email")%></td>--%>
+
+                                        <td>
+                                            <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="btn btn-warning" CommandName="idCompra" CommandArgument='<%#Eval("ID") %>' OnClick="btnEditar_Click" />
+                                            <asp:Button ID="btnModalEliminar" runat="server" Text="Eliminar" CssClass="btn btn-danger" CommandName="idCompra" CommandArgument='<%#Eval("ID") %>' OnClick="btnModalEliminar_Click" />
+                                        </td>
+                                    </tr>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            <div class="card-body">
-                <table id="datatablesSimple">
-                    <thead>
+        </div>
+        <div class="col-4">
+            <%--  --%>
+            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+            <asp:UpdatePanel ID="DetalleCompra" runat="server">
+                <ContentTemplate>
+                    <table class="table">
                         <tr>
-                            <th>Nombre Proveedor</th>
-                            <th>Detalle de Compra</th>
-                            <th>Fecha</th>
-                            <th>Valor Total</th>
-                            <th>Acciones</th>
+                            <td>Nombre Articulo</td>
+                            <td>Codigo</td>
+                            <td>Cantidad</td>
                         </tr>
-                    </thead>
-                    <tfoot>
+                    </table>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+
+            <asp:UpdatePanel ID="DetalleProveedor" runat="server" cssclass="table">
+                <ContentTemplate>
+                    <table class="table">
                         <tr>
-                            <th>Nombre Proveedor</th>
-                            <th>Detalle de Compra</th>
-                            <th>Fecha</th>
-                            <th>Valor Total</th>
-                            <th>Acciones</th>
+                            <th>Nombre</th>
+                            <th>Empresa</th>
+                            <th>Cuit</th>
+                            <th>Teléfono</th>
+                            <th>Email</th>
                         </tr>
-                    </tfoot>
-                    <tbody>
-
-
-                        <asp:Repeater runat="server" ID="rptCompras">
-                            <ItemTemplate>
-                                <tr>
-                                    <%-- Aca debo poner un boton que abra un modal para detallar el proveedor --%>
-                                    <%--<td><%#Eval("Proveedor.Nombre")%></td>--%>
-
-                                    <%-- Aca debo poner un boton que abra un modal para detallar todos los productos incluidos en la compra --%>
-                                    <%--<td><%#Eval("Empresa")%></td>--%>
-
-                                    <%--<td><%#Eval("Cuit")%></td>--%>
-                                    <%--<td><%#Eval("Telefono")%></td>--%>
-                                    <%--<td><%#Eval("Email")%></td>--%>
-
-                                    <td>
-                                        <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="btn btn-warning" CommandName="idCompra" CommandArgument='<%#Eval("ID") %>' OnClick="btnEditar_Click" />
-                                        <asp:Button ID="btnModalEliminar" runat="server" Text="Eliminar" CssClass="btn btn-danger" CommandName="idCompra" CommandArgument='<%#Eval("ID") %>' OnClick="btnModalEliminar_Click" />
-                                    </td>
-                                </tr>
-                            </ItemTemplate>
-                        </asp:Repeater>
-                    </tbody>
-                </table>
-            </div>
+                        <tbody>
+                            <td>Nombre</td>
+                            <td>Empresa</td>
+                            <td>Cuit</td>
+                            <td>Teléfono</td>
+                            <td>Email</td>
+                        </tbody>
+                    </table>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+            <%--  --%>
         </div>
     </div>
 

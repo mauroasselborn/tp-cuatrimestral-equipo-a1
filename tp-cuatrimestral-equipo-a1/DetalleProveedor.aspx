@@ -49,7 +49,7 @@
                     </tbody>
                 </table>
                 <div class="d-grid gap-3 d-flex justify-content-around">
-                    <a href="ListarStock.aspx" class="btn btn-warning me-md-2 w-25 p-2">Volver</a>
+                    <a href="<%:returnUrl%>" class="btn btn-warning me-md-2 w-25 p-2">Volver</a>
                 </div>
             </div>
         </div>

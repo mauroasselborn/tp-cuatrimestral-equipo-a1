@@ -20,9 +20,12 @@ namespace Dominio
             PrecioUnitario = precioUnitario;
         }
 
+        public DetalleCompra() { }
+
         public decimal Subtotal
         {
             get { return Cantidad * PrecioUnitario; }
+            set { }
         }
     }
 }

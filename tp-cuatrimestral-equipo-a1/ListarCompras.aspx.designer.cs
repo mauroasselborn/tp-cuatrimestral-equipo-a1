@@ -42,13 +42,13 @@ namespace tp_cuatrimestral_equipo_a1
         protected global::System.Web.UI.UpdatePanel DetalleCompra;
 
         /// <summary>
-        /// Control DetalleProveedor.
+        /// Control rptDetalle.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel DetalleProveedor;
+        protected global::System.Web.UI.WebControls.Repeater rptDetalle;
 
         /// <summary>
         /// Control lblMensaje.

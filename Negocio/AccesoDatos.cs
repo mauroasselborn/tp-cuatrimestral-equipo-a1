@@ -71,5 +71,21 @@ namespace Negocio
             conexion.Close();
         }
 
+        internal int idRegistroInsertado()
+        {
+            try
+            {
+                conexion.Open();
+                return (int)comando.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conexion.Close();
+            }
+        }
     }
 }

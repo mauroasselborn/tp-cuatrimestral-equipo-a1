@@ -40,7 +40,7 @@
                                 <tr>
                                     <td><%#Eval("Articulo.Nombre")%></td>
                                     <td>
-                                        <a href="DetalleProveedor.aspx?id=<%#Eval("Proveedor.ID")%>" class="btn btn-link"><%#Eval("Proveedor.Nombre")%></a>
+                                        <a href="DetalleProveedor.aspx?id=<%#Eval("Proveedor.ID")%>&return=lstStk" class="btn btn-link"><%#Eval("Proveedor.Nombre")%></a>
                                     </td>
                                     <td><%#Eval("Cantidad")%></td>
                                     <td>

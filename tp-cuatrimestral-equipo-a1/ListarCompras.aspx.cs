@@ -11,6 +11,7 @@ namespace tp_cuatrimestral_equipo_a1
 {
     public partial class Compras : System.Web.UI.Page
     {
+        public decimal total;
         protected void Page_Load(object sender, EventArgs e)
         {
             List<Compra> lstCompras = new List<Compra>();
@@ -18,10 +19,13 @@ namespace tp_cuatrimestral_equipo_a1
 
             if (!IsPostBack)
             {
-                //lstCompras = compraNegocio.Listar();
+                lstCompras = compraNegocio.Listar();
+                total = 1000;
+                rptCompras.DataSource = lstCompras;
+                rptCompras.DataBind();
 
-                //rptCompras.DataSource = lstCompras;
-                //rptCompras.DataBind();
+                rptDetalle.DataSource = lstCompras[1].Detalle;
+                rptDetalle.DataBind();
 
             }
         }
@@ -31,7 +35,7 @@ namespace tp_cuatrimestral_equipo_a1
             int id = int.Parse(btnEliminar.ToolTip);
             CompraNegocio compraNegocio = new CompraNegocio();
 
-            //CompraNegocio.Eliminar(id);
+            compraNegocio.Eliminar(id);
 
             Response.Redirect("ListarCompras.aspx");
         }

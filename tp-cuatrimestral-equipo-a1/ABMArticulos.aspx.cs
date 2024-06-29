@@ -24,7 +24,7 @@ namespace tp_cuatrimestral_equipo_a1
                 List<Marca> ListaMarcas = negocioMarca.Listar();
                 Session.Add("listaMarcas", ListaMarcas);
                 ddlMarca.DataSource = ListaMarcas;
-                ddlMarca.DataTextField = "Nombre " + "Apellido";
+                ddlMarca.DataTextField = "Descripcion";
                 ddlMarca.DataValueField = "Id";
                 ddlMarca.DataBind();
 

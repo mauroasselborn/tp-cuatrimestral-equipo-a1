@@ -10,6 +10,8 @@ namespace Dominio
         public List<ItemVenta> Items { get; set; }
         public Cliente cliente { get; set; }
         public DateTime FechaVenta { get; set; }
+        public int IdMetodoPago { get; set; }
+        public float Total { get; set; }
 
         public float totalVenta(Venta venta)
         {

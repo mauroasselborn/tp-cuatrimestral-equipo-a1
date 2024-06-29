@@ -71,6 +71,7 @@
     <Content Include="AgregarUsuario.aspx" />
     <Content Include="assets\img\tienda-online.png" />
     <Content Include="EditarCompra.aspx" />
+    <Content Include="ListaFacturas.aspx" />
     <Content Include="ListarCompras.aspx" />
     <Content Include="CrearCompras.aspx" />
     <Content Include="Ventas.aspx" />
@@ -136,6 +137,13 @@
     </Compile>
     <Compile Include="EditarCompra.aspx.designer.cs">
       <DependentUpon>EditarCompra.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListaFacturas.aspx.cs">
+      <DependentUpon>ListaFacturas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListaFacturas.aspx.designer.cs">
+      <DependentUpon>ListaFacturas.aspx</DependentUpon>
     </Compile>
     <Compile Include="ListarCompras.aspx.cs">
       <DependentUpon>ListarCompras.aspx</DependentUpon>

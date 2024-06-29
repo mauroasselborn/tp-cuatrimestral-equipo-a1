@@ -149,28 +149,74 @@ namespace tp_cuatrimestral_equipo_a1
             VentaNegocio ventaNegocio = new VentaNegocio();
             List<Cliente> clientes = (List<Cliente>)Session["lstClientes"];
 
+            int id = ventaNegocio.ListarVentas().Count() == 0 ? 0 : ventaNegocio.ListarVentas().Last().Id;
             try
             {
-                if (Venta.Id == 0)
-                {
-                    Venta.nroFactura = "0001-000001";
-                }
-                else
-                {
-                    Venta.nroFactura = "0001-00000" + Venta.Id;
-                }
-
+                NumerarFactura(id);
                 Venta.cliente = clientes.Find(x => x.ID == int.Parse(ddlClientes.SelectedValue));
-                Venta.FechaVenta = DateTime.Now;
+                Venta.FechaVenta = DateTime.Now.Date;
+                Venta.Total = Venta.totalVenta(Venta);
 
-                ventaNegocio.AgregarVenta(Venta);
-                ventaNegocio.AgregarItems(Venta);
+                int IdFact = ventaNegocio.AgregarVenta(Venta);
+
+                foreach (var item in Venta.Items)
+                {
+                    ventaNegocio.AgregarItems(item, IdFact);
+                }
+
             }
             catch (Exception ex)
             {
                 throw ex;
             }
+            Response.Redirect("ListaFacturas");
+        }
 
+        private void NumerarFactura(int id)
+        {
+            if (id == 0)
+            {
+                Venta.nroFactura = "0001-000001";
+            }
+            else
+            {
+                if (id < 10)
+                {
+                    Venta.nroFactura = "0001-00000" + id.ToString();
+                }
+                else
+                if (id >= 10 && id < 100)
+                {
+                    Venta.nroFactura = "0001-0000" + id.ToString();
+                }
+                else
+                if (id >= 100 && id < 1000)
+                {
+                    Venta.nroFactura = "0001-000" + id.ToString();
+                }
+                else
+                if (id >= 100 && id < 1000)
+                {
+                    Venta.nroFactura = "0001-00" + id.ToString();
+                }
+                else
+                if (id >= 1000 && id < 10000)
+                {
+                    Venta.nroFactura = "0001-0" + id.ToString();
+                }
+                else
+                if (id >= 10000 && id < 100000)
+                {
+                    Venta.nroFactura = "0001-" + id.ToString();
+                }
+            }
+
+        }
+
+        protected void BtnMetodoPago_Click(object sender, EventArgs e)
+        {
+            string script = "document.getElementById('ModalMetodoPago').style.display = 'block';";
+            ClientScript.RegisterStartupScript(this.GetType(), "ModalMetodo", script, true);
         }
     }
 }

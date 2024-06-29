@@ -528,4 +528,48 @@ BEGIN
 	 WHERE Id = @id
 END
 GO
+-----VENTA-----
+CREATE PROCEDURE sp_List_factura
+AS
+BEGIN
 
+    SET NOCOUNT ON
+	select * from  FacturaVenta
+END
+GO
+CREATE PROCEDURE sp_ins_factura
+(
+	@nroFactura nvarchar(11),
+	@Fecha Date,
+    @IdCliente int,
+	@Total decimal(18,2)
+)
+AS
+BEGIN
+
+    SET NOCOUNT ON
+
+	insert into FacturaVenta (NroFactura,Fecha,IdCliente,Total)
+		VALUES  (@nroFactura,@Fecha,@IdCliente,0) 
+
+	SELECT @@IDENTITY AS ID
+		
+END
+GO
+CREATE PROCEDURE sp_ins_item_factura
+(
+    @IdFactura int,
+	@IdArticulo int,
+	@Cantidad int,
+	@Precio decimal(18,2),
+	@Subtotal decimal(18,2)
+)
+AS
+BEGIN
+
+    SET NOCOUNT ON
+
+	insert into ItemFactura (IdFactura,IdArticulo,Cantidad,Precio,Subtotal)
+		VALUES  ( @IdFactura,@IdArticulo,@Cantidad,@Precio,@Subtotal) 
+END
+GO

@@ -192,6 +192,36 @@ CREATE TABLE [dbo].[Ventas](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
+/****** Object:  Table [dbo].[Usuario]    Script Date: 31/5/2024 19:54:44 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[FacturaVenta](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[NroFactura] [nvarchar](11) NOT NULL,
+	[Fecha] [Date] NOT NULL,
+	[IdCliente] [int] NOT NULL,
+	[Total] [decimal](18,2) NULL,
+ CONSTRAINT [PK_FacturaVenta] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+CREATE TABLE [dbo].[ItemFactura](
+	[ID] [int] Identity(1,1) NOT NULL,
+	[IdFactura] [int] NOT NULL,
+	[IdArticulo] [int] NOT NULL,
+	[Cantidad] [int] NOT NULL,
+	[Precio] [decimal](18,2) NOT NULL,
+	[Subtotal] [decimal](18,2) NULL
+ CONSTRAINT [PK_ItemFactura] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
 ALTER TABLE [dbo].[Factura]  WITH CHECK ADD  CONSTRAINT [FK_Factura_Factura] FOREIGN KEY([ID])
 REFERENCES [dbo].[Factura] ([ID])
 GO
@@ -206,4 +236,14 @@ ALTER TABLE [dbo].[Stock]  WITH CHECK ADD  CONSTRAINT [FK_Stock_Proveedores] FOR
 REFERENCES [dbo].[Proveedores] ([ID])
 GO
 ALTER TABLE [dbo].[Stock] CHECK CONSTRAINT [FK_Stock_Proveedores]
+GO
+ALTER TABLE [dbo].[ItemFactura]  WITH CHECK ADD  CONSTRAINT [FK_Id_Factura] FOREIGN KEY([IdFactura])
+REFERENCES [dbo].[FacturaVenta] ([ID])
+GO
+ALTER TABLE [dbo].[ItemFactura] CHECK CONSTRAINT [FK_Id_Factura]
+GO
+ALTER TABLE [dbo].[ItemFactura]  WITH CHECK ADD  CONSTRAINT [FK_Id_Articulo] FOREIGN KEY([IdArticulo])
+REFERENCES [dbo].[Articulos] ([ID])
+GO
+ALTER TABLE [dbo].[ItemFactura] CHECK CONSTRAINT [FK_Id_Articulo]
 GO

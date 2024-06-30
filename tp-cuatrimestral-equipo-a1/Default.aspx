@@ -25,10 +25,12 @@
                                     </div>
                                     <div class="card-body">
                                         <div class="form-floating mb-3">
-                                            <asp:TextBox CssClass="form-control"
-                                                ID="inputEmail"
-                                                runat="server"></asp:TextBox>
-                                            <label for="inputEmail">Email</label>
+                                            <asp:TextBox
+                                                CssClass="form-control"
+                                                ID="inputUsuario"
+                                                runat="server"
+                                                placeholder="Usuario"></asp:TextBox>
+                                            <label for="inputUsuario">Usuario</label>
                                         </div>
                                         <div class="form-floating mb-3">
                                             <asp:TextBox

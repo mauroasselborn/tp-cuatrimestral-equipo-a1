@@ -16,7 +16,7 @@ namespace tp_cuatrimestral_equipo_a1
             UsuarioNegocio usuarioNegocio = new UsuarioNegocio();
             Usuario usuario = new Usuario();
 
-            usuario = usuarioNegocio.Login(inputEmail.Text, inputPassword.Text);
+            usuario = usuarioNegocio.Login(inputUsuario.Text, inputPassword.Text);
 
 
             if (usuario != null)

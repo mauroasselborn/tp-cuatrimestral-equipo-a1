@@ -12892,8 +12892,7 @@ body {
     width: 60px;
 }
 .row-venta {
-    max-height: 76vh;
+    max-height: 80vh;
     overflow: scroll;
     overflow-x: hidden;
-    min-height: 76vh;
 }

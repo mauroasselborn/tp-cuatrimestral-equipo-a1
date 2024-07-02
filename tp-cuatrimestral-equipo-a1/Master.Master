@@ -107,11 +107,19 @@
                             aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a id="lstVentas" class="nav-link" href="ListarVentas.aspx">Lista Ventas</a>
+                                <a id="lstVentas" class="nav-link" href="ListarVentas.aspx">Listar Ventas</a>
                                 <a id="addVentas" class="nav-link" href="CrearVentas.aspx">Nueva Venta</a>
-                                <a id="lstFacturas" class="nav-link" href="ListaFactura.aspx">Facturas</a>
-                                <a id="lstNotasCredito" class="nav-link" href="ListaNotaCredito.aspx">Notas de credito</a>
                                 <a id="CierreDia" class="nav-link" href="CerrarCaja.aspx">Cerrar caja</a>
+                            </nav>
+                        </div>
+                        <div
+                            class="collapse"
+                            id="collapseLayoutsFacturas"
+                            aria-labelledby="headingOne"
+                            data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a id="lstFacturas" class="nav-link" href="Facturas.aspx">Facturas</a>
+                                <a id="lstNotasCredito" class="nav-link" href="NotasCredito.aspx">Notas de credito </a>
                             </nav>
                         </div>
                         <a

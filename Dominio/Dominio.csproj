@@ -47,7 +47,6 @@
     <Compile Include="Compra.cs" />
     <Compile Include="ItemVenta.cs" />
     <Compile Include="DetalleCompra.cs" />
-    <Compile Include="MetodoPago.cs" />
     <Compile Include="Proveedor.cs" />
     <Compile Include="Marca.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

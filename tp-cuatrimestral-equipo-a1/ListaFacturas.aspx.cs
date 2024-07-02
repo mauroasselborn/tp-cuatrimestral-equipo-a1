@@ -5,17 +5,14 @@ using System.Collections.Generic;
 
 namespace tp_cuatrimestral_equipo_a1
 {
-    public partial class CrearVentas : System.Web.UI.Page
+    public partial class ListaFacturas : System.Web.UI.Page
     {
-        List<Venta> lstVenta = new List<Venta>();
+        public List<Venta> lstVentas { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             VentaNegocio ventaNegocio = new VentaNegocio();
 
-            lstVenta = ventaNegocio.ListarVentas();
-
-            rptVenta.DataSource = lstVenta;
-            rptVenta.DataBind();
+            lstVentas = ventaNegocio.ListarVentas();
         }
     }
 }

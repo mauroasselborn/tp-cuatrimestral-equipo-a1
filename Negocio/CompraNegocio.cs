@@ -97,7 +97,7 @@ namespace Negocio
                 accesoDatos.setearParametro("@ValorTotal", compra.ValorTotal);
 
                 // Guardo el ID del registro insertado en la DB
-                int idCompra = accesoDatos.idRegistroInsertado();
+                int idCompra = accesoDatos.ejecutarAccionReturn();
 
                 // Agregar detalles de compra
                 foreach (var detalle in compra.Detalle)

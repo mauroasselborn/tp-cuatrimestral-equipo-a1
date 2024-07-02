@@ -2,8 +2,8 @@ USE [DB-EQUIPOA1]
 -- Insertar Usuarios
 INSERT INTO Usuarios (NombreUsuario, Pass, TipoUsuario, Estado) 
 VALUES
-('Admin' , 'Yjma8V2C9Dlx5myuTxP3rw==', 'admin' ,1),
-('UserTest' ,'Gtrxqbrw65bBEFbBQ60NkA==' , 'Usuario' , 1)
+('Admin' , 'Yjma8V2C9Dlx5myuTxP3rw==', 'admin' ,1,'https://as1.ftcdn.net/v2/jpg/04/56/58/14/1000_F_456581427_5XpGqNqCwLAGwaFFvxVGvnW2teOfJ0ZL.jpg'),
+('UserTest' ,'Gtrxqbrw65bBEFbBQ60NkA==' , 'Usuario' , 1,'https://w7.pngwing.com/pngs/857/213/png-transparent-man-avatar-user-business-avatar-icon.png')
 
 -- Insert Proveedores
 INSERT INTO Proveedores (Nombre, Empresa, Cuit, Telefono, Direccion, Email, Estado) 

@@ -171,7 +171,7 @@ namespace Negocio
                     usuario.NombreUsuario = (string)accesoDatos.Lector["NombreUsuario"];
                     usuario.TipoUsuario = (string)accesoDatos.Lector["TipoUsuario"];
                     usuario.Pass = (string)accesoDatos.Lector["Pass"];
-                    usuario.ImgUrl = "";
+                    usuario.ImgUrl = (string)accesoDatos.Lector["ImgURL"];
                     return usuario;
                 }
                 return null;

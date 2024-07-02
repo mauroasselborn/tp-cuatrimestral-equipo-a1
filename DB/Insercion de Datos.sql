@@ -150,8 +150,3 @@ VALUES
 (18, 4, 269),
 (5, 11, 137),
 (11, 10, 327);
-
---Insert Metodos de pago
-insert into MetodosPago ( Descripcion) values ('Efectivo')
-insert into MetodosPago ( Descripcion) values ('Debito')
-insert into MetodosPago ( Descripcion) values ('Credito')

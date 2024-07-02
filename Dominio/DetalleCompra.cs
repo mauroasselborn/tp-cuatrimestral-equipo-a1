@@ -25,7 +25,6 @@ namespace Dominio
         public decimal Subtotal
         {
             get { return Cantidad * PrecioUnitario; }
-            set { }
         }
     }
 }

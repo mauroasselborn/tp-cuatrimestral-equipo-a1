@@ -4,30 +4,6 @@ VALUES
 ('Admin' , 'Yjma8V2C9Dlx5myuTxP3rw==', 'admin' ,1),
 ('UserTest' ,'Gtrxqbrw65bBEFbBQ60NkA==' , 'Usuario' , 1)
 
--- Insert Marcas
-INSERT INTO Marcas (Descripcion) 
-VALUES 
-('Apple'),
-('HP'),
-('Samsung'),
-('Google'),
-('Dell'),
-('Lenovo'),
-('MSI'),
-('Asus'),
-('Microsoft'),
-('LG'),
-('Motorola');
-
--- Insert Categorias
-INSERT INTO Categorias (Descripcion) 
-VALUES 
-('Smartwatches'),
-('Gaming'),
-('Cámaras'),
-('Tabletas'),
-('Monitores');
-
 -- Insert Proveedores
 INSERT INTO Proveedores (Nombre, Empresa, Cuit, Telefono, Direccion, Email, Estado) 
 VALUES 
@@ -52,8 +28,32 @@ VALUES
 ('Scott', 'Latz', '93-40566705-9', '(011) 5759-3127', 'Room 10', 'scoopei@naver.com',1),
 ('Jacquelynn', 'Quatz', '70-20911809-0', '(011) 3745-8218', 'Room 1350', 'jiacovaccioj@meetup.com',1);
 
+-- Insert Marcas
+INSERT INTO Marcas (Descripcion) 
+VALUES 
+('Apple'),
+('HP'),
+('Samsung'),
+('Google'),
+('Dell'),
+('Lenovo'),
+('MSI'),
+('Asus'),
+('Microsoft'),
+('LG'),
+('Motorola');
+
+-- Insert Categorias
+INSERT INTO Categorias (Descripcion) 
+VALUES 
+('Smartwatches'),
+('Gaming'),
+('Cámaras'),
+('Tabletas'),
+('Monitores');
+
 -- Insert Articulos
-INSERT INTO Articulos (Nombre,Codigo, IdMarca, IdTipo, StockMinimo, PorcentajeGanancia,estado) 
+INSERT INTO Articulos (Nombre,Codigo, IdMarca, IdCategoria, StockMinimo, PorcentajeGanancia,estado) 
 VALUES 
 ('Smartphone X','1', 8, 3, 976, 99,1),
 ('Laptop Pro','2', 10, 4, 465, 100,1),
@@ -75,6 +75,57 @@ VALUES
 ('Smart Thermostat','18', 10, 2, 908, 92,1),
 ('Wireless Earbuds','19', 6, 4, 672, 62,1),
 ('Home Security Camera','20', 1, 4, 364, 79,0);
+
+-- Insert Compras
+insert into Compras (IdProveedor, Fecha) 
+values 
+(1, '2023-09-09' ),
+(2, '2024-05-10' ),
+(3, '2024-03-20' ),
+(4, '2023-10-26' ),
+(5, '2024-01-24' ),
+(6, '2024-06-27' ),
+(7, '2023-10-09' ),
+(8, '2023-11-23' ),
+(9, '2024-02-04' ),
+(10, '2024-03-09'),
+(11, '2023-07-01'),
+(12, '2024-03-02'),
+(13, '2024-06-19'),
+(14, '2023-09-07'),
+(15, '2023-07-31'),
+(16, '2023-10-03'),
+(17, '2024-06-12'),
+(18, '2023-07-17'),
+(19, '2023-10-15'),
+(20, '2023-09-30')
+
+
+-- insert DetalleCompra
+
+insert into DetalleCompra (IdArticulo, PrecioUnitario, Cantidad, IdCompra) 
+values 
+(9, 4351.88, 41, 12),
+(9, 7917.89, 55, 6),
+(6, 1049.69, 20, 6),
+(10, 8841.86, 78, 17),
+(2, 5785.48, 3, 15),
+(19, 7845.37, 18, 7),
+(9, 4284.12, 73, 16),
+(13, 1548.33, 10, 6),
+(18, 9352.31, 7, 1),
+(17, 5250.26, 26, 8),
+(3, 7833.73, 12, 13),
+(17, 2307.18, 27, 6),
+(14, 7062.97, 60, 16),
+(8, 3571.15, 9, 7),
+(17, $5567.35, 86, 2),
+(3, 4546.06, 15, 9),
+(2, 4215.11, 55, 6),
+(12, 8475.46, 82, 6),
+(15, 4282.96, 23, 5),
+(17, 8880.43, 42, 20)
+
 
 -- Insert Stock
 INSERT INTO Stock (IdProducto, IdProveedor, Cantidad) 

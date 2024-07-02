@@ -74,7 +74,7 @@ namespace Negocio
                 articulo.Codigo = accesoDatos.Lector["Codigo"].ToString();
 
                 articulo.Marca = marcaNegocio.ListarXID((int)(accesoDatos.Lector["IdMarca"]));
-                articulo.Categoria = categoriaNegocio.ListarXID((int)(accesoDatos.Lector["IdTipo"]));
+                articulo.Categoria = categoriaNegocio.ListarXID((int)(accesoDatos.Lector["IdCategoria"]));
 
                 articulo.ProcentajeGanancia = float.Parse(accesoDatos.Lector["PorcentajeGanancia"].ToString());
                 articulo.StockMinimo = (int)accesoDatos.Lector["StockMinimo"];

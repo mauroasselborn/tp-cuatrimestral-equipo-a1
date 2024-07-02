@@ -165,6 +165,8 @@ namespace tp_cuatrimestral_equipo_a1
                 NumerarFactura(id);
                 Venta.cliente = clientes.Find(x => x.ID == int.Parse(ddlClientes.SelectedValue));
                 Venta.FechaVenta = DateTime.Now.Date;
+
+                Venta.MetodoPago = new MetodoPago();
                 Venta.MetodoPago.ID = Convert.ToInt32(ddlCuotas.SelectedValue);
 
                 if (Venta.MetodoPago.ID == 3)

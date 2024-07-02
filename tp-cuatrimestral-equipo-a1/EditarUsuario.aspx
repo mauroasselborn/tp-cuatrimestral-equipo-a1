@@ -102,7 +102,7 @@
                                         OnClientClick="return validar()"
                                         OnClick="btnAgregar_Click" />
 
-                                    <a href="Dashboard.aspx" class="btn btn-danger me-md-2 w-25 p-2">Cancelar</a>
+                                    <a href="ListarUsuarios.aspx" class="btn btn-danger me-md-2 w-25 p-2">Cancelar</a>
                                 </div>
                             </div>
                         </div>

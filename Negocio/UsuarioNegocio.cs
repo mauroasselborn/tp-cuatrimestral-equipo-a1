@@ -22,6 +22,7 @@ namespace Negocio
                     usuario.NombreUsuario = accesoDatos.Lector["Nombreusuario"].ToString();
                     usuario.Pass = accesoDatos.Lector["Pass"].ToString();
                     usuario.TipoUsuario = accesoDatos.Lector["TipoUsuario"].ToString();
+                    usuario.ImgUrl = accesoDatos.Lector["ImgURL"].ToString();
 
                     lstUsuario.Add(usuario);
                 }
@@ -59,6 +60,7 @@ namespace Negocio
                 usuario.NombreUsuario = accesoDatos.Lector["NombreUsuario"].ToString();
                 usuario.Pass = accesoDatos.Lector["Pass"].ToString();
                 usuario.TipoUsuario = accesoDatos.Lector["TipoUsuario"].ToString();
+                usuario.ImgUrl = accesoDatos.Lector["ImgURL"].ToString();
 
                 return usuario;
             }
@@ -169,6 +171,7 @@ namespace Negocio
                     usuario.NombreUsuario = (string)accesoDatos.Lector["NombreUsuario"];
                     usuario.TipoUsuario = (string)accesoDatos.Lector["TipoUsuario"];
                     usuario.Pass = (string)accesoDatos.Lector["Pass"];
+                    usuario.ImgUrl = (string)accesoDatos.Lector["ImgURL"];
                     return usuario;
                 }
                 return null;

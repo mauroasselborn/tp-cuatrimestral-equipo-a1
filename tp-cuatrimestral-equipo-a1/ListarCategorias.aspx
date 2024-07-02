@@ -4,7 +4,7 @@
     <title>Listado Categorías</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-    <div class="container-fluid px-4">
+    <div class="container-fluid px-4 col-7">
         <h1 class="mt-4">Categrías</h1>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item"><a href="Dashboard.aspx">Dashboard</a></li>
@@ -17,7 +17,7 @@
                 <b>Listado de Categorías de Artículos</b>
             </div>
             <div class="card-body">
-                <table id="datatablesSimple">
+                <table id="datatablesSimple" class="text-center" >
                     <thead>
                         <tr>
                             <th>Descripcion</th>

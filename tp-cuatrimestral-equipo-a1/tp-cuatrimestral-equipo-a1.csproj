@@ -74,7 +74,7 @@
     <Content Include="ListarCompras.aspx" />
     <Content Include="CrearCompras.aspx" />
     <Content Include="ListarFacturas.aspx" />
-    <Content Include="Ventas.aspx" />
+    <Content Include="ListarVentas.aspx" />
     <Content Include="css\styles.css" />
     <Content Include="css\table.css" />
     <Content Include="Dashboard.aspx" />
@@ -159,12 +159,12 @@
     <Compile Include="ListarFacturas.aspx.designer.cs">
       <DependentUpon>ListarFacturas.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Ventas.aspx.cs">
-      <DependentUpon>Ventas.aspx</DependentUpon>
+    <Compile Include="ListarVentas.aspx.cs">
+      <DependentUpon>ListarVentas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Ventas.aspx.designer.cs">
-      <DependentUpon>Ventas.aspx</DependentUpon>
+    <Compile Include="ListarVentas.aspx.designer.cs">
+      <DependentUpon>ListarVentas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dashboard.aspx.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>

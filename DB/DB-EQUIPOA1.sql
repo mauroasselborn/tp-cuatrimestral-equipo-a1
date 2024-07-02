@@ -202,6 +202,7 @@ CREATE TABLE [dbo].[FacturaVenta](
 	[NroFactura] [nvarchar](11) NOT NULL,
 	[Fecha] [Date] NOT NULL,
 	[IdCliente] [int] NOT NULL,
+	[IdMetodoPago] [int] NOT NULL,
 	[Total] [decimal](18,2) NULL,
  CONSTRAINT [PK_FacturaVenta] PRIMARY KEY CLUSTERED 
 (

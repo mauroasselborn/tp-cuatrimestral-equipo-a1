@@ -10,18 +10,9 @@ namespace Dominio
         public List<ItemVenta> Items { get; set; }
         public Cliente cliente { get; set; }
         public DateTime FechaVenta { get; set; }
-        public int IdMetodoPago { get; set; }
+        public MetodoPago MetodoPago { get; set; }
         public float Total { get; set; }
+        public int? CantidadCuotas { get; set; }
 
-        public float totalVenta(Venta venta)
-        {
-            float total = 0;
-            foreach (ItemVenta item in venta.Items)
-            {
-
-                total += item.Precio * item.Cantidad;
-            }
-            return total;
-        }
     }
 }

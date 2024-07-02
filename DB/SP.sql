@@ -1,3 +1,5 @@
+
+
 -- Articulos
 CREATE PROCEDURE sp_ins_articulo
 (
@@ -128,7 +130,6 @@ AS
 BEGIN
 
     SET NOCOUNT ON
-	select * from Clientes
 	INSERT INTO Clientes (Nombre, Apellido, Documento, Telefono, Direccion, Mail,Estado) 
 		VALUES  ( @Nombre, @Apellido, @Documento, @Telefono, @Direccion, @Mail,1) 
 END
@@ -534,7 +535,10 @@ AS
 BEGIN
 
     SET NOCOUNT ON
-	select * from  FacturaVenta
+	SELECT F.ID 'ID',F.NroFactura 'NroFactura',F.fecha 'Fecha' ,F.IdCliente 'IdCliente',
+		   F.Total, MP.ID 'IdMetodoPago',MP.Descripcion 'DescMetodo'
+	FROM FacturaVenta F
+	inner join MetodosPago MP on MP.ID = F.IdMetodoPago
 END
 GO
 CREATE PROCEDURE sp_ins_factura
@@ -542,6 +546,7 @@ CREATE PROCEDURE sp_ins_factura
 	@nroFactura nvarchar(11),
 	@Fecha Date,
     @IdCliente int,
+	@IdMetodoPago int,
 	@Total decimal(18,2)
 )
 AS
@@ -549,8 +554,8 @@ BEGIN
 
     SET NOCOUNT ON
 
-	insert into FacturaVenta (NroFactura,Fecha,IdCliente,Total)
-		VALUES  (@nroFactura,@Fecha,@IdCliente,0) 
+	insert into FacturaVenta (NroFactura,Fecha,IdCliente,IdMetodoPago,Total)
+		VALUES  (@nroFactura,@Fecha,@IdCliente,@IdMetodoPago,@Total) 
 
 	SELECT @@IDENTITY AS ID
 		
@@ -571,5 +576,22 @@ BEGIN
 
 	insert into ItemFactura (IdFactura,IdArticulo,Cantidad,Precio,Subtotal)
 		VALUES  ( @IdFactura,@IdArticulo,@Cantidad,@Precio,@Subtotal) 
+END
+GO
+
+CREATE PROCEDURE sp_ins_cuotas
+(
+    @IdFactura int,
+	@Cantidad int,
+	@Precio decimal(18,2),
+	@Total decimal(18,2)
+)
+AS
+BEGIN
+
+    SET NOCOUNT ON
+
+	insert into Cuotas (IdFactura,Cantidad,Precio,Total)
+		VALUES  ( @IdFactura,@Cantidad,@Precio,@Total) 
 END
 GO

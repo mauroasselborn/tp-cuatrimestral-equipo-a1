@@ -1,3 +1,4 @@
+USE [DB-EQUIPOA1]
 -- Insertar Usuarios
 INSERT INTO Usuarios (NombreUsuario, Pass, TipoUsuario, Estado) 
 VALUES

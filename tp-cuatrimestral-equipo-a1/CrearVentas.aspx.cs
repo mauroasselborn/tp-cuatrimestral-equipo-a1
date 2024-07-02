@@ -11,11 +11,14 @@ namespace tp_cuatrimestral_equipo_a1
     {
         public Venta Venta;
         float Total;
+        public int numero = 1;
         public List<Articulo> lstArticulo { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
             ArticuloNegocio ArticuloNegocio = new ArticuloNegocio();
+            ClienteNegocio clienteNegocio = new ClienteNegocio();
+
             Venta = (Venta)Session["Venta"];
 
             if (Venta == null)
@@ -38,12 +41,30 @@ namespace tp_cuatrimestral_equipo_a1
 
                 }
                 Session.Add("lstArticulos", lstArticulo);
+
                 rptArticulo.DataSource = lstArticulo;
                 rptArticulo.DataBind();
+
                 if (Venta != null)
                 {
                     rptVenta.DataSource = Venta.Items;
                     rptVenta.DataBind();
+                }
+                #region DLLs
+                List<Cliente> LstClientes = clienteNegocio.Listar();
+                Session.Add("lstClientes", LstClientes);
+
+                ddlClientes.DataSource = LstClientes;
+                ddlClientes.DataTextField = "Nombre";
+                ddlClientes.DataValueField = "Id";
+                ddlClientes.DataBind();
+
+                #endregion
+
+                if (Venta.Items != null)
+                {
+                    Total = Venta.Items.Sum(x => x.subtotal);
+                    lblTotal.Text = Total.ToString();
                 }
 
             }
@@ -55,6 +76,8 @@ namespace tp_cuatrimestral_equipo_a1
             int idArticulo = Convert.ToInt32(((Button)sender).CommandArgument);
 
             List<Articulo> lstArt = (List<Articulo>)Session["lstArticulos"];
+
+            BtnMetodoPago.Visible = true;
 
             if (Venta.Items.Exists(x => x.articulo.ID == idArticulo))
             {
@@ -82,14 +105,17 @@ namespace tp_cuatrimestral_equipo_a1
 
                 Session.Add("Venta", Venta);
             }
-            Total = Venta.Items.Sum(x => x.subtotal);
+            Total = CalcularTotal();
             lblTotal.Text = Total.ToString();
 
             rptVenta.DataSource = Venta.Items;
             rptVenta.DataBind();
         }
 
-
+        private float CalcularTotal()
+        {
+            return Venta.Items.Sum(x => x.subtotal);
+        }
 
         protected void txtCantidad_TextChanged(object sender, EventArgs e)
         {
@@ -103,7 +129,7 @@ namespace tp_cuatrimestral_equipo_a1
 
                 Session.Add("Venta", Venta);
 
-                Total = Venta.Items.Sum(x => x.subtotal);
+                Total = CalcularTotal();
                 lblTotal.Text = Total.ToString();
 
                 rptVenta.DataSource = Venta.Items;
@@ -120,7 +146,7 @@ namespace tp_cuatrimestral_equipo_a1
 
             Session.Add("Venta", Venta);
 
-            Total = Venta.Items.Sum(x => x.subtotal);
+            Total = CalcularTotal();
             lblTotal.Text = Total.ToString();
 
             rptVenta.DataSource = Venta.Items;
@@ -137,12 +163,9 @@ namespace tp_cuatrimestral_equipo_a1
             try
             {
                 NumerarFactura(id);
-
                 Venta.cliente = clientes.Find(x => x.ID == int.Parse(ddlClientes.SelectedValue));
                 Venta.FechaVenta = DateTime.Now.Date;
-
-                Venta.MetodoPago = new MetodoPago();
-                Venta.MetodoPago.ID = Convert.ToInt32(ddlMetodoPago.SelectedValue);
+                Venta.MetodoPago.ID = Convert.ToInt32(ddlCuotas.SelectedValue);
 
                 if (Venta.MetodoPago.ID == 3)
                 {
@@ -176,7 +199,7 @@ namespace tp_cuatrimestral_equipo_a1
 
             Session["Venta"] = null;
 
-            Response.Redirect("ListarVentas.aspx");
+            Response.Redirect("ListaFacturas.aspx");
         }
 
         private void NumerarFactura(int id)

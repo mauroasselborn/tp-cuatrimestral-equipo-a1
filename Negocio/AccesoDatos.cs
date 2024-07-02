@@ -38,6 +38,20 @@ namespace Negocio
                 throw ex;
             }
         }
+        public int ejecutarAccionReturn()
+        {
+            comando.Connection = conexion;
+            try
+            {
+                conexion.Open();
+                int id = Convert.ToInt32(comando.ExecuteScalar());
+                return id;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
         public void ejecutarAccion()
         {
@@ -71,21 +85,5 @@ namespace Negocio
             conexion.Close();
         }
 
-        internal int idRegistroInsertado()
-        {
-            try
-            {
-                conexion.Open();
-                return (int)comando.ExecuteScalar();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                conexion.Close();
-            }
-        }
     }
 }

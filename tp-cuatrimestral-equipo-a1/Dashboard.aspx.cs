@@ -11,7 +11,7 @@ namespace tp_cuatrimestral_equipo_a1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Request.QueryString["logout"] == "yes") Session.Remove("Logueado");
         }
     }
 }

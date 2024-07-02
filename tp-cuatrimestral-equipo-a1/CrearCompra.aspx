@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Nueva Compra" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="CrearCompras.aspx.cs" Inherits="tp_cuatrimestral_equipo_a1.CrearCompras" %>
+﻿<%@ Page Title="Nueva Compra" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="CrearCompra.aspx.cs" Inherits="tp_cuatrimestral_equipo_a1.CrearCompras" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Nueva Compra</title>

@@ -6,6 +6,6 @@
         public string NombreUsuario { get; set; }
         public string Pass { get; set; }
         public string TipoUsuario { get; set; }
-        //public string UrlImg { get; set; }
+        public string ImgUrl { get; set; }
     }
 }

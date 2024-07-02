@@ -7,6 +7,7 @@ namespace Negocio
 {
     public class CompraNegocio
     {
+
         // Listar todas las compras
         public List<Compra> Listar()
         {
@@ -81,7 +82,7 @@ namespace Negocio
                 accesoDatos.cerrarConexion();
             }
         }
-        
+
         // Agregar una compra
         public void Agregar(Compra compra)
         {
@@ -91,8 +92,9 @@ namespace Negocio
             {
                 accesoDatos.setearSP("sp_ins_compra");
 
-                accesoDatos.setearParametro("@ProveedorId", compra.Proveedor.ID);
-                accesoDatos.setearParametro("@Fecha", compra.Fecha);
+                accesoDatos.setearParametro("@IdProveedor", compra.Proveedor.ID);
+                accesoDatos.setearParametro("@Fecha", compra.FechaFormateada);
+                accesoDatos.setearParametro("@ValorTotal", compra.ValorTotal);
 
                 // Guardo el ID del registro insertado en la DB
                 int idCompra = accesoDatos.idRegistroInsertado();
@@ -122,14 +124,15 @@ namespace Negocio
             {
                 accesoDatos.setearSP("sp_upd_compra");
 
-                accesoDatos.setearParametro("@id", compra.ID);
-                accesoDatos.setearParametro("@ProveedorId", compra.Proveedor.ID);
-                accesoDatos.setearParametro("@Fecha", compra.Fecha);
+                accesoDatos.setearParametro("@ID", compra.ID);
+                accesoDatos.setearParametro("@IdProveedor", compra.Proveedor.ID);
+                accesoDatos.setearParametro("@Fecha", compra.FechaFormateada);
+                accesoDatos.setearParametro("@ValorTotal", compra.ValorTotal);
 
                 accesoDatos.ejecutarAccion();
 
                 // Actualizar detalles de compra
-                foreach (var detalle in compra.Detalle)
+                foreach (DetalleCompra detalle in compra.Detalle)
                 {
                     UpdateDetalleCompra(compra.ID, detalle);
                 }
@@ -153,7 +156,7 @@ namespace Negocio
             {
                 accesoDatos.setearSP("sp_del_compra");
 
-                accesoDatos.setearParametro("@id", id);
+                accesoDatos.setearParametro("@ID", id);
 
                 accesoDatos.ejecutarAccion();
             }
@@ -185,7 +188,7 @@ namespace Negocio
                 while (accesoDatos.Lector.Read())
                 {
                     DetalleCompra detalle = new DetalleCompra();
-                    detalle.Articulo = articuloNegocio.ListarXID((int)accesoDatos.Lector["IdArticulo"]);                
+                    detalle.Articulo = articuloNegocio.ListarXID((int)accesoDatos.Lector["IdArticulo"]);
                     detalle.Cantidad = (int)accesoDatos.Lector["Cantidad"];
                     detalle.PrecioUnitario = (decimal)accesoDatos.Lector["PrecioUnitario"];
 
@@ -212,11 +215,11 @@ namespace Negocio
             {
                 accesoDatos.setearSP("sp_ins_detalle_compra");
 
-                accesoDatos.setearParametro("@ID", IdCompra);
+                accesoDatos.setearParametro("@IdCompra", IdCompra);
                 accesoDatos.setearParametro("@IdArticulo", detalle.Articulo.ID);
                 accesoDatos.setearParametro("@Cantidad", detalle.Cantidad);
                 accesoDatos.setearParametro("@PrecioUnitario", detalle.PrecioUnitario);
-                accesoDatos.setearParametro("@Subtotal", detalle.Subtotal);
+
 
                 accesoDatos.ejecutarAccion();
             }
@@ -238,11 +241,10 @@ namespace Negocio
             {
                 accesoDatos.setearSP("sp_upd_detalle_compra");
 
-                accesoDatos.setearParametro("@ID", IdCompra);
+                accesoDatos.setearParametro("@IdCompra", IdCompra);
                 accesoDatos.setearParametro("@ArticuloId", detalle.Articulo.ID);
                 accesoDatos.setearParametro("@Cantidad", detalle.Cantidad);
                 accesoDatos.setearParametro("@PrecioUnitario", detalle.PrecioUnitario);
-                accesoDatos.setearParametro("@Subtotal", detalle.Subtotal);
 
                 accesoDatos.ejecutarAccion();
             }

@@ -12,25 +12,13 @@ namespace Dominio
         public Proveedor Proveedor { get; set; }
         public List<DetalleCompra> Detalle { get; set; }
         public DateTime Fecha { get; set; }
-        
+        public string FechaFormateada => Fecha.ToString("dd/MM/yyyy");
+
 
         public Compra()
         {
             Detalle = new List<DetalleCompra>();
         }
-
-        //public void AgregarDetalle(DetalleCompra detalle)
-        //{
-        //    var detalleExistente = Detalle.FirstOrDefault(d => d.Articulo.ID == detalle.Articulo.ID);
-        //    if (detalleExistente != null)
-        //    {
-        //        detalleExistente.Cantidad += detalle.Cantidad;
-        //    }
-        //    else
-        //    {
-        //        Detalle.Add(detalle);
-        //    }
-        //}
 
         public decimal ValorTotal
         {

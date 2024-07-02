@@ -11,20 +11,24 @@ namespace tp_cuatrimestral_equipo_a1
 {
     public partial class Compras : System.Web.UI.Page
     {
-        public decimal total;
+        public Proveedor p;
+        private CompraNegocio compraNegocio;
         protected void Page_Load(object sender, EventArgs e)
         {
             List<Compra> lstCompras = new List<Compra>();
-            CompraNegocio compraNegocio = new CompraNegocio();
+            compraNegocio = new CompraNegocio();
+
 
             if (!IsPostBack)
             {
                 lstCompras = compraNegocio.Listar();
-                total = 1000;
+                p = lstCompras[0].Proveedor;
+
                 rptCompras.DataSource = lstCompras;
                 rptCompras.DataBind();
 
-                rptDetalle.DataSource = lstCompras[1].Detalle;
+
+                rptDetalle.DataSource = lstCompras[0].Detalle;
                 rptDetalle.DataBind();
 
             }
@@ -51,6 +55,18 @@ namespace tp_cuatrimestral_equipo_a1
             string script = "document.getElementById('ModalEliminar').style.display = 'block'";
             btnEliminar.ToolTip = ((Button)sender).CommandArgument.ToString();
             ClientScript.RegisterStartupScript(this.GetType(), "Modal", script, true);
+        }
+
+        protected void numeroCompra_Click(object sender, EventArgs e)
+        {
+            int numeroCompra = int.Parse(((LinkButton)sender).CommandArgument.ToString());
+
+            Compra compraSeleccionada = compraNegocio.Listar().Find(c => c.ID == numeroCompra);
+
+            rptDetalle.DataSource = compraSeleccionada.Detalle;
+            rptDetalle.DataBind();
+
+            p = compraSeleccionada.Proveedor;
         }
     }
 }

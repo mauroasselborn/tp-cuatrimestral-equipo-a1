@@ -18,7 +18,7 @@
                     <b>Listado de Compras</b>
                 </div>
                 <div class="card-body">
-                    <table id="datatablesSimple">
+                    <table id="datatablesSimple" class="table table-striped table-bordered text-center text-center">
                         <thead>
                             <tr>
                                 <th>N° Compra</th>
@@ -43,13 +43,11 @@
                             <asp:Repeater runat="server" ID="rptCompras">
                                 <ItemTemplate>
                                     <tr>
-                                        <td><%#Eval("ID")%></td>
                                         <td>
-                                            <a href="DetalleProveedor.aspx?id=<%#Eval("Proveedor.ID")%>&return=lstCom" class="btn btn-link"><%#Eval("Proveedor.Nombre")%></a>
-
-                                        </td>
-                                        <td><%#Eval("Fecha")%></td>
-                                        <td><%:total%></td>
+                                            <asp:LinkButton ID="numeroCompra" runat="server" CommandName="idCompra" CommandArgument='<%#Eval("ID") %>' OnClick="numeroCompra_Click" CssClass="btn btn-link">#<%#Eval("ID")%></asp:LinkButton></td>
+                                        <td><%#Eval("Proveedor.Nombre")%></td>
+                                        <td><%#Eval("FechaFormateada")%></td>
+                                        <td><%#Eval("ValorTotal")%>$</td>
                                         <td>
                                             <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="btn btn-warning" CommandName="idCompra" CommandArgument='<%#Eval("ID") %>' OnClick="btnEditar_Click" />
                                             <asp:Button ID="btnModalEliminar" runat="server" Text="Eliminar" CssClass="btn btn-danger" CommandName="idCompra" CommandArgument='<%#Eval("ID") %>' OnClick="btnModalEliminar_Click" />
@@ -62,18 +60,23 @@
                 </div>
             </div>
         </div>
-        <div class="col-6">
+        <div class="col-6 mt-4">
             <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
             <asp:UpdatePanel ID="DetalleCompra" runat="server" style="min-height: 50vh; max-height: 80vh; overflow-x: hidden;">
                 <ContentTemplate>
+
+                    <h1 class="mx-4">Detalles de Compra</h1>
+                    <ol class="breadcrumb mb-4">
+                        <li class="breadcrumb-item active mx-4">Detalles de la Compra</li>
+                    </ol>
                     <div class="card m-4">
                         <div class="card-header">
                             <i class="fas fa-table me-1"></i>
                             <b>Detalle de Compras</b>
                         </div>
                         <div class="card-body">
-                            <table class="table table-striped table-bordered text-center" style="border-radius: 50%;">
+                            <table class="table table-striped table-bordered text-center">
                                 <thead>
                                     <tr>
                                         <th scope="col">Nombre Articulo</th>
@@ -89,7 +92,7 @@
                                                 <td><%# Eval("Articulo.Nombre") %></td>
                                                 <td><%# Eval("Articulo.Codigo") %></td>
                                                 <td><%# Eval("Cantidad") %></td>
-                                                <td><%# Eval("PrecioUnitario") %></td>
+                                                <td><%# Eval("PrecioUnitario") %>$</td>
                                             </tr>
                                         </ItemTemplate>
                                     </asp:Repeater>
@@ -97,13 +100,18 @@
                             </table>
                         </div>
                     </div>
+
                 </ContentTemplate>
             </asp:UpdatePanel>
 
 
-            <%--<asp:UpdatePanel ID="DetalleProveedor" runat="server" style="min-height: 10vh;">
+            <asp:UpdatePanel ID="DetalleProveedor" runat="server" style="min-height: 10vh;">
                 <ContentTemplate>
-                    <div class="card">
+                    <h1 class="mx-4">Detalle de Proveedor</h1>
+                    <ol class="breadcrumb mb-4">
+                        <li class="breadcrumb-item active mx-4">Detalles de Proveedor</li>
+                    </ol>
+                    <div class="card m-4">
                         <div class="card-header">
                             <i class="fas fa-table me-1"></i>
                             <b>Detalle de Proveedor</b>
@@ -114,23 +122,24 @@
                                     <th>Nombre</th>
                                     <th>Empresa</th>
                                     <th>Cuit</th>
-                                    <th>Teléfono</th>
-                                    <th>Dirección</th>
-                                    <th>Email</th>
                                 </tr>
                                 <tbody>
-                                    <td>Pedro Ruben</td>
-                                    <td>La Pastoriza</td>
-                                    <td>20-33456987-2</td>
-                                    <td>3456477239</td>
-                                    <td>Avenida siempre viva 742</td>
-                                    <td>Email@email.com</td>
+
+                                    <tr>
+                                        <% if (p != null) %>
+                                        <%{%>
+                                        <td><a href="DetalleProveedor.aspx?id=<%:p.ID%>&return=lstCom" class="btn btn-link"><%:p.Nombre%></a></td>
+                                        <td><%:p.Empresa%></td>
+                                        <td><%:p.Cuit%></td>
+                                        <%} %>
+                                    </tr>
+
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </ContentTemplate>
-            </asp:UpdatePanel>--%>
+            </asp:UpdatePanel>
         </div>
     </div>
 

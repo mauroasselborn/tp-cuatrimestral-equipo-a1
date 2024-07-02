@@ -168,7 +168,7 @@ namespace tp_cuatrimestral_equipo_a1
                 Venta.FechaVenta = DateTime.Now.Date;
 
                 Venta.MetodoPago = new MetodoPago();
-                Venta.MetodoPago.ID = Convert.ToInt32(ddlCuotas.SelectedValue);
+                Venta.MetodoPago.ID = Convert.ToInt32(ddlMetodoPago.SelectedValue);
 
                 if (Venta.MetodoPago.ID == 3)
                 {
@@ -202,7 +202,7 @@ namespace tp_cuatrimestral_equipo_a1
 
             Session["Venta"] = null;
 
-            Response.Redirect("ListaFacturas.aspx");
+            Response.Redirect("ListarVentas.aspx");
         }
 
         private void NumerarFactura(int id)

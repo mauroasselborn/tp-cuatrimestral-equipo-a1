@@ -23,12 +23,9 @@ namespace Negocio
 
                     venta.Id = Convert.ToInt32(accesoDatos.Lector["Id"]);
                     venta.nroFactura = accesoDatos.Lector["NroFactura"].ToString();
-                    venta.FechaVenta = Convert.ToDateTime(accesoDatos.Lector["Fecha"]).Date;
+                    venta.FechaVenta = Convert.ToDateTime(accesoDatos.Lector["Fecha"]);
                     venta.cliente = new Cliente();
                     venta.cliente = clienteNegocio.Listar().Find(x => x.ID == (int)accesoDatos.Lector["IdCliente"]);
-                    venta.MetodoPago = new MetodoPago();
-                    venta.MetodoPago.ID = (int)accesoDatos.Lector["IdMetodoPago"];
-                    venta.MetodoPago.Descripcion = accesoDatos.Lector["DescMetodo"].ToString();
                     venta.Total = float.Parse(accesoDatos.Lector["Total"].ToString());
 
                     lstVenta.Add(venta);
@@ -55,8 +52,7 @@ namespace Negocio
                 accesoDatos.setearParametro("@nroFactura", venta.nroFactura);
                 accesoDatos.setearParametro("@Fecha", venta.FechaVenta);
                 accesoDatos.setearParametro("@IdCliente", venta.cliente.ID);
-                accesoDatos.setearParametro("@IdMetodoPago", venta.MetodoPago.ID);
-                accesoDatos.setearParametro("@Total", venta.Total);
+                accesoDatos.setearParametro("@Total", venta.totalVenta(venta));
 
                 id = accesoDatos.ejecutarAccionReturn();
             }
@@ -78,6 +74,7 @@ namespace Negocio
 
             try
             {
+
                 accesoDatos.setearSP("sp_ins_item_factura");
 
                 accesoDatos.setearParametro("@IdFactura", Id);
@@ -86,29 +83,9 @@ namespace Negocio
                 accesoDatos.setearParametro("@Precio", item.Precio);
                 accesoDatos.setearParametro("@Subtotal", item.subtotal);
                 accesoDatos.ejecutarAccion();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                accesoDatos.cerrarConexion();
-            }
-        }
-        public void AgregarPagoCuotas(Venta venta, int Id)
-        {
-            AccesoDatos accesoDatos = new AccesoDatos();
 
-            try
-            {
-                accesoDatos.setearSP("sp_ins_cuotas");
 
-                accesoDatos.setearParametro("@IdFactura", Id);
-                accesoDatos.setearParametro("@Cantidad", venta.CantidadCuotas);
-                accesoDatos.setearParametro("@Precio", venta.Total / venta.CantidadCuotas);
-                accesoDatos.setearParametro("@Total", venta.Total);
-                accesoDatos.ejecutarAccion();
+
             }
             catch (Exception ex)
             {

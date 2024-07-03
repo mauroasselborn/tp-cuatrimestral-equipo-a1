@@ -4,7 +4,7 @@
     <title>Listado Stock</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-    <div class="container-fluid px-4">
+    <div class="container-fluid px-4 col-7">
         <h1 class="mt-4">Stock</h1>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item"><a href="Dashboard.aspx">Dashboard</a></li>

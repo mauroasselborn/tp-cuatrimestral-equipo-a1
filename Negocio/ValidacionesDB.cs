@@ -1,6 +1,5 @@
 ﻿using Dominio;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Negocio
 {

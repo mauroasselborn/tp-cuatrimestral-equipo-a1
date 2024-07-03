@@ -1,6 +1,6 @@
 ﻿using Dominio;
-using System.Collections.Generic;
 using System;
+using System.Collections.Generic;
 
 namespace Negocio
 {
@@ -11,7 +11,7 @@ namespace Negocio
         public List<Stock> Listar()
         {
             AccesoDatos accesoDatos = new AccesoDatos();
-            ProveedorNegocio proveedorNegocio = new ProveedorNegocio();
+            
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
             List<Stock> listaStock = new List<Stock>();
 
@@ -25,7 +25,6 @@ namespace Negocio
                     Stock stock = new Stock();
                     stock.ID = (int)accesoDatos.Lector["Id"];
 
-                    stock.Proveedor = proveedorNegocio.ListarXID((int)accesoDatos.Lector["IdProveedor"]);
                     stock.Articulo = articuloNegocio.ListarXID((int)accesoDatos.Lector["IdProducto"]);
 
                     stock.Cantidad = (int)accesoDatos.Lector["Cantidad"];
@@ -50,7 +49,7 @@ namespace Negocio
         public Stock ListarXID(int id)
         {
             AccesoDatos accesoDatos = new AccesoDatos();
-            ProveedorNegocio proveedorNegocio = new ProveedorNegocio();
+            
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
 
 
@@ -67,7 +66,6 @@ namespace Negocio
                     Stock stock = new Stock();
                     stock.ID = (int)accesoDatos.Lector["Id"];
 
-                    stock.Proveedor = proveedorNegocio.ListarXID((int)accesoDatos.Lector["IdProveedor"]);
                     stock.Articulo = articuloNegocio.ListarXID((int)accesoDatos.Lector["IdProducto"]);
 
                     stock.Cantidad = (int)accesoDatos.Lector["Cantidad"];
@@ -98,7 +96,6 @@ namespace Negocio
                 accesoDatos.setearSP("sp_ins_stock");
 
                 accesoDatos.setearParametro("@idProducto", stock.Articulo.ID);
-                accesoDatos.setearParametro("@idProveedor", stock.Proveedor.ID);
                 accesoDatos.setearParametro("@Cantidad", stock.Cantidad);
 
                 accesoDatos.ejecutarAccion();
@@ -124,7 +121,6 @@ namespace Negocio
                 accesoDatos.setearSP("sp_upd_stock");
 
                 accesoDatos.setearParametro("@id", stock.ID);
-                accesoDatos.setearParametro("@idProveedor", stock.Proveedor.ID);
                 accesoDatos.setearParametro("@Cantidad", stock.Cantidad);
 
                 accesoDatos.ejecutarAccion();
@@ -133,31 +129,6 @@ namespace Negocio
             catch (Exception ex)
             {
                 throw new Exception("Error al actualizar el stock con ID: " + stock.ID, ex);
-            }
-            finally
-            {
-                accesoDatos.cerrarConexion();
-            }
-        }
-
-
-        //Eliminar un registro de Stock
-        public void Eliminar(int id)
-        {
-            AccesoDatos accesoDatos = new AccesoDatos();
-
-            try
-            {
-                accesoDatos.setearSP("sp_del_stock");
-
-                accesoDatos.setearParametro("@id", id);
-
-                accesoDatos.ejecutarAccion();
-
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error al eliminar el stock con ID: " + id, ex);
             }
             finally
             {

@@ -21,7 +21,6 @@
                     <thead>
                         <tr>
                             <th>Articulo</th>
-                            <th>Proveedor</th>
                             <th>Cantidad</th>
                             <th>Acciones</th>
                         </tr>
@@ -29,7 +28,6 @@
                     <tfoot>
                         <tr>
                             <th>Articulo</th>
-                            <th>Proveedor</th>
                             <th>Cantidad</th>
                             <th>Acciones</th>
                         </tr>
@@ -39,9 +37,6 @@
                             <ItemTemplate>
                                 <tr>
                                     <td><%#Eval("Articulo.Nombre")%></td>
-                                    <td>
-                                        <a href="DetalleProveedor.aspx?id=<%#Eval("Proveedor.ID")%>&return=lstStk" class="btn btn-link"><%#Eval("Proveedor.Nombre")%></a>
-                                    </td>
                                     <td><%#Eval("Cantidad")%></td>
                                     <td>
                                         <asp:Button ID="btnEditar" runat="server" Text="Editar Datos" CssClass="btn btn-warning" CommandName="idStock" CommandArgument='<%#Eval("ID")%>' OnClick="btnEditar_Click" />

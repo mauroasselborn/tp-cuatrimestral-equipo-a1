@@ -15,22 +15,22 @@ namespace tp_cuatrimestral_equipo_a1
     {
 
         /// <summary>
-        /// Control dropProveedor.
+        /// Control ddlProveedor.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dropProveedor;
+        protected global::System.Web.UI.WebControls.DropDownList ddlProveedor;
 
         /// <summary>
-        /// Control dropArticulo.
+        /// Control ddlArticulo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dropArticulo;
+        protected global::System.Web.UI.WebControls.DropDownList ddlArticulo;
 
         /// <summary>
         /// Control inputCantidad.

@@ -16,19 +16,13 @@
                             <div class="card-body">
                                     <div class="row mb-3">
                                         <div class="form-floating mb-3 mb-md-0">                                            
-                                            <asp:DropDownList CssClass="form-select" ID="dropProveedor" runat="server">
-                                                <asp:ListItem Text="Newsan" />
-                                                <asp:ListItem Text="Fravega" />
-                                            </asp:DropDownList>
+                                            <asp:DropDownList CssClass="form-select" ID="ddlProveedor" runat="server"></asp:DropDownList>
                                             <label for="dropProveedor">Proveedor</label>
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <div class="form-floating mb-3 mb-md-0">                                            
-                                            <asp:DropDownList CssClass="form-select" ID="dropArticulo" runat="server">
-                                                <asp:ListItem Text="TV 55" />
-                                                <asp:ListItem Text="TV 32" />
-                                            </asp:DropDownList>
+                                            <asp:DropDownList CssClass="form-select" ID="ddlArticulo" runat="server"></asp:DropDownList>
                                             <label for="dropArticulo">Articulo</label>
                                         </div>
                                     </div>

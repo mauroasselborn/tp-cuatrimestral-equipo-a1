@@ -36,7 +36,7 @@
                                     <td><%#numero++%></td>
                                     <td><%#Eval("articulo.Nombre")%></td>
                                     <td style="padding-left: 20px">
-                                        <asp:TextBox ID="txtCantidad" Text='<%#Eval("Cantidad")%>' ToolTip='<%#Eval("articulo.ID")%>' TextMode="Number" min="0" CssClass="form-control input-cantidad" runat="server" OnTextChanged="txtCantidad_TextChanged" AutoPostBack="true"></asp:TextBox>
+                                        <asp:TextBox ID="txtCantidad" Text='<%#Eval("Cantidad")%>' ToolTip='<%#Eval("articulo.ID")%>' TextMode="Number" min="0" CssClass="form-control input-cantidad" runat="server" OnTextChanged="txtCantidad_TextChanged" AutoPostBack="false"></asp:TextBox>
                                     </td>
                                     <td><%#Eval("Subtotal")%></td>
                                     <td>

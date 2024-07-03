@@ -4,44 +4,43 @@
     <title>Nueva Compra</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-    <div id="layoutAuthentication">
-        <div id="layoutAuthentication_content">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-4">
-                        <div class="card shadow-lg border-0 rounded-lg mt-5">
-                            <div class="card-header">
-                                <h3 class="text-center font-weight-light my-4">Nueva Compra</h3>
-                            </div>
-                            <div class="card-body">
-                                    <div class="row mb-3">
-                                        <div class="form-floating mb-3 mb-md-0">                                            
-                                            <asp:DropDownList CssClass="form-select" ID="ddlProveedor" runat="server"></asp:DropDownList>
-                                            <label for="dropProveedor">Proveedor</label>
-                                        </div>
-                                    </div>
-                                    <div class="row mb-3">
-                                        <div class="form-floating mb-3 mb-md-0">                                            
-                                            <asp:DropDownList CssClass="form-select" ID="ddlArticulo" runat="server"></asp:DropDownList>
-                                            <label for="dropArticulo">Articulo</label>
-                                        </div>
-                                    </div>
-                                    <div class="row mb-3">
+    <div class="row">
+        <div class="px-4 col-6">
+            <h1 class="mt-4">Compra</h1>
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item"><a href="Dashboard.aspx">Dashboard</a></li>
+                <li class="breadcrumb-item active">Compra</li>
+            </ol>
 
-                                        <div class="form-floating mb-3 mb-md-0">
-                                            <asp:TextBox runat="server" CssClass="form-control" ID="inputCantidad" TextMode="SingleLine" placeholder="Cantidad" />
-                                            <label for="inputCantidad">Cantidad</label>
-                                        </div>
-
-                                    </div>
-                                    <div class="mt-4 mb-0">
-                                        <div class="d-grid">
-                                            <asp:Button Text="Guardar" runat="server" class="btn btn-primary btn-block p-2" ID="btnAgregar" OnClick="btnAgregar_Click" />
-                                        </div>
-                                    </div>
-                            </div>
-                        </div>
-                    </div>
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-table me-1"></i>
+                    <b>Listado  de Artículos</b>
+                </div>
+                <div class="card-body">
+                    <table id="datatablesSimple." class="table table-striped table-bordered text-center text-center">
+                        <thead>
+                            <tr>
+                                <th>Articulo</th>
+                                <th>Cantidad</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <asp:Repeater runat="server" ID="rptArticulo">
+                                <ItemTemplate>
+                                    <tr>
+                                        <td class="text-start"><%#Eval("Nombre")%></td>
+                                        <td>
+                                            <asp:TextBox runat="server" TextMode="Number" min="0" max="1000" Text="0" CssClass="m-auto form-control w-50 text-center" /></td>
+                                        <td>
+                                            <asp:Button ID="BtnAgregar" CssClass="btn btn-success" runat="server" Text="+" CommandArgument='<%#Eval("ID")%>' OnClick="btnAgregar_Click" />
+                                        </td>
+                                    </tr>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

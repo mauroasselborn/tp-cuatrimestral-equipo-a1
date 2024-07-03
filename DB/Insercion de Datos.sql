@@ -1,6 +1,5 @@
-USE [DB-EQUIPOA1]
 -- Insertar Usuarios
-INSERT INTO Usuarios (NombreUsuario, Pass, TipoUsuario, Estado) 
+INSERT INTO Usuarios (NombreUsuario, Pass, TipoUsuario, Estado, ImgURL) 
 VALUES
 ('Admin' , 'Yjma8V2C9Dlx5myuTxP3rw==', 'admin' ,1,'https://as1.ftcdn.net/v2/jpg/04/56/58/14/1000_F_456581427_5XpGqNqCwLAGwaFFvxVGvnW2teOfJ0ZL.jpg'),
 ('UserTest' ,'Gtrxqbrw65bBEFbBQ60NkA==' , 'Usuario' , 1,'https://w7.pngwing.com/pngs/857/213/png-transparent-man-avatar-user-business-avatar-icon.png')
@@ -129,28 +128,28 @@ values
 
 
 -- Insert Stock
-INSERT INTO Stock (IdProducto, IdProveedor, Cantidad) 
+INSERT INTO Stock (IdProducto, Cantidad) 
 VALUES 
-(17, 2, 857),
-(3, 16, 611),
-(10, 9, 822),
-(1, 5, 610),
-(8, 5, 223),
-(9, 18, 238),
-(4, 9, 753),
-(14, 1, 128),
-(16, 16, 714),
-(19, 8, 533),
-(15, 1, 209),
-(6, 9, 222),
-(2, 11, 608),
-(7, 20, 166),
-(20, 16, 361),
-(12, 17, 120),
-(13, 19, 530),
-(18, 4, 269),
-(5, 11, 137),
-(11, 10, 327);
+(17, 857),
+(3, 611),
+(10, 822),
+(1, 10),
+(8, 23),
+(9, 238),
+(4, 53),
+(14, 128),
+(16, 714),
+(19, 533),
+(15, 209),
+(6, 22),
+(2, 608),
+(7, 166),
+(20, 361),
+(12, 120),
+(13, 530),
+(18, 269),
+(5, 137),
+(11, 327)
 
 --Insert Metodos de pago
 insert into MetodosPago ( Descripcion) values ('Efectivo')

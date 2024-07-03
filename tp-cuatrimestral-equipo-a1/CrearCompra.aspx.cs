@@ -19,17 +19,12 @@ namespace tp_cuatrimestral_equipo_a1
             lstArticulos = articuloNegocio.Listar();
 
 
-
+           
             if (!IsPostBack)
             {
-                ddlProveedor.DataSource = lstProveedor;
-                ddlProveedor.DataTextField = "Nombre";
-                ddlProveedor.DataValueField = "ID";
-                ddlProveedor.SelectedValue = lstProveedor[0].ID.ToString();
-                ddlProveedor.DataBind();
-
-                //rptArticulo.DataSource = lstArticulos;
-                ddlArticulo.DataBind();
+                rptArticulo.DataSource = lstArticulos;
+                rptArticulo.DataBind();
+                
             }
         }
 

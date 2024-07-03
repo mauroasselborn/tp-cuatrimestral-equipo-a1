@@ -18,7 +18,7 @@
                                     <div class="row mb-3">
 
                                         <div class="form-floating mb-3 mb-md-0">
-                                            <asp:TextBox runat="server" CssClass="form-control" ID="txtCantidad" TextMode="Number" placeholder="Descripcion" />
+                                            <asp:TextBox runat="server" CssClass="form-control" ID="txtCantidad" TextMode="Number" placeholder="Cantidad" min="0" max="1000" />
                                             <label for="txtCantidad">Cantidad</label>
                                         </div>
 

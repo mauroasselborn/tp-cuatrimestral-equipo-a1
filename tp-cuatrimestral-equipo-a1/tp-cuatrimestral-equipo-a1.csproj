@@ -70,6 +70,7 @@
     <Content Include="AgregarProveedor.aspx" />
     <Content Include="AgregarUsuario.aspx" />
     <Content Include="assets\img\tienda-online.png" />
+    <Content Include="css\Factura.css" />
     <Content Include="EditarCompra.aspx" />
     <Content Include="ListaFacturas.aspx" />
     <Content Include="ListarCompras.aspx" />
@@ -101,6 +102,7 @@
     <Content Include="CrearVentas.aspx" />
     <Content Include="ListarStock.aspx" />
     <Content Include="ListarUsuarios.aspx" />
+    <Content Include="ViewFactura.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -317,6 +319,13 @@
     </Compile>
     <Compile Include="CrearVentas.aspx.designer.cs">
       <DependentUpon>CrearVentas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewFactura.aspx.cs">
+      <DependentUpon>ViewFactura.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewFactura.aspx.designer.cs">
+      <DependentUpon>ViewFactura.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

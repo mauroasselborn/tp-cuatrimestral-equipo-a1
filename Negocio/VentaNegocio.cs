@@ -44,6 +44,43 @@ namespace Negocio
                 accesoDatos.cerrarConexion();
             }
         }
+
+        public List<ItemVenta> ListarItems(int id)
+        {
+            AccesoDatos accesoDatos = new AccesoDatos();
+            List<ItemVenta> lstItems = new List<ItemVenta>();
+
+            try
+            {
+                accesoDatos.setearSP("sp_List_ItemFactura");
+                accesoDatos.setearParametro("id", id);
+                accesoDatos.ejecutarLectura();
+
+                while (accesoDatos.Lector.Read())
+                {
+                    ItemVenta item = new ItemVenta();
+
+                    item.articulo = new Articulo();
+                    item.articulo.Nombre = accesoDatos.Lector["Nombre"].ToString();
+                    item.articulo.Marca = new Marca();
+                    item.articulo.Marca.Descripcion = accesoDatos.Lector["Marca"].ToString();
+                    item.Cantidad = Convert.ToInt32(accesoDatos.Lector["Cantidad"]);
+                    item.Precio = float.Parse(accesoDatos.Lector["precio"].ToString());
+                    item.subtotal = float.Parse(accesoDatos.Lector["subtotal"].ToString());
+
+                    lstItems.Add(item);
+                }
+                return lstItems;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                accesoDatos.cerrarConexion();
+            }
+        }
         public int AgregarVenta(Venta venta)
         {
             AccesoDatos accesoDatos = new AccesoDatos();

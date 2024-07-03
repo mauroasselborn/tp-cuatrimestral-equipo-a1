@@ -15,13 +15,6 @@
                             </div>
                             <div class="card-body">
                                 <form>
-
-                                    <div class="row mb-3">
-                                        <div class="form-floating mb-3 mb-md-0">
-                                            <asp:DropDownList ID="ddlProveedor" runat="server" CssClass="form-control"></asp:DropDownList>
-                                            <label for="ddlProveedor">Proveedor</label>
-                                        </div>
-                                    </div>
                                     <div class="row mb-3">
 
                                         <div class="form-floating mb-3 mb-md-0">

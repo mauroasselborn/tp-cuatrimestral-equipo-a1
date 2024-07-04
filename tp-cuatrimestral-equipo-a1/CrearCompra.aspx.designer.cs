@@ -22,5 +22,32 @@ namespace tp_cuatrimestral_equipo_a1
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater rptArticulo;
+
+        /// <summary>
+        /// Control ScriptManager1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
+
+        /// <summary>
+        /// Control UpdatePanel1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+
+        /// <summary>
+        /// Control rptDetalleCompra.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptDetalleCompra;
     }
 }

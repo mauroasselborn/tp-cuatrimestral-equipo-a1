@@ -23,11 +23,6 @@ namespace tp_cuatrimestral_equipo_a1
 
                 rptCompras.DataSource = lstCompras;
                 rptCompras.DataBind();
-
-
-                rptDetalle.DataSource = lstCompras[0].Detalle;
-                rptDetalle.DataBind();
-
             }
         }
 

@@ -9,11 +9,11 @@ namespace tp_cuatrimestral_equipo_a1
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["Logueado"] == null) Response.Redirect("/");
+            //if (Session["Logueado"] == null) Response.Redirect("/");
 
-            usuario = (Usuario)Session["Logueado"];
+            //usuario = (Usuario)Session["Logueado"];
 
-            imgUsuarioLog.ImageUrl = usuario.ImgUrl;
+            //imgUsuarioLog.ImageUrl = usuario.ImgUrl;
         }
 
         protected void cerrarSession_Click(object sender, EventArgs e)

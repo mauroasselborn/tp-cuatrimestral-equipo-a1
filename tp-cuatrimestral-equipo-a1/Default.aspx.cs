@@ -13,19 +13,19 @@ namespace tp_cuatrimestral_equipo_a1
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            //UsuarioNegocio usuarioNegocio = new UsuarioNegocio();
-            //Usuario usuario = new Usuario();
+            UsuarioNegocio usuarioNegocio = new UsuarioNegocio();
+            Usuario usuario = new Usuario();
 
-            //usuario = usuarioNegocio.Login(inputUsuario.Text, inputPassword.Text);
+            usuario = usuarioNegocio.Login(inputUsuario.Text, inputPassword.Text);
 
 
-            //if (usuario != null)
-            //{
-            //    Session.Add("Logueado", usuario);
-            //    Response.Redirect("Dashboard.aspx");
-            //}
-            //else
-            //    return;
+            if (usuario != null)
+            {
+                Session.Add("Logueado", usuario);
+                Response.Redirect("Dashboard.aspx");
+            }
+            else
+                return;
         }
     }
 }

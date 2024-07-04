@@ -34,7 +34,6 @@
 
                                         <td>
                                             <asp:TextBox runat="server" ID="txtCantidadARTCompra" TextMode="Number" min="0" max="1000" Text="0" CssClass="m-auto form-control w-50 text-center" />
-                                            <asp:TextBox runat="server" id="algo"/>
                                         </td>
                                         
                                         <td>

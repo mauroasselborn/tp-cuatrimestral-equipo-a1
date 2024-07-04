@@ -38,7 +38,7 @@
                                     <td><%#Eval("Marca.Descripcion")%></td>
                                     <td><%#Eval("Categoria.Descripcion")%></td>
                                     <td><%#Eval("StockMinimo")%></td>
-                                    <td>% <%#Eval("ProcentajeGanancia")%></td>
+                                    <td><%#Eval("ProcentajeGanancia")%> %</td>
                                     <td>
                                         <asp:Button ID="BtnEditar" runat="server" Text="Editar" CssClass="btn btn-warning" CommandName="idArticulo" OnClick="btnEditar_Click" CommandArgument='<%#Eval("Id")%>' />
                                         <asp:Button ID="btnModalEliminar" Text="Eliminar" CssClass="btn btn-danger" runat="server" CommandName="idArticulo" CommandArgument='<%#Eval("Id") %>' OnClick="btnModalEliminar_Click" />

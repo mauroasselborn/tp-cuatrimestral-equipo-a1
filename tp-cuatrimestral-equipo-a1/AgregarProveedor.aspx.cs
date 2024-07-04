@@ -43,7 +43,7 @@ namespace tp_cuatrimestral_equipo_a1
             }
             catch (Exception ex)
             {
-                lblErrorProveedor.Text = "Error al agregar el proveedor. Intente nuevamente más tarde.";
+                lblErrorProveedor.Text = "Error al agregar el proveedor. Intente nuevamente más tarde." + ex.Message;
             }
         }
 

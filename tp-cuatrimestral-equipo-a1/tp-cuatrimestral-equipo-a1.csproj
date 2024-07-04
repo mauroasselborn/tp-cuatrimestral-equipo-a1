@@ -70,11 +70,11 @@
     <Content Include="AgregarProveedor.aspx" />
     <Content Include="AgregarUsuario.aspx" />
     <Content Include="assets\img\tienda-online.png" />
+    <Content Include="CrearCompra.aspx" />
     <Content Include="css\Factura.css" />
     <Content Include="EditarCompra.aspx" />
     <Content Include="ListarFacturasCompras.aspx" />
     <Content Include="ListarCompras.aspx" />
-    <Content Include="CrearCompra.aspx" />
     <Content Include="ListarFacturas.aspx" />
     <Content Include="ListarVentas.aspx" />
     <Content Include="css\styles.css" />
@@ -134,6 +134,13 @@
     <Compile Include="AgregarUsuario.aspx.designer.cs">
       <DependentUpon>AgregarUsuario.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CrearCompra.aspx.cs">
+      <DependentUpon>CrearCompra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CrearCompra.aspx.designer.cs">
+      <DependentUpon>CrearCompra.aspx</DependentUpon>
+    </Compile>
     <Compile Include="EditarCompra.aspx.cs">
       <DependentUpon>EditarCompra.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -154,13 +161,6 @@
     </Compile>
     <Compile Include="ListarCompras.aspx.designer.cs">
       <DependentUpon>ListarCompras.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CrearCompra.aspx.cs">
-      <DependentUpon>CrearCompra.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CrearCompra.aspx.designer.cs">
-      <DependentUpon>CrearCompra.aspx</DependentUpon>
     </Compile>
     <Compile Include="ListarFacturas.aspx.cs">
       <DependentUpon>ListarFacturas.aspx</DependentUpon>

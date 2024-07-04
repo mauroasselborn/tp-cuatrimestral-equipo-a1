@@ -18,9 +18,7 @@ namespace Dominio
             Detalle = new List<DetalleCompra>();
         }
 
-        public decimal ValorTotal
-        {
-            get { return Detalle.Sum(d => d.Subtotal); }
-        }
+        public decimal ValorTotal => Detalle.Sum(d => d.Subtotal);
+
     }
 }

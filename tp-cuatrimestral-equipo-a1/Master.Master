@@ -48,7 +48,7 @@
                     <li>
                         <hr class="dropdown-divider" />
                     </li>
-                    <li><a class="dropdown-item" href="Dashboard.aspx?logout=yes">Logout</a></li>
+                    <li><a class="dropdown-item" href="Default.aspx?logout=yes">Logout</a></li>
                 </ul>
             </li>
         </ul>

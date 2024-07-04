@@ -41,10 +41,10 @@
         </div>
     </div>
     <script>
-        ddlCompra = document.getElementById('ddlCompra')
+        ddlCompra = document.getElementById('ddlVenta')
         ddlCompra.classList.remove('collapsed');
         ddlCompra.setAttribute("aria-expanded", "true");
-        document.getElementById('collapseLayoutsCompras').className += " show"
-        document.getElementById('lstFacturaCompra').className += ' active'
+        document.getElementById('collapseLayoutsVentas').className += " show"
+        document.getElementById('lstFacturas').className += ' active'
     </script>
 </asp:Content>

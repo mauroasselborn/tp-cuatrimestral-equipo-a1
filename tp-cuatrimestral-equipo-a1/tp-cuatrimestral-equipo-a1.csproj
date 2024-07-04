@@ -73,7 +73,7 @@
     <Content Include="CrearCompra.aspx" />
     <Content Include="css\Factura.css" />
     <Content Include="EditarCompra.aspx" />
-    <Content Include="ListaFacturas.aspx" />
+    <Content Include="ListarFacturasCompras.aspx" />
     <Content Include="ListarCompras.aspx" />
     <Content Include="ListarFacturas.aspx" />
     <Content Include="ListarVentas.aspx" />
@@ -148,12 +148,12 @@
     <Compile Include="EditarCompra.aspx.designer.cs">
       <DependentUpon>EditarCompra.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ListaFacturas.aspx.cs">
-      <DependentUpon>ListaFacturas.aspx</DependentUpon>
+    <Compile Include="ListarFacturasCompras.aspx.cs">
+      <DependentUpon>ListarFacturasCompras.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ListaFacturas.aspx.designer.cs">
-      <DependentUpon>ListaFacturas.aspx</DependentUpon>
+    <Compile Include="ListarFacturasCompras.aspx.designer.cs">
+      <DependentUpon>ListarFacturasCompras.aspx</DependentUpon>
     </Compile>
     <Compile Include="ListarCompras.aspx.cs">
       <DependentUpon>ListarCompras.aspx</DependentUpon>

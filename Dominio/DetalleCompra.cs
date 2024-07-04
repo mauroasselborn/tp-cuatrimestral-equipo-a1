@@ -16,9 +16,6 @@
 
         public DetalleCompra() { }
 
-        public decimal Subtotal
-        {
-            get { return Cantidad * PrecioUnitario; }
-        }
+        public decimal Subtotal => Cantidad * PrecioUnitario;
     }
 }

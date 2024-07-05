@@ -4,6 +4,8 @@
     <title>Listado Stock</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
+    <%if (existeStock)%>
+    <%{%>
     <div class="container-fluid px-4 col-7">
         <h1 class="mt-4">Stock</h1>
         <ol class="breadcrumb mb-4">
@@ -17,7 +19,7 @@
                 <b>Listado de Stock de Artículos</b>
             </div>
             <div class="card-body">
-                <table id="datatablesSimple">
+                <table id="datatablesSimple" class="text-center">
                     <thead>
                         <tr>
                             <th>Articulo</th>
@@ -49,6 +51,13 @@
             </div>
         </div>
     </div>
+    <%}%>
+    <%else%>
+    <%{%>
+    <div class="text-center row vh-100 m-0 align-items-center">
+        <p class="display-5">No Hay Stock Para Listar</p>
+    </div>
+    <% } %>
     <script>
         document.getElementById("listStock").className += ' active'
     </script>

@@ -2,27 +2,44 @@
 using Negocio;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.UI.WebControls;
 
 namespace tp_cuatrimestral_equipo_a1
 {
     public partial class Compras : System.Web.UI.Page
     {
-        public Proveedor p;
+        public Proveedor proveedor;
+        public bool existenCompras;
+
         private CompraNegocio compraNegocio;
         protected void Page_Load(object sender, EventArgs e)
         {
             List<Compra> lstCompras = new List<Compra>();
             compraNegocio = new CompraNegocio();
 
+            lstCompras = compraNegocio.Listar();
+
+            if (lstCompras.Count > 0)
+            {
+                existenCompras = true;
+            }
+            else
+            {
+                existenCompras = false;
+                return;
+            }
 
             if (!IsPostBack)
             {
-                lstCompras = compraNegocio.Listar();
-                p = lstCompras[0].Proveedor;
+                proveedor = new Proveedor();
+                proveedor = lstCompras[0].Proveedor;
 
                 rptCompras.DataSource = lstCompras;
                 rptCompras.DataBind();
+
+                rptDetalle.DataSource = lstCompras[0].Detalle;
+                rptDetalle.DataBind();
             }
         }
 
@@ -53,12 +70,12 @@ namespace tp_cuatrimestral_equipo_a1
         {
             int numeroCompra = int.Parse(((LinkButton)sender).CommandArgument.ToString());
 
-            Compra compraSeleccionada = compraNegocio.Listar().Find(c => c.ID == numeroCompra);
+            Compra compraSeleccionada = compraNegocio.Listar().FirstOrDefault(c => c.ID == numeroCompra);
 
             rptDetalle.DataSource = compraSeleccionada.Detalle;
             rptDetalle.DataBind();
 
-            p = compraSeleccionada.Proveedor;
+            proveedor = compraSeleccionada.Proveedor;
         }
     }
 }

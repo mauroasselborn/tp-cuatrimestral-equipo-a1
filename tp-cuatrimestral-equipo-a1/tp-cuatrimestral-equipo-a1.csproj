@@ -72,7 +72,6 @@
     <Content Include="assets\img\tienda-online.png" />
     <Content Include="CrearCompra.aspx" />
     <Content Include="css\Factura.css" />
-    <Content Include="EditarCompra.aspx" />
     <Content Include="ListarFacturasCompras.aspx" />
     <Content Include="ListarCompras.aspx" />
     <Content Include="ListarFacturas.aspx" />
@@ -140,13 +139,6 @@
     </Compile>
     <Compile Include="CrearCompra.aspx.designer.cs">
       <DependentUpon>CrearCompra.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="EditarCompra.aspx.cs">
-      <DependentUpon>EditarCompra.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="EditarCompra.aspx.designer.cs">
-      <DependentUpon>EditarCompra.aspx</DependentUpon>
     </Compile>
     <Compile Include="ListarFacturasCompras.aspx.cs">
       <DependentUpon>ListarFacturasCompras.aspx</DependentUpon>

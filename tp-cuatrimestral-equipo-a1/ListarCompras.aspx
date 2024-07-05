@@ -4,6 +4,9 @@
     <title>Listado de Compras</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
+
+    <%if (existenCompras)%>
+    <%{%>
     <div class="row">
         <div class="px-4 col-6">
             <h1 class="mt-4">Compras</h1>
@@ -25,7 +28,7 @@
                                 <th>Proveedor</th>
                                 <th>Fecha</th>
                                 <th>Total</th>
-                                <th>Acciones</th>
+
                             </tr>
                         </thead>
                         <tfoot>
@@ -34,7 +37,7 @@
                                 <th>Proveedor</th>
                                 <th>Fecha</th>
                                 <th>Total</th>
-                                <th>Acciones</th>
+
                             </tr>
                         </tfoot>
                         <tbody>
@@ -48,10 +51,7 @@
                                         <td><%#Eval("Proveedor.Nombre")%></td>
                                         <td><%#Eval("FechaFormateada")%></td>
                                         <td><%#Eval("ValorTotal")%>$</td>
-                                        <td>
-                                            <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="btn btn-warning" CommandName="idCompra" CommandArgument='<%#Eval("ID") %>' OnClick="btnEditar_Click" />
-                                            <asp:Button ID="btnModalEliminar" runat="server" Text="Eliminar" CssClass="btn btn-danger" CommandName="idCompra" CommandArgument='<%#Eval("ID") %>' OnClick="btnModalEliminar_Click" />
-                                        </td>
+
                                     </tr>
                                 </ItemTemplate>
                             </asp:Repeater>
@@ -126,11 +126,11 @@
                                 <tbody>
 
                                     <tr>
-                                        <% if (p != null) %>
+                                        <% if (proveedor != null) %>
                                         <%{%>
-                                        <td><a href="DetalleProveedor.aspx?id=<%:p.ID%>&return=lstCom" class="btn btn-link"><%:p.Nombre%></a></td>
-                                        <td><%:p.Empresa%></td>
-                                        <td><%:p.Cuit%></td>
+                                        <td><a href="DetalleProveedor.aspx?id=<%:proveedor.ID%>&return=lstCom" class="btn btn-link"><%:proveedor.Nombre%></a></td>
+                                        <td><%:proveedor.Empresa%></td>
+                                        <td><%:proveedor.Cuit%></td>
                                         <%} %>
                                     </tr>
 
@@ -142,6 +142,13 @@
             </asp:UpdatePanel>
         </div>
     </div>
+    <%}%>
+    <%else%>
+    <%{%>
+    <div class="text-center row vh-100 m-0 align-items-center">
+        <p class="display-5">No Hay Compras Para Listar</p>
+    </div>
+    <% } %>
 
     <div class="modal show" id="ModalEliminar" style="display: none" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">

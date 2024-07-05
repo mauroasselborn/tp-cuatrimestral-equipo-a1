@@ -167,5 +167,50 @@ namespace Negocio
                 accesoDatos.cerrarConexion();
             }
         }
+
+        public List<Articulo> ListarArtVenta()
+        {
+            AccesoDatos accesoDatos = new AccesoDatos();
+            List<Articulo> lstArticulo = new List<Articulo>();
+            try
+            {
+                accesoDatos.setearSP("sp_list_art_venta");
+                accesoDatos.ejecutarLectura();
+
+                while (accesoDatos.Lector.Read())
+                {
+                    Articulo articulo = new Articulo();
+                    articulo.ID = Convert.ToInt32(accesoDatos.Lector["Id"]);
+                    articulo.Nombre = accesoDatos.Lector["Nombre"].ToString();
+                    articulo.Codigo = accesoDatos.Lector["Codigo"].ToString();
+
+                    articulo.Marca = new Marca();
+                    articulo.Marca.ID = Convert.ToInt32(accesoDatos.Lector["IdMarca"]);
+                    articulo.Marca.Descripcion = accesoDatos.Lector["Marca"].ToString();
+
+                    articulo.Categoria = new Categoria();
+                    articulo.Categoria.ID = Convert.ToInt32(accesoDatos.Lector["IdCategoria"]);
+                    articulo.Categoria.Descripcion = accesoDatos.Lector["Categoria"].ToString();
+
+                    articulo.ProcentajeGanancia = float.Parse(accesoDatos.Lector["PorcentajeGanancia"].ToString());
+                    articulo.StockMinimo = (int)accesoDatos.Lector["StockMinimo"];
+                    articulo.Precio = float.Parse(accesoDatos.Lector["Precio"].ToString());
+
+                    lstArticulo.Add(articulo);
+                }
+
+                return lstArticulo;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                accesoDatos.cerrarConexion();
+            }
+        }
     }
 }

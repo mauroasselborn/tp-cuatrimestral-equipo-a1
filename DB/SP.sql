@@ -4,6 +4,22 @@ GO
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
+-- Insertar Articulos
+CREATE PROCEDURE sp_ins_articulo
+(
+	@Nombre nvarchar(50) = NULL,
+	@Codigo nvarchar(50),
+    @IdMarca int,
+	@IdCategoria int,
+	@ProcentajeGanancia decimal,
+	@StockMinimo int
+)
+AS
+BEGIN
+    SET NOCOUNT ON
+	INSERT INTO Articulos (Nombre,Codigo,IdMarca,IdCategoria,PorcentajeGanancia,StockMinimo,Estado) 
+		VALUES  ( @Nombre,@Codigo,@IdMarca,@IdCategoria,@ProcentajeGanancia,@StockMinimo,1) 
+END
 GO
 CREATE PROCEDURE [dbo].[sp_del_articulo]
 (
@@ -874,3 +890,34 @@ BEGIN
 	Where Id = @Id
 END
 GO
+
+CREATE PROCEDURE [dbo].[sp_list_art_venta]
+AS
+BEGIN
+SET NOCOUNT ON
+	Select A.Id 'Id',A.Nombre 'Nombre',A.Codigo 'Codigo',  A.IdMarca 'IdMarca',
+			M.Descripcion 'Marca', A.IdCategoria 'IdCategoria',C.Descripcion 'Categoria',
+			A.PorcentajeGanancia 'PorcentajeGanancia', A.StockMinimo 'StockMinimo',  dbo.FncUltimoPrecio(A.ID) 'Precio'
+		 from Articulos A  
+		 inner join Marcas M on M.ID = A.IdMarca
+		 inner join Categorias C on C.ID = A.IdCategoria
+		 inner join Stock S on S.IdProducto = A.Id
+		 where A.Estado = 1 and S.Cantidad > 0 and dbo.FncUltimoPrecio(A.ID) is not null
+END
+GO
+---------Funcion----
+CREATE FUNCTION FncUltimoPrecio
+ (
+ @ID int
+ )
+RETURNS decimal (18,2)
+AS
+BEGIN
+	RETURN(
+	select top 1 PrecioUnitario
+	   from Articulos a
+	inner join detalleCompra dc on dc.idArticulo = @ID
+	where a.id = @ID 
+	order by IdCompra desc
+ )
+END

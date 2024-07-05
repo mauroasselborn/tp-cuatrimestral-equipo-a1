@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Ventas" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="CrearVentas.aspx.cs" Inherits="tp_cuatrimestral_equipo_a1.Ventas" %>
+﻿<%@ Page Title="Ventas" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="CrearVentas.aspx.cs" Inherits="tp_cuatrimestral_equipo_a1.Ventas" EnableEventValidation="false" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -12,6 +12,8 @@
                 <div class="col-3">
                     <a href="ABMCliente.aspx" id="btnAgregarCliente" class="btn btn-primary">Agregar cliente</a>
                 </div>
+                <asp:Label ID="lblSinCliente" CssClass="text-danger" Text="" runat="server" />
+                    
             </div>
 
         </div>

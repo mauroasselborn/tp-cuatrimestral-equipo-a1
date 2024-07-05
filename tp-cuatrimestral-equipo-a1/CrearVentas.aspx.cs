@@ -32,12 +32,12 @@ namespace tp_cuatrimestral_equipo_a1
 
             if (!IsPostBack)
             {
-                lstArticulo = ArticuloNegocio.Listar();
+                lstArticulo = ArticuloNegocio.ListarArtVenta();
 
                 foreach (var item in lstArticulo)
                 {
                     float porcentaje = (item.ProcentajeGanancia / 100);
-                    item.Precio = 2 + (porcentaje * 2);
+                    item.Precio = item.Precio + (porcentaje * item.Precio);
 
                 }
                 Session.Add("lstArticulos", lstArticulo);
@@ -160,6 +160,11 @@ namespace tp_cuatrimestral_equipo_a1
             int IdFact;
 
             int id = ventaNegocio.ListarVentas().Count() == 0 ? 0 : ventaNegocio.ListarVentas().Last().Id;
+            if (ddlClientes.SelectedValue == "")
+            {
+                lblSinCliente.Text = "Agregar cliente";
+                return;
+            }
             try
             {
                 NumerarFactura(id);
@@ -189,7 +194,10 @@ namespace tp_cuatrimestral_equipo_a1
                 foreach (var item in Venta.Items)
                 {
                     ventaNegocio.AgregarItems(item, IdFact);
+                    ActualizarStock(item.articulo.ID, item.Cantidad);
                 }
+
+
 
             }
             catch (Exception ex)
@@ -202,6 +210,17 @@ namespace tp_cuatrimestral_equipo_a1
             Session["Venta"] = null;
 
             Response.Redirect("ListarFacturas.aspx");
+        }
+
+        private void ActualizarStock(int id, int cantidad)
+        {
+            StockNegocio stockNegocio = new StockNegocio();
+            Stock stock = new Stock();
+            stock = stockNegocio.ListarXID(id);
+
+            stock.Cantidad = stock.Cantidad - cantidad;
+
+            stockNegocio.Update(stock);
         }
 
         private void NumerarFactura(int id)

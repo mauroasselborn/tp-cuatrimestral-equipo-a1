@@ -46,7 +46,7 @@
                                          </asp:RegularExpressionValidator>
                                         </div>
                                     </div>
-                                    <div class="d-grid gap-5 d-flex justify-content-evenly">
+                                    <div class="d-flex justify-content-evenly">
                                         <asp:Button
                                             Text="Agregar"
                                             runat="server"

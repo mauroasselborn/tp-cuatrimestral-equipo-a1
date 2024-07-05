@@ -1,25 +1,9 @@
 USE [DB-EQUIPOA1]
 GO
-/****** Object:  StoredProcedure [dbo].[sp_del_articulo]    Script Date: 04/07/2024 08:44:45 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[sp_del_articulo]    Script Date: 05/07/2024 08:22:30 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
--- Insertar Articulos
-CREATE PROCEDURE sp_ins_articulo
-(
-	@Nombre nvarchar(50) = NULL,
-	@Codigo nvarchar(50),
-    @IdMarca int,
-	@IdCategoria int,
-	@ProcentajeGanancia decimal,
-	@StockMinimo int
-)
-AS
-BEGIN
-    SET NOCOUNT ON
-	INSERT INTO Articulos (Nombre,Codigo,IdMarca,IdCategoria,PorcentajeGanancia,StockMinimo,Estado) 
-		VALUES  ( @Nombre,@Codigo,@IdMarca,@IdCategoria,@ProcentajeGanancia,@StockMinimo,1) 
-END
 GO
 CREATE PROCEDURE [dbo].[sp_del_articulo]
 (
@@ -32,7 +16,7 @@ BEGIN
 	update Articulos set estado = 0 where ID = @Id
  END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_del_categoria]    Script Date: 04/07/2024 08:44:45 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[sp_del_categoria]    Script Date: 05/07/2024 08:22:30 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -50,7 +34,7 @@ DELETE FROM Categorias
 	
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_del_cliente]    Script Date: 04/07/2024 08:44:45 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[sp_del_cliente]    Script Date: 05/07/2024 08:22:30 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -65,7 +49,7 @@ BEGIN
  Update Clientes set Estado=0 where ID = @Id
  END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_del_compra]    Script Date: 04/07/2024 08:44:45 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[sp_del_compra]    Script Date: 05/07/2024 08:22:30 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -87,7 +71,7 @@ DELETE FROM Compras
 	
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_del_detalle_compra]    Script Date: 04/07/2024 08:44:45 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[sp_del_detalle_compra]    Script Date: 05/07/2024 08:22:30 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -107,7 +91,7 @@ BEGIN
     WHERE IdCompra = @IdCompra
  END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_del_marca]    Script Date: 04/07/2024 08:44:45 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[sp_del_marca]    Script Date: 05/07/2024 08:22:30 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -125,7 +109,7 @@ DELETE FROM Marcas
 	
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_del_proveedor]    Script Date: 04/07/2024 08:44:45 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[sp_del_proveedor]    Script Date: 05/07/2024 08:22:30 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -148,7 +132,7 @@ BEGIN
 	
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_del_usuario]    Script Date: 04/07/2024 08:44:45 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[sp_del_usuario]    Script Date: 05/07/2024 08:22:30 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -166,27 +150,7 @@ BEGIN
 	where Id = @Id
  END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_ins_categoria]    Script Date: 04/07/2024 08:44:45 p. m. ******/ 
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-
--- Insertar Categorias
-CREATE PROCEDURE [dbo].[sp_ins_categoria]
-(
-    @Descripcion nvarchar(50)
-)
-AS
-BEGIN
-
-    SET NOCOUNT ON
-
-	INSERT INTO Categorias (Descripcion) 
-		VALUES  (@Descripcion) 
-END
-GO
-/****** Object:  StoredProcedure [dbo].[sp_ins_cliente]    Script Date: 04/07/2024 08:44:45 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[sp_ins_cliente]    Script Date: 05/07/2024 08:22:30 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -209,7 +173,7 @@ BEGIN
 		VALUES  ( @Nombre, @Apellido, @Documento, @Telefono, @Direccion, @Mail,1) 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_ins_compra]    Script Date: 04/07/2024 08:44:45 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[sp_ins_compra]    Script Date: 05/07/2024 08:22:30 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -226,7 +190,7 @@ BEGIN
     SELECT SCOPE_IDENTITY()
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_ins_cuotas]    Script Date: 04/07/2024 08:44:45 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[sp_ins_cuotas]    Script Date: 05/07/2024 08:22:30 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -248,7 +212,7 @@ BEGIN
 		VALUES  ( @IdFactura,@Cantidad,@Precio,@Total) 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_ins_detalle_compra]    Script Date: 04/07/2024 08:44:45 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[sp_ins_detalle_compra]    Script Date: 05/07/2024 08:22:30 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -269,7 +233,7 @@ BEGIN
 	VALUES (@IdCompra, @IdArticulo, @Cantidad, @PrecioUnitario)
  END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_ins_factura]    Script Date: 04/07/2024 08:44:45 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[sp_ins_factura]    Script Date: 05/07/2024 08:22:30 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -294,7 +258,7 @@ BEGIN
 		
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_ins_item_factura]    Script Date: 04/07/2024 08:44:45 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[sp_ins_item_factura]    Script Date: 05/07/2024 08:22:30 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -316,7 +280,7 @@ BEGIN
 		VALUES  ( @IdFactura,@IdArticulo,@Cantidad,@Precio,@Subtotal) 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_ins_marca]    Script Date: 04/07/2024 08:44:45 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[sp_ins_marca]    Script Date: 05/07/2024 08:22:30 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -336,7 +300,7 @@ BEGIN
 		VALUES  (@Descripcion) 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_ins_proveedor]    Script Date: 04/07/2024 08:44:45 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[sp_ins_proveedor]    Script Date: 05/07/2024 08:22:30 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -361,7 +325,7 @@ BEGIN
 		VALUES  ( @Nombre,@Empresa,@Cuit,@Telefono,@Direccion,@Email, 1) 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_ins_stock]    Script Date: 04/07/2024 08:44:45 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[sp_ins_stock]    Script Date: 05/07/2024 08:22:30 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -382,7 +346,7 @@ BEGIN
 		VALUES  (@idProducto,@Cantidad) 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_ins_usuario]    Script Date: 04/07/2024 08:44:45 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[sp_ins_usuario]    Script Date: 05/07/2024 08:22:30 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -404,7 +368,7 @@ BEGIN
 		VALUES  ( @Nombre,@Pass,@Tipo,1) 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_List_factura]    Script Date: 04/07/2024 08:44:45 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[sp_List_factura]    Script Date: 05/07/2024 08:22:30 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -421,7 +385,7 @@ BEGIN
 	inner join MetodosPago MP on MP.ID = F.IdMetodoPago
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_listar_Articulo]    Script Date: 04/07/2024 08:44:45 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[sp_listar_Articulo]    Script Date: 05/07/2024 08:22:30 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -442,7 +406,7 @@ BEGIN
 	 where A.Estado = 1
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_listar_categorias]    Script Date: 04/07/2024 08:44:45 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[sp_listar_categorias]    Script Date: 05/07/2024 08:22:30 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -459,7 +423,7 @@ BEGIN
 	Select * from Categorias
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_listar_clientes]    Script Date: 04/07/2024 08:44:45 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[sp_listar_clientes]    Script Date: 05/07/2024 08:22:30 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -475,7 +439,7 @@ BEGIN
 	where Estado = 1
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_listar_compras]    Script Date: 04/07/2024 08:44:45 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[sp_listar_compras]    Script Date: 05/07/2024 08:22:30 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -493,7 +457,7 @@ BEGIN
 END
 
 GO
-/****** Object:  StoredProcedure [dbo].[sp_listar_detalle_compra]    Script Date: 04/07/2024 08:44:45 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[sp_listar_detalle_compra]    Script Date: 05/07/2024 08:22:30 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -511,7 +475,7 @@ BEGIN
     WHERE IdCompra = @IdCompra
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_listar_marca]    Script Date: 04/07/2024 08:44:45 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[sp_listar_marca]    Script Date: 05/07/2024 08:22:30 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -526,7 +490,7 @@ BEGIN
 	Select * from Marcas
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_listar_proveedores]    Script Date: 04/07/2024 08:44:45 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[sp_listar_proveedores]    Script Date: 05/07/2024 08:22:30 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -542,7 +506,7 @@ BEGIN
 	WHERE Estado = 1
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_listar_stocks]    Script Date: 04/07/2024 08:44:45 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[sp_listar_stocks]    Script Date: 05/07/2024 08:22:30 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -557,7 +521,7 @@ BEGIN
  Select * FROM Stock
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_listar_usuario]    Script Date: 04/07/2024 08:44:45 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[sp_listar_usuario]    Script Date: 05/07/2024 08:22:30 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -574,7 +538,7 @@ BEGIN
 	 WHERE Estado = 1
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_listarID_Articulo]    Script Date: 04/07/2024 08:44:45 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[sp_listarID_Articulo]    Script Date: 05/07/2024 08:22:30 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -593,7 +557,7 @@ BEGIN
 	 WHERE Id = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_listarID_categoria]    Script Date: 04/07/2024 08:44:45 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[sp_listarID_categoria]    Script Date: 05/07/2024 08:22:30 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -612,7 +576,7 @@ BEGIN
 	WHERE ID = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_listarID_compra]    Script Date: 04/07/2024 08:44:45 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[sp_listarID_compra]    Script Date: 05/07/2024 08:22:30 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -633,7 +597,7 @@ BEGIN
 END
 
 GO
-/****** Object:  StoredProcedure [dbo].[sp_listarID_marca]    Script Date: 04/07/2024 08:44:45 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[sp_listarID_marca]    Script Date: 05/07/2024 08:22:30 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -652,7 +616,7 @@ BEGIN
 	WHERE ID = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_listarID_proveedor]    Script Date: 04/07/2024 08:44:45 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[sp_listarID_proveedor]    Script Date: 05/07/2024 08:22:30 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -672,7 +636,7 @@ BEGIN
 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_listarID_stock]    Script Date: 04/07/2024 08:44:45 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[sp_listarID_stock]    Script Date: 05/07/2024 08:22:30 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -691,7 +655,7 @@ BEGIN
 	 WHERE ID = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_listarID_Usuario]    Script Date: 04/07/2024 08:44:45 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[sp_listarID_Usuario]    Script Date: 05/07/2024 08:22:30 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -710,7 +674,7 @@ BEGIN
 	 WHERE Id = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_upd_categoria]    Script Date: 04/07/2024 08:44:45 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[sp_upd_categoria]    Script Date: 05/07/2024 08:22:30 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -733,7 +697,7 @@ BEGIN
 	
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_upd_cliente]    Script Date: 04/07/2024 08:44:45 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[sp_upd_cliente]    Script Date: 05/07/2024 08:22:30 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -761,7 +725,7 @@ BEGIN
 	WHERE id = @Id 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_upd_detalle_compra]    Script Date: 04/07/2024 08:44:45 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[sp_upd_detalle_compra]    Script Date: 05/07/2024 08:22:30 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -788,7 +752,7 @@ BEGIN
     WHERE IdCompra = @IdCompra
  END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_upd_marca]    Script Date: 04/07/2024 08:44:45 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[sp_upd_marca]    Script Date: 05/07/2024 08:22:30 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -811,7 +775,7 @@ BEGIN
 	
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_upd_proveedor]    Script Date: 04/07/2024 08:44:45 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[sp_upd_proveedor]    Script Date: 05/07/2024 08:22:30 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -843,7 +807,7 @@ BEGIN
 END
 
 GO
-/****** Object:  StoredProcedure [dbo].[sp_upd_stock]    Script Date: 04/07/2024 08:44:45 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[sp_upd_stock]    Script Date: 05/07/2024 08:22:30 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -852,8 +816,8 @@ GO
 -- Update Stock
 CREATE PROCEDURE [dbo].[sp_upd_stock]
 (
-	@id int,
-	@cantidad int
+	@IdArticulo int,
+	@Cantidad int
 )
 AS
 BEGIN
@@ -861,12 +825,12 @@ BEGIN
     SET NOCOUNT ON
 
 	UPDATE Stock 
-	SET Cantidad = @cantidad
-	WHERE ID = @id
+	SET Cantidad = @Cantidad
+	WHERE IdProducto = @IdArticulo
 	
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_upd_usuario]    Script Date: 04/07/2024 08:44:45 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[sp_upd_usuario]    Script Date: 05/07/2024 08:22:30 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -890,34 +854,3 @@ BEGIN
 	Where Id = @Id
 END
 GO
-
-CREATE PROCEDURE [dbo].[sp_list_art_venta]
-AS
-BEGIN
-SET NOCOUNT ON
-	Select A.Id 'Id',A.Nombre 'Nombre',A.Codigo 'Codigo',  A.IdMarca 'IdMarca',
-			M.Descripcion 'Marca', A.IdCategoria 'IdCategoria',C.Descripcion 'Categoria',
-			A.PorcentajeGanancia 'PorcentajeGanancia', A.StockMinimo 'StockMinimo',  dbo.FncUltimoPrecio(A.ID) 'Precio'
-		 from Articulos A  
-		 inner join Marcas M on M.ID = A.IdMarca
-		 inner join Categorias C on C.ID = A.IdCategoria
-		 inner join Stock S on S.IdProducto = A.Id
-		 where A.Estado = 1 and S.Cantidad > 0 and dbo.FncUltimoPrecio(A.ID) is not null
-END
-GO
----------Funcion----
-CREATE FUNCTION FncUltimoPrecio
- (
- @ID int
- )
-RETURNS decimal (18,2)
-AS
-BEGIN
-	RETURN(
-	select top 1 PrecioUnitario
-	   from Articulos a
-	inner join detalleCompra dc on dc.idArticulo = @ID
-	where a.id = @ID 
-	order by IdCompra desc
- )
-END

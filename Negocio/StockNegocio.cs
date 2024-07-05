@@ -120,7 +120,7 @@ namespace Negocio
             {
                 accesoDatos.setearSP("sp_upd_stock");
 
-                accesoDatos.setearParametro("@id", stock.ID);
+                accesoDatos.setearParametro("@IdArticulo", stock.Articulo.ID);
                 accesoDatos.setearParametro("@Cantidad", stock.Cantidad);
 
                 accesoDatos.ejecutarAccion();

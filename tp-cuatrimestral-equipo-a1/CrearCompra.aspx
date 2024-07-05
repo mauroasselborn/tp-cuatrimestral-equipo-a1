@@ -13,10 +13,13 @@
             </ol>
 
             <div class="card mb-4">
-                <div class="card-header">
-                    <i class="fas fa-table me-1"></i>
-                    <b>Listado de Artículos</b>
-                    <asp:Button Text="Concretar Compra" CssClass="btn btn-primary" ID="BtnConfirmarCompra" OnClick="BtnConfirmarCompra_Click" runat="server" />
+                <div class="card-header d-flex justify-content-between">
+                    <div>
+                        <i class="fas fa-table me-1"></i>
+                        <b>Listado de Artículos</b>
+                    </div>
+                    
+                    <asp:DropDownList ID="ddlProveedor" runat="server" CssClass="form-control w-50 p-1" ></asp:DropDownList>
                 </div>
                 <div class="card-body">
                     <table id="datatablesSimple." class="table table-striped table-bordered text-center text-center">
@@ -109,6 +112,8 @@
             </div>
         </div>
     </div>
+
+    <asp:Button Text="Confirmar Compra" ID="BtnConfirmarCompra" OnClick="BtnConfirmarCompra_Click" CssClass="btn btn-primary position-fixed" runat="server" style="top:10px; right:200px; z-index:10000;"/>
 
     <div class="toast-container  position-fixed bottom-0 end-0 p-3 ">
         <div id="errorToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">

@@ -19,8 +19,11 @@ namespace tp_cuatrimestral_equipo_a1
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
             List<Articulo> lstArticulos = new List<Articulo>();
 
+            ProveedorNegocio proveedorNegocio = new ProveedorNegocio();
+            List<Proveedor> lstProveedor = new List<Proveedor>();
 
             lstArticulos = articuloNegocio.Listar();
+            lstProveedor = proveedorNegocio.Listar();
 
 
             if (!IsPostBack)
@@ -30,6 +33,12 @@ namespace tp_cuatrimestral_equipo_a1
 
                 rptArticulo.DataSource = lstArticulos;
                 rptArticulo.DataBind();
+
+                ddlProveedor.DataSource = lstProveedor;
+                ddlProveedor.DataTextField = "Nombre";
+                ddlProveedor.DataValueField = "ID";
+                ddlProveedor.SelectedValue = lstProveedor[0].ID.ToString();
+                ddlProveedor.DataBind();
             }
             else
             {
@@ -178,6 +187,7 @@ namespace tp_cuatrimestral_equipo_a1
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
             ProveedorNegocio proveedorNegocio = new ProveedorNegocio();
             CompraNegocio compraNegocio = new CompraNegocio();
+            StockNegocio stockNegocio = new StockNegocio();
 
             try
             {
@@ -192,24 +202,48 @@ namespace tp_cuatrimestral_equipo_a1
 
                 Compra compra = new Compra()
                 {
-                    Proveedor = proveedorNegocio.ListarXID(1/*int.Parse(ddlProveedor.SelectedValue)*/),
+                    Proveedor = proveedorNegocio.ListarXID(int.Parse(ddlProveedor.SelectedValue)),
                     Fecha = DateTime.Now,
                     Detalle = detalles,
-                    
                 };
 
+
                 compraNegocio.Agregar(compra);
+
+
+                foreach (DetalleCompra detalle in compra.Detalle)
+                {
+                    Stock stock = stockNegocio.Listar().FirstOrDefault(s => s.Articulo.ID == detalle.Articulo.ID);
+
+                    if (stock == null)
+                    {
+                        stock = new Stock()
+                        {
+                            Articulo = detalle.Articulo,
+                            Cantidad = detalle.Cantidad
+                        };
+
+                        stockNegocio.Agregar(stock);
+                    }
+                    else
+                    {
+                        stock.Cantidad += detalle.Cantidad;
+                        stockNegocio.Update(stock);
+                    }
+                }
+
 
                 Session["DetalleCompras"] = new List<DetalleCompra>();
                 rptDetalleCompra.DataSource = null;
                 rptDetalleCompra.DataBind();
                 lblTotal.Text = "0.00";
 
+
                 Mensaje("Compra confirmada con éxito.", "Éxito");
             }
             catch (Exception ex)
             {
-                Mensaje("Error al confirmar la compra: " + ex.Message,"Error");
+                Mensaje("Error al confirmar la compra: " + ex.Message, "Error");
             }
         }
     }

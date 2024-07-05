@@ -150,7 +150,7 @@ BEGIN
 	where Id = @Id
  END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_ins_categoria]    Script Date: 04/07/2024 08:44:45 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[sp_ins_categoria]    Script Date: 04/07/2024 08:44:45 p. m. ******/ 
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON

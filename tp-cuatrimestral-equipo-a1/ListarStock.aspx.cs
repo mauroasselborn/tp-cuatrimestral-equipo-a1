@@ -9,14 +9,27 @@ namespace tp_cuatrimestral_equipo_a1
     public partial class ListarStock : System.Web.UI.Page
     {
         public Proveedor proveedorModal = null;
+        public bool existeStock;
         protected void Page_Load(object sender, EventArgs e)
         {
             StockNegocio stockNegocio = new StockNegocio();
             List<Stock> lststock = new List<Stock>();
-            
+
+            lststock = stockNegocio.Listar();
+
+            if (lststock.Count > 0)
+            {
+                existeStock = true;
+            }
+            else
+            {
+                existeStock = false;
+                return;
+            }
+
+
             if (!IsPostBack)
             {
-                lststock = stockNegocio.Listar();
 
                 rptStock.DataSource = lststock;
                 rptStock.DataBind();
@@ -26,8 +39,12 @@ namespace tp_cuatrimestral_equipo_a1
 
         protected void btnEditar_Click(object sender, EventArgs e)
         {
-            string id = ((Button)sender).CommandArgument;
-            Response.Redirect("EditarStock.aspx?id=" + id, false);
+            StockNegocio stockNegocio = new StockNegocio();
+            Stock stock = new Stock();
+
+            stock = stockNegocio.ListarXID(int.Parse(((Button)sender).CommandArgument));
+
+            Response.Redirect($"EditarStock.aspx?id={stock.ID}&art={stock.Articulo.ID}", false);
         }
     }
 }

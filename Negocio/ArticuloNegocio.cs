@@ -194,6 +194,8 @@ namespace Negocio
 
                     articulo.ProcentajeGanancia = float.Parse(accesoDatos.Lector["PorcentajeGanancia"].ToString());
                     articulo.StockMinimo = (int)accesoDatos.Lector["StockMinimo"];
+                    articulo.StockMaximo = (int)accesoDatos.Lector["StockMaximo"];
+
                     articulo.Precio = float.Parse(accesoDatos.Lector["Precio"].ToString());
 
                     lstArticulo.Add(articulo);

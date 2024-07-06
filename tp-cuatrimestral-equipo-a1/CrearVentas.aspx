@@ -38,11 +38,11 @@
                                     <td><%#numero++%></td>
                                     <td><%#Eval("articulo.Nombre")%></td>
                                     <td style="padding-left: 20px">
-                                        <asp:TextBox ID="txtCantidad" Text='<%#Eval("Cantidad")%>' ToolTip='<%#Eval("articulo.ID")%>' TextMode="Number" min="0" CssClass="form-control input-cantidad" runat="server" OnTextChanged="txtCantidad_TextChanged" AutoPostBack="false"></asp:TextBox>
+                                        <asp:TextBox ID="txtCantidad" Text='<%#Eval("Cantidad")%>' ToolTip='<%#Eval("articulo.ID")%>' TextMode="Number" min="1" Max='<%#Eval("articulo.StockMaximo")%>' CssClass="form-control input-cantidad" runat="server" OnTextChanged="txtCantidad_TextChanged" AutoPostBack="true"></asp:TextBox>
                                     </td>
                                     <td><%#Eval("Subtotal")%></td>
                                     <td>
-                                        <asp:Button ID="BtnEliminar" OnClick="BtnEliminar_Click" CommandArgument='<%#Eval("articulo.ID")%>' runat="server" Text="X" CssClass="btn btn-danger" />
+                                        <asp:Button ID="BtnEliminar" OnClick="BtnEliminar_Click" CommandArgument='<%#Eval("articulo.ID")%>' runat="server" Text="X" CssClass="btn btn-danger" autopostback="true" />
                                     </td>
                                     <tr>
                             </ItemTemplate>
@@ -55,10 +55,11 @@
                     <h5>TOTAL: $ </h5>
                     <asp:Label ID="lblTotal" Font-Size="Large" Font-Bold="true" Text="0" runat="server"></asp:Label>
                 </div>
-                <div class="col-4"></div>
+                <div class="col-4">
+                    <asp:Button ID="BtnCancelarVenta" Text="Cancelar" CssClass="btn btn-danger" Visible="false" OnClick="BtnCancelarVenta_Click" runat="server" />
+                </div>
                 <div class="col-4 mr-0">
                     <asp:Button ID="BtnMetodoPago" Text="Pagar" CssClass="btn btn-primary" Visible="false" OnClick="BtnMetodoPago_Click" runat="server" />
-
                 </div>
             </div>
             <%}

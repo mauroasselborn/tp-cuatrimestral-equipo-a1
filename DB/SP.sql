@@ -854,3 +854,50 @@ BEGIN
 	Where Id = @Id
 END
 GO
+
+
+CREATE PROCEDURE [dbo].[sp_list_art_venta]
+AS
+BEGIN
+SET NOCOUNT ON
+	Select A.Id 'Id',A.Nombre 'Nombre',A.Codigo 'Codigo',  A.IdMarca 'IdMarca',
+			M.Descripcion 'Marca', A.IdCategoria 'IdCategoria',C.Descripcion 'Categoria',
+			A.PorcentajeGanancia 'PorcentajeGanancia', A.StockMinimo 'StockMinimo',S.Cantidad 'StockMaximo',  dbo.FncUltimoPrecio(A.ID) 'Precio'
+		 from Articulos A  
+		 inner join Marcas M on M.ID = A.IdMarca
+		 inner join Categorias C on C.ID = A.IdCategoria
+		 inner join Stock S on S.IdProducto = A.Id
+		 where A.Estado = 1 and S.Cantidad > 0 and dbo.FncUltimoPrecio(A.ID) is not null
+END
+GO
+CREATE PROCEDURE [dbo].[sp_List_ItemFactura]
+(
+	@Id int
+)
+AS
+BEGIN
+SET NOCOUNT ON
+	Select A.Nombre,M.Descripcion 'Marca', I.Cantidad,I.Precio,I.Subtotal
+		 from ItemFactura I
+		 inner join Articulos A on A.Id = I.IdArticulo
+		 inner join Marcas M on M.ID = A.IdMarca
+END
+GO
+
+---------Funcion----
+CREATE FUNCTION FncUltimoPrecio
+ (
+ @ID int
+ )
+RETURNS decimal (18,2)
+AS
+BEGIN
+	RETURN(
+	select top 1 PrecioUnitario
+	   from Articulos a
+	inner join detalleCompra dc on dc.idArticulo = @ID
+	where a.id = @ID 
+	order by IdCompra desc
+ )
+END
+

@@ -8,6 +8,7 @@
         public Marca Marca { get; set; }
         public Categoria Categoria { get; set; }
         public int StockMinimo { get; set; }
+        public int StockMaximo { get; set; }
         public float ProcentajeGanancia { get; set; }
         public float Precio { get; set; }
     }

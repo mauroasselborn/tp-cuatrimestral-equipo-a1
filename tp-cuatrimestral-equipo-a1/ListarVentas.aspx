@@ -26,7 +26,7 @@
                                         <td><%#Eval("MetodoPago.Descripcion")%></td>
                                         <td><%#Eval("Total")%></td>
                                         <td>
-                                            <a class="btn btn-primary" href="#">Detalle</a>
+                                            <a class="btn btn-primary" href='DetalleVenta.aspx?id= <%#Eval("Id")%>'  >Detalle</a>
                                         </td>
                                         <tr>
                                 </ItemTemplate>

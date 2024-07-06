@@ -28,7 +28,11 @@ namespace tp_cuatrimestral_equipo_a1
                 if (Venta.Items == null) Venta.Items = new List<ItemVenta>();
             }
 
-
+            if (Venta.Items.Count != 0)
+            {
+                BtnMetodoPago.Visible = true;
+                BtnCancelarVenta.Visible = true;
+            }
 
             if (!IsPostBack)
             {
@@ -61,7 +65,7 @@ namespace tp_cuatrimestral_equipo_a1
 
                 #endregion
 
-                if (Venta.Items != null)
+                if (Venta.Items.Count != 0)
                 {
                     Total = Venta.Items.Sum(x => x.subtotal);
                     lblTotal.Text = Total.ToString();
@@ -78,6 +82,7 @@ namespace tp_cuatrimestral_equipo_a1
             List<Articulo> lstArt = (List<Articulo>)Session["lstArticulos"];
 
             BtnMetodoPago.Visible = true;
+            BtnCancelarVenta.Visible = true;
 
             if (Venta.Items.Exists(x => x.articulo.ID == idArticulo))
             {
@@ -149,8 +154,16 @@ namespace tp_cuatrimestral_equipo_a1
             Total = CalcularTotal();
             lblTotal.Text = Total.ToString();
 
+
+
             rptVenta.DataSource = Venta.Items;
             rptVenta.DataBind();
+
+            if (Venta.Items.Count == 0)
+            {
+                BtnMetodoPago.Visible = false;
+                BtnCancelarVenta.Visible = false;
+            }
         }
 
         protected void BtnPago_Click(object sender, EventArgs e)
@@ -340,6 +353,12 @@ namespace tp_cuatrimestral_equipo_a1
 
             string script = "document.getElementById('ModalMetodoPago').style.display = 'block';";
             ClientScript.RegisterStartupScript(this.GetType(), "ModalMetodo", script, true);
+        }
+
+        protected void BtnCancelarVenta_Click(object sender, EventArgs e)
+        {
+            Session["Venta"] = null;
+            Response.Redirect("CrearVentas.aspx");
         }
     }
 }

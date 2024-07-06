@@ -897,7 +897,7 @@ BEGIN
 SET NOCOUNT ON
 	Select A.Id 'Id',A.Nombre 'Nombre',A.Codigo 'Codigo',  A.IdMarca 'IdMarca',
 			M.Descripcion 'Marca', A.IdCategoria 'IdCategoria',C.Descripcion 'Categoria',
-			A.PorcentajeGanancia 'PorcentajeGanancia', A.StockMinimo 'StockMinimo',  dbo.FncUltimoPrecio(A.ID) 'Precio'
+			A.PorcentajeGanancia 'PorcentajeGanancia', A.StockMinimo 'StockMinimo',S.Cantidad 'StockMaximo',  dbo.FncUltimoPrecio(A.ID) 'Precio'
 		 from Articulos A  
 		 inner join Marcas M on M.ID = A.IdMarca
 		 inner join Categorias C on C.ID = A.IdCategoria
@@ -905,6 +905,20 @@ SET NOCOUNT ON
 		 where A.Estado = 1 and S.Cantidad > 0 and dbo.FncUltimoPrecio(A.ID) is not null
 END
 GO
+CREATE PROCEDURE [dbo].[sp_List_ItemFactura]
+(
+	@Id int
+)
+AS
+BEGIN
+SET NOCOUNT ON
+	Select A.Nombre,M.Descripcion 'Marca', I.Cantidad,I.Precio,I.Subtotal
+		 from ItemFactura I
+		 inner join Articulos A on A.Id = I.IdArticulo
+		 inner join Marcas M on M.ID = A.IdMarca
+END
+GO
+
 ---------Funcion----
 CREATE FUNCTION FncUltimoPrecio
  (
